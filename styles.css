@@ -343,6 +343,8 @@ html{scroll-behavior:auto}main:focus,h1:focus{outline:none}a:focus-visible,butto
 .primary-nav .nav-dropdown.nav-compact{left:0;right:auto;top:100%;width:232px;max-width:calc(100vw - 32px);padding:6px 10px;display:block;transform:none;opacity:1;visibility:visible;pointer-events:auto;transition:none;border-color:var(--line);border-top:2px solid var(--navy);box-shadow:0 6px 14px #06182f14}
 .primary-nav .nav-compact[hidden]{display:none!important}
 .primary-nav .nav-item:nth-last-child(-n+2) .nav-compact{left:auto;right:0}
+.primary-nav [data-nav-section="interviews"] .nav-compact{left:auto;right:0}
+.primary-nav [data-nav-section="multimedia"] .nav-compact{left:0;right:auto}
 .primary-nav .nav-compact a{min-height:42px;padding:11px 7px!important;font:500 13px/1.4 var(--sans)!important;letter-spacing:0!important;text-transform:none;gap:18px}
 .primary-nav .nav-compact a span{font-size:16px;color:var(--navy)}
 @media(max-width:800px){.primary-nav .nav-links{gap:0}.primary-nav .nav-dropdown.nav-compact{position:static;width:100%;max-width:none;margin:0 0 10px;padding:0 10px;box-shadow:none;border:0;border-left:2px solid var(--line)}.primary-nav .nav-toggle{min-width:44px;min-height:44px}.primary-nav .nav-compact a{min-height:44px}}
