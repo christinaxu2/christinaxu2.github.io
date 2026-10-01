@@ -1,2 +1,9 @@
+# Preview site: every page carries <meta name="robots" content="noindex">, so crawlers
+# may read pages (to see that tag) but files that can't carry it stay blocked.
 User-agent: *
-Disallow: /
+Disallow: /data/
+Disallow: /assets/
+Disallow: /the-politic-issues-archive-1/
+Disallow: /the-politic-issues-archive-2/
+Disallow: /the-politic-issues-archive-3/
+Disallow: /the-politic-issues-archive-4/

@@ -106,7 +106,7 @@ function setCanonical(url) {
 }
 function pageMeta(title,description) {
   const cleanPath=location.pathname||'/';
-  const canonicalUrl='https://thepolitic.org'+cleanPath;
+  const canonicalUrl=location.origin+cleanPath;
   description=description||(cleanPath!=='/'?document.head.querySelector('meta[name="description"]')?.content:'')||'The Politic — Yale’s political journal since 1947.';
   const fullTitle=title==='The Politic'?'The Politic':title+' | The Politic';
   document.title=fullTitle;
@@ -115,14 +115,15 @@ function pageMeta(title,description) {
   updateMeta('property','og:description',description);
   updateMeta('property','og:type','website');
   updateMeta('property','og:url',canonicalUrl);
-  updateMeta('property','og:image','https://thepolitic.org/assets/capitol-reporting.png');
+  updateMeta('property','og:image',location.origin+'/assets/capitol-reporting.png');
   updateMeta('name','twitter:title',fullTitle);
   updateMeta('name','twitter:description',description);
   updateMeta('name','twitter:card','summary_large_image');
-  updateMeta('name','twitter:image','https://thepolitic.org/assets/capitol-reporting.png');
+  updateMeta('name','twitter:image',location.origin+'/assets/capitol-reporting.png');
   setCanonical(canonicalUrl);
-  document.head.querySelector('meta[name="robots"]')?.remove();
+  if(siteRobots)updateMeta('name','robots',siteRobots);else document.head.querySelector('meta[name="robots"]')?.remove();
 }
+const siteRobots=document.head.querySelector('meta[name="robots"]')?.content||'';
 const pageWrap=(title,html,active='',description)=>{pageMeta(title,description);return shell('<div class="shell page">'+html+'</div>',active);};
 const notFound=()=>{
   const html=pageWrap('Page not found',sectionHeader('Page not found','We couldn’t find that page.')+'<a class="button button-solid" href="/search/">Search the archive →</a>');
@@ -326,7 +327,7 @@ function articlePage(slug) {
   const author=authorInfo(post.author);
   const related=state.posts.filter(p=>p.id!==post.id&&p.categories.some(c=>post.categories.some(other=>c.id===other.id))).slice(0,3);
   const description=articleDeck(post,body.content);
-  const canonicalUrl='https://thepolitic.org/article/'+encodeURIComponent(post.slug)+'/';
+  const canonicalUrl=location.origin+'/article/'+encodeURIComponent(post.slug)+'/';
   const shareUrl=encodeURIComponent(canonicalUrl),shareTitle=encodeURIComponent(post.title);
   pageMeta(post.title,description||post.excerpt||'Reporting and analysis from The Politic.');
   setCanonical(canonicalUrl);
@@ -419,7 +420,7 @@ function issuuReader(issue,optional=false) {
 function issuePage(id) {
   const issue=issueCatalog.find(i=>i.id===id||i.aliases?.includes(id));if(!issue)return notFound();
   const pdf=issue.pdf?localMedia(issue.pdf):'';
-  const external=pdf&&!pdf.startsWith('/assets/');
+  const external=pdf&&new URL(pdf,location.href).origin!==location.origin;
   const collection=issue.categorySlug?'<p><a class="arrow-link" href="/section/'+esc(issue.categorySlug)+'/">Read this issue’s articles →</a></p>':'';
   const reader=pdf?'<div class="reader-actions"><a class="button button-solid" href="'+esc(pdf)+'" target="_blank" rel="noopener">Open PDF / print ↗</a>'+(!external?'<a class="button button-outline" href="'+esc(pdf)+'" download>Download PDF</a>':'<p>Official Yale PDF'+(issue.sizeLabel?' · '+esc(issue.sizeLabel):'')+'. Yale may require opening its download in a separate tab.</p>')+'</div><div class="issue-reader-canvas"><div class="issue-pdf-reader" data-pdf-cover="'+(issue.record?2:1)+'" data-pdf-url="'+esc(pdf)+'"><p class="pdf-reader-loading" role="status">Loading the print edition…</p></div></div>'+issuuReader(issue,true):issueEmbedUrl(issue)?issuuReader(issue):'<div class="issue-reader-empty"><h2>Online articles are available for this issue.</h2><p>The digital scan is not available here yet. Browse stories from this collection instead.</p>'+collection+'</div>';
   return pageWrap(issueDisplayName(issue),'<div class="issue-reader-top"><div><div class="eyebrow">'+(pdf||issueEmbedUrl(issue)?'Print edition':'Article collection')+'</div><h1>'+esc(issueDisplayName(issue))+'</h1><p>'+esc(issue.era)+'</p></div><a class="button button-outline" href="/archive/">← Back to archive</a></div>'+reader+(pdf||issueEmbedUrl(issue)?collection:'')+'<p class="source-page-links">'+(issue.record?'<a href="'+esc(issue.record)+'" target="_blank" rel="noopener">View the Yale archive record ↗</a>':'')+'</p>','ISSUES');
@@ -583,7 +584,7 @@ function bind() {
   app.querySelector('[data-search-filters]')?.addEventListener('submit',e=>{e.preventDefault();const params=Object.fromEntries(new FormData(e.currentTarget));params.type='articles';go(routeLink('search',route.value,params));});
   app.querySelector('[data-archive-filter]')?.addEventListener('submit',e=>{e.preventDefault();go(routeLink('archive','',Object.fromEntries(new FormData(e.currentTarget))));});
   app.querySelector('[data-alumni-filter]')?.addEventListener('submit',e=>{e.preventDefault();const form=e.currentTarget;go(routeLink('alumni','',{q:form.elements.q.value.trim(),field:form.elements.field.value}));});
-  app.querySelector('[data-copy]')?.addEventListener('click',async e=>{const url='https://thepolitic.org/article/'+encodeURIComponent(route.value)+'/';try{await navigator.clipboard.writeText(url);e.target.textContent='Link copied';}catch{const status=app.querySelector('.share-status');status.textContent='Copy this address: '+url;}});
+  app.querySelector('[data-copy]')?.addEventListener('click',async e=>{const url=location.origin+'/article/'+encodeURIComponent(route.value)+'/';try{await navigator.clipboard.writeText(url);e.target.textContent='Link copied';}catch{const status=app.querySelector('.share-status');status.textContent='Copy this address: '+url;}});
   app.querySelector('[data-save]')?.addEventListener('click',e=>{const id=Number(e.target.dataset.save);const list=readSaved();const saved=!list.includes(id);try{localStorage.setItem('politic-saved',JSON.stringify(saved?[...list,id]:list.filter(n=>n!==id)));e.target.textContent=saved?'Saved':'Save article';e.target.setAttribute('aria-pressed',String(saved));}catch{app.querySelector('.share-status').textContent='Saving is unavailable in this browser.';}});
   app.querySelectorAll('img').forEach(img=>{img.addEventListener('error',()=>{const note=document.createElement('span');note.className='image-unavailable';note.textContent='Image unavailable';img.replaceWith(note);},{once:true});});
   app.querySelectorAll('[data-pdf-url]').forEach(mountPdfReader);
