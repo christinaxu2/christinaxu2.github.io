@@ -1,0 +1,39 @@
+/* A quiet reading desk, with facing pages and a subtle paper-fold transition. */
+.issue-reader-canvas:has(.magazine-reader){padding:0;min-height:0;background:#e9e7e1}
+.issue-pdf-reader.magazine-reader{min-height:0;background:#e9e7e1;color:#172b42;margin:0;border:1px solid #c7cacb}
+.magazine-toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;padding:14px 20px;background:#faf9f6;border-bottom:1px solid #c7cacb;font:12px/1.4 var(--sans)}
+.magazine-toolbar button,.magazine-footer button{min-height:40px;padding:8px 13px;border:1px solid #bec4ca;background:transparent;color:#172b42;font:600 12px/1.2 var(--sans)}
+.magazine-toolbar button:hover:not(:disabled),.magazine-footer button:hover:not(:disabled){background:#172b42;border-color:#172b42;color:white}
+.magazine-reader button:disabled{opacity:.32;cursor:default}
+.magazine-turn-controls{display:flex;align-items:center;gap:12px;min-width:265px}
+.magazine-turn-controls button{font-size:22px;line-height:1;padding:4px 11px}
+.magazine-page-status{min-width:155px;text-align:center;font-variant-numeric:tabular-nums}
+.magazine-jump,.magazine-jump label,.magazine-select{display:flex;align-items:center;gap:8px;margin:0}
+.magazine-jump input{width:58px;min-height:40px;border:1px solid #bec4ca;background:white;padding:8px;font:13px var(--sans);color:#172b42}
+.magazine-select select{min-height:40px;font:12px var(--sans);padding:8px;background:white;border-color:#bec4ca}
+.magazine-viewport{position:relative;overflow:auto;padding:28px 20px;min-height:320px;max-height:calc(100dvh - 180px);touch-action:pan-y pinch-zoom;overscroll-behavior-x:contain}
+.magazine-viewport.is-zoomed{touch-action:pan-x pan-y pinch-zoom}
+.magazine-viewport:focus-visible{outline:2px solid #4775a6;outline-offset:-4px}
+.magazine-book{position:relative;display:grid;align-items:start;margin:0 auto;max-width:none}
+.magazine-page{position:relative;min-width:0;background:#fff;box-shadow:0 5px 14px #192b4226;overflow:hidden}
+.magazine-page canvas{display:block;width:100%;height:auto}
+.magazine-blank{pointer-events:none}
+.magazine-book.is-spread:after{content:'';position:absolute;top:0;bottom:0;left:50%;width:24px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,#171d2612 42%,#171d2633 50%,#171d260c 58%,transparent);pointer-events:none}
+.magazine-turn-leaf{position:absolute;z-index:2;background:#fff;pointer-events:none;backface-visibility:hidden;box-shadow:0 8px 24px #14253733}
+.magazine-turn-leaf canvas{display:block;width:100%;height:100%}
+.magazine-loading{min-height:25px;padding:0 20px;text-align:center;font:12px/1.6 var(--sans);color:#46566a}
+.magazine-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;background:#faf9f6;border-top:1px solid #c7cacb}
+.magazine-footer span{font:11px/1.5 var(--sans);color:#566372;text-align:center}
+.magazine-source-note{margin:0;padding:9px 20px;background:#faf9f6;font:11px/1.5 var(--sans);color:#566372;text-align:center}
+@media(max-width:700px){
+  .magazine-toolbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
+  .magazine-turn-controls{grid-column:1/-1;justify-content:space-between;min-width:0}
+  .magazine-jump{grid-column:1/-1;justify-content:center}
+  .magazine-select{justify-content:center}
+  .magazine-select select{min-width:0;max-width:120px}
+  .magazine-toolbar button,.magazine-footer button{min-height:44px}
+  .magazine-viewport{padding:18px 12px;max-height:75dvh;min-height:260px}
+  .magazine-footer{padding:12px;flex-wrap:wrap}
+  .magazine-footer span{order:3;flex-basis:100%}
+}
+@media(prefers-reduced-motion:reduce){.magazine-turn-leaf{display:none}}

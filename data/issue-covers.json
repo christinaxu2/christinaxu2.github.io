@@ -1,0 +1,731 @@
+{
+  "2025-2026-issue-iii": {
+    "url": "/assets/issue-covers/2025-2026-issue-iii.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "https://issuu.com/theyalepolitic/docs/2025-2026_issue_iii",
+    "page": 1,
+    "sourceImage": "https://image.isu.pub/260511195900-64b5cb775bac0d31487a090cbeabe388/jpg/page_1_social_preview.jpg"
+  },
+  "2019-2020-issue-v": {
+    "url": "/assets/issue-covers/2019-2020-issue-v.webp",
+    "width": 735,
+    "height": 1000,
+    "source": "https://issuu.com/theyalepolitic/docs/issue_v_-_proof",
+    "page": 1,
+    "sourceImage": "https://image.isu.pub/200316030251-8687208b434789086bb9c4fc3273af4a/jpg/page_1_social_preview.jpg"
+  },
+  "2019-2020-issue-iv": {
+    "url": "/assets/issue-covers/2019-2020-issue-iv.webp",
+    "width": 588,
+    "height": 800,
+    "source": "https://issuu.com/theyalepolitic/docs/issue_iv_-_proof",
+    "page": 1,
+    "sourceImage": "https://image.isu.pub/200210192947-c34b35f21bb253be2544e01c1c149771/jpg/page_1_social_preview.jpg"
+  },
+  "2019-2020-issue-iii": {
+    "url": "/assets/issue-covers/2019-2020-issue-iii.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2019-2020-iii.pdf",
+    "page": 1,
+    "pdfSha256": "8f27ba303b5cbe71a9d9613e4d99117264dc84e991f27ffbb3eaf5f22eb750dd"
+  },
+  "2019-2020-issue-ii": {
+    "url": "/assets/issue-covers/2019-2020-issue-ii.webp",
+    "width": 735,
+    "height": 1000,
+    "source": "https://issuu.com/theyalepolitic/docs/the_politic_2019-2020_print_issue_ii",
+    "page": 1,
+    "sourceImage": "https://image.isu.pub/191125134129-8c56a9558c79534cf2dcd93ab791aad3/jpg/page_1_social_preview.jpg"
+  },
+  "2019-2020-issue-i": {
+    "url": "/assets/issue-covers/2019-2020-issue-i.webp",
+    "width": 735,
+    "height": 1000,
+    "source": "https://issuu.com/theyalepolitic/docs/the_politic_2019-2020_issue_i",
+    "page": 1,
+    "sourceImage": "https://image.isu.pub/191024195746-5080d11a1b2bcd7f80a91fb4c08754e9/jpg/page_1_social_preview.jpg"
+  },
+  "2018-2019-issue-vi": {
+    "url": "/assets/issue-covers/2018-2019-issue-vi.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2018-2019-vi.pdf",
+    "page": 1,
+    "pdfSha256": "0dc00a9c1d7e3d9961929d28356c8a55029dddb87137cea0b110cc7b8721f676"
+  },
+  "2018-2019-issue-v": {
+    "url": "/assets/issue-covers/2018-2019-issue-v.webp",
+    "width": 735,
+    "height": 1000,
+    "source": "https://issuu.com/theyalepolitic/docs/issue_5_proof",
+    "page": 1,
+    "sourceImage": "https://image.isu.pub/190328125530-5963894bbf56fae7f9dd0d0bb5230579/jpg/page_1_social_preview.jpg"
+  },
+  "2018-2019-issue-iv": {
+    "url": "/assets/issue-covers/2018-2019-issue-iv.webp",
+    "width": 735,
+    "height": 1000,
+    "source": "https://issuu.com/theyalepolitic/docs/issue_4_final",
+    "page": 1,
+    "sourceImage": "https://image.isu.pub/190228145517-5111294266616c02862d61aef367ab0f/jpg/page_1_social_preview.jpg"
+  },
+  "2018-2019-issue-iii": {
+    "url": "/assets/issue-covers/2018-2019-issue-iii.webp",
+    "width": 735,
+    "height": 1000,
+    "source": "https://issuu.com/theyalepolitic/docs/issue_3_v5_proof",
+    "page": 1,
+    "sourceImage": "https://image.isu.pub/190108211538-b9a5b3593aca03d8ffdb7b6334f5b2a4/jpg/page_1_social_preview.jpg"
+  },
+  "winter-2012": {
+    "source": "https://issuu.com/thepolitic/docs/2_-_winter_2012",
+    "status": "unavailable",
+    "reason": "404: https://issuu.com/thepolitic/docs/2_-_winter_2012"
+  },
+  "spring-2012-issue-ii": {
+    "source": "https://issuu.com/thepolitic/docs/4_-_spring_2012_ii",
+    "status": "unavailable",
+    "reason": "404: https://issuu.com/thepolitic/docs/4_-_spring_2012_ii"
+  },
+  "spring-2012-issue-i": {
+    "source": "https://issuu.com/thepolitic/docs/3_-_spring_2012",
+    "status": "unavailable",
+    "reason": "404: https://issuu.com/thepolitic/docs/3_-_spring_2012"
+  },
+  "fall-2012-issue-i": {
+    "source": "https://issuu.com/thepolitic/docs/5_-_fall_2012__1_",
+    "status": "unavailable",
+    "reason": "404: https://issuu.com/thepolitic/docs/5_-_fall_2012__1_"
+  },
+  "spring-2011": {
+    "url": "/assets/issue-covers/spring-2011.webp",
+    "width": 778,
+    "height": 1000,
+    "source": "/assets/issues/spring-2011.pdf",
+    "page": 2,
+    "pdfSha256": "3b08930a44d7eca8e97276572844a53be56075ef72981ce76cb986e188f13a09"
+  },
+  "fall-2011": {
+    "source": "https://issuu.com/thepolitic/docs/1_-_fall_2011",
+    "status": "unavailable",
+    "reason": "404: https://issuu.com/thepolitic/docs/1_-_fall_2011"
+  },
+  "winter-2010": {
+    "url": "/assets/issue-covers/winter-2010.webp",
+    "width": 744,
+    "height": 1000,
+    "source": "/assets/issues/winter-2010.pdf",
+    "page": 2,
+    "pdfSha256": "679de1a2f211b06773c3eed362ff50df1ce7d266a6d147a704c4cadba4a007a0"
+  },
+  "2010-spring": {
+    "url": "/assets/issue-covers/2010-spring.webp",
+    "width": 747,
+    "height": 1000,
+    "source": "/assets/issues/2010-spring.pdf",
+    "page": 2,
+    "pdfSha256": "4e1333e4dfc42838284f10d07376e298e3f3bb02eb364ab9ba88ae860f966972"
+  },
+  "2010-fall": {
+    "url": "/assets/issue-covers/2010-fall.webp",
+    "width": 759,
+    "height": 1000,
+    "source": "/assets/issues/2010-fall.pdf",
+    "page": 2,
+    "pdfSha256": "a24e0d95b50d5a33240cf916bbdcb411a080d6c75a343dc6d09ed77b5ed8a4ab"
+  },
+  "winter-2009": {
+    "url": "/assets/issue-covers/winter-2009.webp",
+    "width": 755,
+    "height": 1000,
+    "source": "/assets/issues/winter-2009.pdf",
+    "page": 2,
+    "pdfSha256": "1e28c485cdc0f400f703204e12bebde35d4d6b97fa7adbb7d13d91e12b14a517"
+  },
+  "2009-fall": {
+    "url": "/assets/issue-covers/2009-fall.webp",
+    "width": 755,
+    "height": 1000,
+    "source": "/assets/issues/2009-fall.pdf",
+    "page": 2,
+    "pdfSha256": "c06422e348dab1f5233419b124c8c0a5f3feaa7b62b5504810f5e4d9a8e5d48c"
+  },
+  "2008-winter": {
+    "url": "/assets/issue-covers/2008-winter.webp",
+    "width": 774,
+    "height": 1000,
+    "source": "/assets/issues/2008-winter.pdf",
+    "page": 2,
+    "pdfSha256": "0fd072282bc70cc9e43c1f6c20f07a63dc55f541d9389eb99b2bb3ce3b43de48"
+  },
+  "spring-2008": {
+    "url": "/assets/issue-covers/spring-2008.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/spring-2008.pdf",
+    "page": 2,
+    "pdfSha256": "3b2b0aa654d2be67349e6a82772e42c921f207dc559d45779b4085a9526df410"
+  },
+  "fall-2008-special-issue": {
+    "url": "/assets/issue-covers/fall-2008-special-issue.webp",
+    "width": 746,
+    "height": 1000,
+    "source": "/assets/issues/fall-2008-special-issue.pdf",
+    "page": 2,
+    "pdfSha256": "289c2b9ac5a5609c7bd2738aaf145ea9a3f8eb98997a427f6c5589637cc4a264"
+  },
+  "fall-2008": {
+    "url": "/assets/issue-covers/fall-2008.webp",
+    "width": 710,
+    "height": 1000,
+    "source": "/assets/issues/fall-2008.pdf",
+    "page": 2,
+    "pdfSha256": "ba3cc12f440700ea4c635084d69ba16fde67856951c3035cb180b6fcff834772"
+  },
+  "winter-2007": {
+    "url": "/assets/issue-covers/winter-2007.webp",
+    "width": 783,
+    "height": 1000,
+    "source": "/assets/issues/winter-2007.pdf",
+    "page": 2,
+    "pdfSha256": "4406d5ca3c9b9912966cbdbe3ffd4c88b12fc5124918d9dc36ff8331fcf97ad8"
+  },
+  "summer-2007": {
+    "url": "/assets/issue-covers/summer-2007.webp",
+    "width": 778,
+    "height": 1000,
+    "source": "/assets/issues/summer-2007.pdf",
+    "page": 2,
+    "pdfSha256": "bb90b3970b3304ea519c52378c31bea40896ef081bc2de8befa3f0d4ef23fa4b"
+  },
+  "spring-2007": {
+    "url": "/assets/issue-covers/spring-2007.webp",
+    "width": 768,
+    "height": 1000,
+    "source": "/assets/issues/spring-2007.pdf",
+    "page": 2,
+    "pdfSha256": "66bdd91c3d0d85c9f68b906c52aab98051e2415862eb95396c5204005d1af709"
+  },
+  "2007-fall": {
+    "url": "/assets/issue-covers/2007-fall.webp",
+    "width": 778,
+    "height": 1000,
+    "source": "/assets/issues/2007-fall.pdf",
+    "page": 2,
+    "pdfSha256": "e53f811c605ac50c2ca6df45782440311c50011ecb9cbdd5b26316b17b9fc314"
+  },
+  "summer-2006": {
+    "url": "/assets/issue-covers/summer-2006.webp",
+    "width": 740,
+    "height": 1000,
+    "source": "/assets/issues/summer-2006.pdf",
+    "page": 2,
+    "pdfSha256": "94a6f47e2deae2a06e00621e82bf6f2b50e6fa3f1d317eb428b0f37ee1a3bf3f"
+  },
+  "spring-2006": {
+    "url": "/assets/issue-covers/spring-2006.webp",
+    "width": 712,
+    "height": 1000,
+    "source": "/assets/issues/spring-2006.pdf",
+    "page": 2,
+    "pdfSha256": "9be0d98cb495cf6e414b7777d1fee05567174c1469d62e239649a2c89f585af9"
+  },
+  "summer-2005": {
+    "url": "/assets/issue-covers/summer-2005.webp",
+    "width": 798,
+    "height": 1000,
+    "source": "/assets/issues/summer-2005.pdf",
+    "page": 2,
+    "pdfSha256": "cbd8b100ec81fd956376291b0047c20239fc45cadb0e4ec59a1f8af4efb4cbdf"
+  },
+  "spring-2005": {
+    "url": "/assets/issue-covers/spring-2005.webp",
+    "width": 800,
+    "height": 999,
+    "source": "/assets/issues/spring-2005.pdf",
+    "page": 2,
+    "pdfSha256": "d5096485e2fd6ccece595b7494c78b487257ad47602e4ed18d9d8809726e2cb0"
+  },
+  "2005-fall": {
+    "url": "/assets/issue-covers/2005-fall.webp",
+    "width": 754,
+    "height": 1000,
+    "source": "/assets/issues/2005-fall.pdf",
+    "page": 2,
+    "pdfSha256": "0c885ad0ee859e9f723c0a534fa8675179d85522be27027d3f2d595da14c92f5"
+  },
+  "winter-2004": {
+    "url": "/assets/issue-covers/winter-2004.webp",
+    "width": 778,
+    "height": 1000,
+    "source": "/assets/issues/winter-2004.pdf",
+    "page": 2,
+    "pdfSha256": "4fa154bee356690d2880560e7372a8a4dc23fcdb6e138e992ab0fec7a69ce841"
+  },
+  "summer-2004": {
+    "url": "/assets/issue-covers/summer-2004.webp",
+    "width": 772,
+    "height": 1000,
+    "source": "/assets/issues/summer-2004.pdf",
+    "page": 2,
+    "pdfSha256": "018232b357c6d2fec7bb510949cec26942e26aa131fd1f2bbbb46cf491cfe16d"
+  },
+  "spring-2004": {
+    "url": "/assets/issue-covers/spring-2004.webp",
+    "width": 741,
+    "height": 1000,
+    "source": "/assets/issues/spring-2004.pdf",
+    "page": 2,
+    "pdfSha256": "1659636f063733e5334f7a4f1de213351f6243e6d6af6c51367f44754e8a8577"
+  },
+  "2004-fall": {
+    "url": "/assets/issue-covers/2004-fall.webp",
+    "width": 787,
+    "height": 1000,
+    "source": "/assets/issues/2004-fall.pdf",
+    "page": 2,
+    "pdfSha256": "d54c67825c92bc8ec6417243a3b54fe31c636f1c21f237664ec670c78122b6d7"
+  },
+  "spring-2003": {
+    "url": "/assets/issue-covers/spring-2003.webp",
+    "width": 769,
+    "height": 1000,
+    "source": "/assets/issues/spring-2003.pdf",
+    "page": 2,
+    "pdfSha256": "86ef3c9846d4d046d25075283c21368f689353cf0512d81bffa6ca5b24056d44"
+  },
+  "fall-2003": {
+    "url": "/assets/issue-covers/fall-2003.webp",
+    "width": 783,
+    "height": 1000,
+    "source": "/assets/issues/fall-2003.pdf",
+    "page": 2,
+    "pdfSha256": "eb05b7e690f122a8603e8ea73913ed0b7371e9dc454cd163f255581a861da037"
+  },
+  "winter-2002": {
+    "url": "/assets/issue-covers/winter-2002.webp",
+    "width": 768,
+    "height": 1000,
+    "source": "/assets/issues/winter-2002.pdf",
+    "page": 2,
+    "pdfSha256": "60c4984c47882512a55bb685cd93cc7941c5625826a2cc19a900093c0f7ba676"
+  },
+  "spring-2002": {
+    "url": "/assets/issue-covers/spring-2002.webp",
+    "width": 771,
+    "height": 1000,
+    "source": "/assets/issues/spring-2002.pdf",
+    "page": 2,
+    "pdfSha256": "04023f3eb6cf98055b08b148c3b6f0787c2d7d79bf03de2b67a23af51b0fb65e"
+  },
+  "2002-fall": {
+    "url": "/assets/issue-covers/2002-fall.webp",
+    "width": 779,
+    "height": 1000,
+    "source": "/assets/issues/2002-fall.pdf",
+    "page": 2,
+    "pdfSha256": "38d9d7d6b99dc15e8e1db557533afe6a96045dcaad77363ba5f978b7170675df"
+  },
+  "february-2001": {
+    "url": "/assets/issue-covers/february-2001.webp",
+    "width": 758,
+    "height": 1000,
+    "source": "/assets/issues/february-2001.pdf",
+    "page": 2,
+    "pdfSha256": "9a95389211be870caa6164ab99e01153c0a4d1c88fa2f08eafbb5c7d01b0e527"
+  },
+  "april-2001": {
+    "url": "/assets/issue-covers/april-2001.webp",
+    "width": 758,
+    "height": 1000,
+    "source": "/assets/issues/april-2001.pdf",
+    "page": 2,
+    "pdfSha256": "8407b3a2b66c4eef48baa0f873acefc01ce3f7bcaee70f0421f844322be804d2"
+  },
+  "spring-2001": {
+    "url": "/assets/issue-covers/spring-2001.webp",
+    "width": 764,
+    "height": 1000,
+    "source": "/assets/issues/spring-2001.pdf",
+    "page": 2,
+    "pdfSha256": "57321e1ea984539094129912719637909c02e8e3baebb3576451be392e632f2b"
+  },
+  "2001-fall": {
+    "url": "/assets/issue-covers/2001-fall.webp",
+    "width": 782,
+    "height": 1000,
+    "source": "/assets/issues/2001-fall.pdf",
+    "page": 2,
+    "pdfSha256": "a3bf945d677fa99b0a031ab783285357b51a7ec7aef9aba71e6b2ee5886e7aa6"
+  },
+  "november-2000": {
+    "url": "/assets/issue-covers/november-2000.webp",
+    "width": 758,
+    "height": 1000,
+    "source": "/assets/issues/november-2000.pdf",
+    "page": 2,
+    "pdfSha256": "616660a246408968e061477856fa33e171f6522e19f5677e264557b9d20cf54b"
+  },
+  "2000-april": {
+    "url": "/assets/issue-covers/2000-april.webp",
+    "width": 749,
+    "height": 1000,
+    "source": "/assets/issues/2000-april.pdf",
+    "page": 2,
+    "pdfSha256": "523caec761c033cbb210b64ad9a85ef7392758cc2b6729658bf842bf82ba5658"
+  },
+  "october-1999": {
+    "url": "/assets/issue-covers/october-1999.webp",
+    "width": 740,
+    "height": 1000,
+    "source": "/assets/issues/october-1999.pdf",
+    "page": 2,
+    "pdfSha256": "7f8dc452e3744e9dbcda9da02cc547ee2486fd62342bf79e5ea34b56f4db6798"
+  },
+  "march-1999": {
+    "url": "/assets/issue-covers/march-1999.webp",
+    "width": 798,
+    "height": 1000,
+    "source": "/assets/issues/march-1999.pdf",
+    "page": 2,
+    "pdfSha256": "5320aaf3066b63e3f7fc442d6a72e3a84e8ec43a6ef3bdd422bcfd786c8065cd"
+  },
+  "december-1999": {
+    "url": "/assets/issue-covers/december-1999.webp",
+    "width": 749,
+    "height": 1000,
+    "source": "/assets/issues/december-1999.pdf",
+    "page": 2,
+    "pdfSha256": "afc722bb8514e5d8fccd4eb4be484ebd6223321a62b6a20be47264c62e178d88"
+  },
+  "april-1999": {
+    "url": "/assets/issue-covers/april-1999.webp",
+    "width": 800,
+    "height": 999,
+    "source": "/assets/issues/april-1999.pdf",
+    "page": 2,
+    "pdfSha256": "f92cbd68bce1bc245a4eaf0a3850557af023cc55dc7da98f610fcb68bc64a1fd"
+  },
+  "april-1998": {
+    "url": "/assets/issue-covers/april-1998.webp",
+    "width": 606,
+    "height": 1000,
+    "source": "/assets/issues/april-1998.pdf",
+    "page": 2,
+    "pdfSha256": "077c2c4e2d6a3506b88533fdc57bb591e88b3e829e8179cf9037ad22f6056912"
+  },
+  "october-1998": {
+    "url": "/assets/issue-covers/october-1998.webp",
+    "width": 800,
+    "height": 990,
+    "source": "/assets/issues/october-1998.pdf",
+    "page": 2,
+    "pdfSha256": "9332a45e0b21af0e3bc97aa63c82b4b48d773e5296b27c3b0261e8d8b53fb9c1"
+  },
+  "december-1998": {
+    "url": "/assets/issue-covers/december-1998.webp",
+    "width": 798,
+    "height": 1000,
+    "source": "/assets/issues/december-1998.pdf",
+    "page": 2,
+    "pdfSha256": "ddd5925f83e9d7357044af369ef9b82fc39333c893d1f848e825177989f98597"
+  },
+  "1997-october": {
+    "url": "/assets/issue-covers/1997-october.webp",
+    "width": 800,
+    "height": 952,
+    "source": "/assets/issues/1997-october.pdf",
+    "page": 2,
+    "pdfSha256": "97cbf2a36c98729bb037b08289dd536974ae7f264bc6a9cda744320bae29023e"
+  },
+  "may-1997": {
+    "url": "/assets/issue-covers/may-1997.webp",
+    "width": 800,
+    "height": 982,
+    "source": "/assets/issues/may-1997.pdf",
+    "page": 2,
+    "pdfSha256": "27f0f4d1e158f7014b4a8dabce1c1124b76d6e4c3f60f8bb37cd6235b7acbcb5"
+  },
+  "december-1996": {
+    "url": "/assets/issue-covers/december-1996.webp",
+    "width": 781,
+    "height": 1000,
+    "source": "/assets/issues/december-1996.pdf",
+    "page": 2,
+    "pdfSha256": "f06f419e2fc4909375af04a16756f5e200d56e331708b6019e9fc50bc02b6856"
+  },
+  "april-1996": {
+    "url": "/assets/issue-covers/april-1996.webp",
+    "width": 800,
+    "height": 991,
+    "source": "/assets/issues/april-1996.pdf",
+    "page": 2,
+    "pdfSha256": "ac7948fd13e4b630a8d3e2a3dedee3c3317d24d78c53c46bd82fbe4040e02582"
+  },
+  "november-1995": {
+    "url": "/assets/issue-covers/november-1995.webp",
+    "width": 800,
+    "height": 991,
+    "source": "/assets/issues/november-1995.pdf",
+    "page": 2,
+    "pdfSha256": "d4f5fa44632978049b4cbefdf745c2301e889891b72025e59b1e3a0294dff128"
+  },
+  "april-1995": {
+    "url": "/assets/issue-covers/april-1995.webp",
+    "width": 800,
+    "height": 970,
+    "source": "/assets/issues/april-1995.pdf",
+    "page": 2,
+    "pdfSha256": "2981331046b811f645af7899c01b1472d2bd6ed49e331262d6c8cf3fea7ee486"
+  },
+  "may-1994": {
+    "url": "/assets/issue-covers/may-1994.webp",
+    "width": 731,
+    "height": 1000,
+    "source": "/assets/issues/may-1994.pdf",
+    "page": 2,
+    "pdfSha256": "c79320385123aac6d5fb907a534de17d88665cdd078f833039589da1b1d9b2a5"
+  },
+  "february-1994": {
+    "url": "/assets/issue-covers/february-1994.webp",
+    "width": 674,
+    "height": 1000,
+    "source": "/assets/issues/february-1994.pdf",
+    "page": 2,
+    "pdfSha256": "4d14001e1a028935017de76148254b3eea87bc960741c0251d6b391652fdb3e2"
+  },
+  "december-1993": {
+    "url": "/assets/issue-covers/december-1993.webp",
+    "width": 750,
+    "height": 1000,
+    "source": "/assets/issues/december-1993.pdf",
+    "page": 2,
+    "pdfSha256": "a11cb6c303b3a8902887746631b8afba11cd7719822f89f7e7471a217e5f26b0"
+  },
+  "may-1992": {
+    "url": "/assets/issue-covers/may-1992.webp",
+    "width": 748,
+    "height": 1000,
+    "source": "/assets/issues/may-1992.pdf",
+    "page": 2,
+    "pdfSha256": "7d40835bbea6b28492bcb290bccb30c3f8c968011665f149738c6e85e3b36245"
+  },
+  "february-1992": {
+    "url": "/assets/issue-covers/february-1992.webp",
+    "width": 755,
+    "height": 1000,
+    "source": "/assets/issues/february-1992.pdf",
+    "page": 2,
+    "pdfSha256": "b644c5b9512c52676445ab21eff9e95d753f6a1365f258ccb6157dfd7888d729"
+  },
+  "october-1991": {
+    "url": "/assets/issue-covers/october-1991.webp",
+    "width": 739,
+    "height": 1000,
+    "source": "/assets/issues/october-1991.pdf",
+    "page": 2,
+    "pdfSha256": "048ed20bbdce9c4daef427379aa2012d6479bc4f57403641ff6afecc34a73702"
+  },
+  "november-1991": {
+    "url": "/assets/issue-covers/november-1991.webp",
+    "width": 750,
+    "height": 1000,
+    "source": "/assets/issues/november-1991.pdf",
+    "page": 2,
+    "pdfSha256": "b57ae15a54cb9de0f2eaac61809a1bdb5dfe94a88d14f70311e14182e8a3ac0b"
+  },
+  "may-1991": {
+    "url": "/assets/issue-covers/may-1991.webp",
+    "width": 774,
+    "height": 1000,
+    "source": "/assets/issues/may-1991.pdf",
+    "page": 2,
+    "pdfSha256": "871c8616acd24d121b8990c7cad3079f8bbd5506371843483db32ae68cf693c1"
+  },
+  "1991-march": {
+    "url": "/assets/issue-covers/1991-march.webp",
+    "width": 774,
+    "height": 1000,
+    "source": "/assets/issues/1991-march.pdf",
+    "page": 2,
+    "pdfSha256": "ef500e3c1fed0d6f026064108fb83ce973cd96c5bfe440495fe51033db263b28"
+  },
+  "february-1991": {
+    "url": "/assets/issue-covers/february-1991.webp",
+    "width": 755,
+    "height": 1000,
+    "source": "/assets/issues/february-1991.pdf",
+    "page": 2,
+    "pdfSha256": "4c4ac95787e39cba188a7c3ce3784637debc979f7eea602cda38a6978ced882a"
+  },
+  "october-1990": {
+    "url": "/assets/issue-covers/october-1990.webp",
+    "width": 743,
+    "height": 1000,
+    "source": "/assets/issues/october-1990.pdf",
+    "page": 2,
+    "pdfSha256": "633416ba131858cb748fc001232a2671fb7a1672bc8cbc3d9fd5894f886e924a"
+  },
+  "november-1990": {
+    "url": "/assets/issue-covers/november-1990.webp",
+    "width": 745,
+    "height": 1000,
+    "source": "/assets/issues/november-1990.pdf",
+    "page": 2,
+    "pdfSha256": "539711ae3d9fe2e59329d212d1a93d93c2f772567ab46c25b417e9ca07480fe0"
+  },
+  "1989-november": {
+    "url": "/assets/issue-covers/1989-november.webp",
+    "width": 793,
+    "height": 1000,
+    "source": "/assets/issues/1989-november.pdf",
+    "page": 2,
+    "pdfSha256": "89f591eb3fa437de91fc68591704cea25733bb55f569fc49b63c9ffb504d67c0"
+  },
+  "april-1989": {
+    "url": "/assets/issue-covers/april-1989.webp",
+    "width": 740,
+    "height": 1000,
+    "source": "/assets/issues/april-1989.pdf",
+    "page": 2,
+    "pdfSha256": "eeedcaac4500670dbd5ce16ab57dc7f63a9d6e0629cdcddc66951543a44edf3c"
+  },
+  "november-1987": {
+    "url": "/assets/issue-covers/november-1987.webp",
+    "width": 782,
+    "height": 1000,
+    "source": "/assets/issues/november-1987.pdf",
+    "page": 2,
+    "pdfSha256": "0bc8471cdf667a8d601b8203ff63fa3923f5a98fec4e1e48ee9bbbd7ae3ff862"
+  },
+  "november-1986": {
+    "url": "/assets/issue-covers/november-1986.webp",
+    "width": 724,
+    "height": 1000,
+    "source": "/assets/issues/november-1986.pdf",
+    "page": 2,
+    "pdfSha256": "11965b1e8b2374b097f887ffec3f3206a01bad78f03cb1dd512a07a10f010caa"
+  },
+  "may-1984": {
+    "url": "/assets/issue-covers/may-1984.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/may-1984.pdf",
+    "page": 2,
+    "pdfSha256": "7ea6c87749517d19ea0ab863b7e5a28d5d08812477daef4456f6819cb5c4040b"
+  },
+  "march-1984": {
+    "url": "/assets/issue-covers/march-1984.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/march-1984.pdf",
+    "page": 2,
+    "pdfSha256": "08c560c358144c5774533e2273d1f329b30b58cf85b5b6090187a96d89939cc4"
+  },
+  "november-1983": {
+    "url": "/assets/issue-covers/november-1983.webp",
+    "width": 722,
+    "height": 1000,
+    "source": "/assets/issues/november-1983.pdf",
+    "page": 2,
+    "pdfSha256": "3a50a8a4f9623e100365d2c42739cb6f09c10599fab61dde18d47613442cf2b8"
+  },
+  "may-1983": {
+    "url": "/assets/issue-covers/may-1983.webp",
+    "width": 761,
+    "height": 1000,
+    "source": "/assets/issues/may-1983.pdf",
+    "page": 2,
+    "pdfSha256": "fb94ae51bb0af474a76fda086fbba6163b706a02b48c926df6edc782ce69201c"
+  },
+  "february-1983": {
+    "url": "/assets/issue-covers/february-1983.webp",
+    "width": 761,
+    "height": 1000,
+    "source": "/assets/issues/february-1983.pdf",
+    "page": 2,
+    "pdfSha256": "c956aba65b244cfab47dca53f4de75b45d0576e37a3785be27bbac450af73017"
+  },
+  "1982-spring": {
+    "url": "/assets/issue-covers/1982-spring.webp",
+    "width": 761,
+    "height": 1000,
+    "source": "/assets/issues/1982-spring.pdf",
+    "page": 2,
+    "pdfSha256": "1f476abc7fbf7b5161064087b775526e6f209efb1f22d3a917027a8854f2417f"
+  },
+  "october-1981": {
+    "url": "/assets/issue-covers/october-1981.webp",
+    "width": 761,
+    "height": 1000,
+    "source": "/assets/issues/october-1981.pdf",
+    "page": 2,
+    "pdfSha256": "2e3763fdf44a995987ba4be265a164c7c0eae678f95f9c6efc1079e389601abd"
+  },
+  "november-1981": {
+    "url": "/assets/issue-covers/november-1981.webp",
+    "width": 761,
+    "height": 1000,
+    "source": "/assets/issues/november-1981.pdf",
+    "page": 2,
+    "pdfSha256": "988a33daa1e7c862d2b72e731fe051a2c877687710b09812a3458701555aca25"
+  },
+  "march-1981": {
+    "url": "/assets/issue-covers/march-1981.webp",
+    "width": 761,
+    "height": 1000,
+    "source": "/assets/issues/march-1981.pdf",
+    "page": 2,
+    "pdfSha256": "dc4b1789b82eea18de6a0f9a33e8f84f7e907c872f0c9b956a74a56a515510fd"
+  },
+  "november-1980": {
+    "url": "/assets/issue-covers/november-1980.webp",
+    "width": 761,
+    "height": 1000,
+    "source": "/assets/issues/november-1980.pdf",
+    "page": 2,
+    "pdfSha256": "9c6b253c42193d9a0113921b07142fc32ce52d3647127fcbd03a99fd484f94c5"
+  },
+  "march-1980": {
+    "url": "/assets/issue-covers/march-1980.webp",
+    "width": 774,
+    "height": 1000,
+    "source": "/assets/issues/march-1980.pdf",
+    "page": 2,
+    "pdfSha256": "bf59b269094007af07d52a69f2db6c2a68c5ec117ba7b883f48589f5e453cf69"
+  },
+  "1979-december": {
+    "url": "/assets/issue-covers/1979-december.webp",
+    "width": 755,
+    "height": 1000,
+    "source": "/assets/issues/1979-december.pdf",
+    "page": 2,
+    "pdfSha256": "c7fb10db2ba4e1286b9bab224448a61f3c9dd11855b6988d209de7c6f53dbca7"
+  },
+  "1948-spring": {
+    "url": "/assets/issue-covers/1948-spring.webp",
+    "width": 792,
+    "height": 1000,
+    "source": "/assets/issues/1948-spring.pdf",
+    "page": 2,
+    "pdfSha256": "e50d4419ffd6a549780bd97019791839847ee1d3f9c43e114801356e84ba7315"
+  },
+  "1947-october": {
+    "url": "/assets/issue-covers/1947-october.webp",
+    "width": 792,
+    "height": 1000,
+    "source": "/assets/issues/1947-october.pdf",
+    "page": 2,
+    "pdfSha256": "ea403273da8340eccf8a2f834fcb2c77005f05338c8ef50b0fd8c384018da518"
+  },
+  "1947-february": {
+    "url": "/assets/issue-covers/1947-february.webp",
+    "width": 747,
+    "height": 1000,
+    "source": "/assets/issues/1947-february.pdf",
+    "page": 2,
+    "pdfSha256": "2a0fbe854e37df3936eb02ca02b2a358049bf2d2992a2c28acd09fd3b5df7523"
+  }
+}
