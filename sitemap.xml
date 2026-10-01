@@ -3899,4 +3899,20 @@
   <url><loc>https://thepolitic.org/join/</loc><priority>0.3</priority></url>
   <url><loc>https://thepolitic.org/competition/</loc><priority>0.3</priority></url>
   <url><loc>https://thepolitic.org/search/</loc><priority>0.3</priority></url>
+  <url><loc>https://thepolitic.org/topic/campus-politics/</loc><priority>0.4</priority></url>
+  <url><loc>https://thepolitic.org/topic/new-haven/</loc><priority>0.4</priority></url>
+  <url><loc>https://thepolitic.org/topic/elections/</loc><priority>0.4</priority></url>
+  <url><loc>https://thepolitic.org/topic/congress/</loc><priority>0.4</priority></url>
+  <url><loc>https://thepolitic.org/topic/policy-and-courts/</loc><priority>0.4</priority></url>
+  <url><loc>https://thepolitic.org/topic/africa/</loc><priority>0.4</priority></url>
+  <url><loc>https://thepolitic.org/topic/asia/</loc><priority>0.4</priority></url>
+  <url><loc>https://thepolitic.org/topic/europe/</loc><priority>0.4</priority></url>
+  <url><loc>https://thepolitic.org/topic/foreign-affairs/</loc><priority>0.4</priority></url>
+  <url><loc>https://thepolitic.org/topic/campus-life/</loc><priority>0.4</priority></url>
+  <url><loc>https://thepolitic.org/topic/culture/</loc><priority>0.4</priority></url>
+  <url><loc>https://thepolitic.org/topic/essays/</loc><priority>0.4</priority></url>
+  <url><loc>https://thepolitic.org/topic/columns/</loc><priority>0.4</priority></url>
+  <url><loc>https://thepolitic.org/topic/democracy/</loc><priority>0.4</priority></url>
+  <url><loc>https://thepolitic.org/topic/conversations/</loc><priority>0.4</priority></url>
+  <url><loc>https://thepolitic.org/topic/profiles/</loc><priority>0.4</priority></url>
 </urlset>

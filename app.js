@@ -6,14 +6,32 @@ const navItems = [
 // Placeholder for the newest issue; shell() resolves it from the loaded data on every render.
 const CURRENT_ISSUE = {currentIssue:true};
 const navMenus = {
-  LOCAL: [["Yale & New Haven", "/section/local/"], ["Search: campus politics", "/search/?q=campus"], ["Search: New Haven", "/search/?q=new+haven"], ["History & archive", "/archive/"]],
-  NATIONAL: [["National desk", "/section/national/"], ["Search: elections", "/search/?q=elections"], ["Search: Congress", "/search/?q=congress"], ["Search: policy and courts", "/search/?q=policy"]],
-  WORLD: [["World desk", "/section/world/"], ["Search: Africa", "/search/?q=africa"], ["Search: Asia", "/search/?q=asia"], ["Search: Europe", "/search/?q=europe"], ["Search: foreign affairs", "/search/?q=foreign+policy"]],
-  CULTURE: [["Culture desk", "/section/culture/"], ["Search: campus life", "/search/?q=campus+life"], ["Photojournalism", "/section/photojournalism/"], ["Search: culture", "/search/?q=culture"]],
-  OPINION: [["Opinion desk", "/section/opinion/"], ["Search: essays", "/search/?q=opinion"], ["Search: columns", "/search/?q=columns"], ["Search: democracy", "/search/?q=democracy"]],
-  INTERVIEWS: [["All interviews", "/section/interviews/"], ["Search: conversations", "/search/?q=interviews"], ["Search: profiles", "/search/?q=profiles"]],
+  LOCAL: [["Yale & New Haven", "/section/local/"], ["Campus politics", "/topic/campus-politics/"], ["New Haven", "/topic/new-haven/"], ["History & archive", "/archive/"]],
+  NATIONAL: [["National desk", "/section/national/"], ["Elections", "/topic/elections/"], ["Congress", "/topic/congress/"], ["Policy and courts", "/topic/policy-and-courts/"]],
+  WORLD: [["World desk", "/section/world/"], ["Africa", "/topic/africa/"], ["Asia", "/topic/asia/"], ["Europe", "/topic/europe/"], ["Foreign affairs", "/topic/foreign-affairs/"]],
+  CULTURE: [["Culture desk", "/section/culture/"], ["Campus life", "/topic/campus-life/"], ["Photojournalism", "/section/photojournalism/"], ["Culture", "/topic/culture/"]],
+  OPINION: [["Opinion desk", "/section/opinion/"], ["Essays", "/topic/essays/"], ["Columns", "/topic/columns/"], ["Democracy", "/topic/democracy/"]],
+  INTERVIEWS: [["All interviews", "/section/interviews/"], ["Conversations", "/topic/conversations/"], ["Profiles", "/topic/profiles/"]],
   MULTIMEDIA: [["Multimedia hub", "/multimedia/"], ["Photojournalism", "/section/photojournalism/"], ["Podcasts", "/section/podcasts/"], ["Print archive", "/archive/"]],
   ISSUES: [["Current issue", CURRENT_ISSUE], ["History & archive", "/archive/"], ["Yale digital archive", "https://elischolar.library.yale.edu/politic/"], ["Search issue articles", "/search/?type=issues"]]
+};
+const topicDefinitions = {
+  "campus-politics": {title:"Campus Politics", description:"Reporting on student voices, campus debates, and the politics shaping life at Yale.", terms:["campus"], nav:"LOCAL"},
+  "new-haven": {title:"New Haven", description:"Reporting on the people, institutions, and civic life of New Haven.", terms:["new haven"], nav:"LOCAL"},
+  elections: {title:"Elections", description:"Coverage of campaigns, voting, and the choices shaping public life.", terms:["elections","election"], nav:"NATIONAL"},
+  congress: {title:"Congress", description:"Reporting and analysis on Congress, its debates, and the decisions before it.", terms:["congress"], nav:"NATIONAL"},
+  "policy-and-courts": {title:"Policy & Courts", description:"Coverage of public policy, the courts, and the institutions that shape American life.", terms:["policy","courts"], nav:"NATIONAL"},
+  africa: {title:"Africa", description:"Reporting and perspectives on politics, society, and change across Africa.", terms:["africa"], nav:"WORLD"},
+  asia: {title:"Asia", description:"Reporting and perspectives on politics, society, and change across Asia.", terms:["asia"], nav:"WORLD"},
+  europe: {title:"Europe", description:"Reporting and perspectives on politics, society, and change across Europe.", terms:["europe"], nav:"WORLD"},
+  "foreign-affairs": {title:"Foreign Affairs", description:"Reporting on diplomacy, conflict, and the forces shaping the world beyond our borders.", terms:["foreign policy","foreign affairs"], nav:"WORLD"},
+  "campus-life": {title:"Campus Life", description:"Stories about campus communities, student life, and the ideas being debated at Yale.", terms:["campus life","campus"], nav:"CULTURE"},
+  culture: {title:"Culture", description:"Essays and reporting on the cultural forces shaping how we live and see the world.", terms:["culture"], sections:["culture"], nav:"CULTURE"},
+  essays: {title:"Essays", description:"Arguments, reflections, and ideas from The Politic’s opinion writers.", terms:["opinion"], sections:["opinion"], nav:"OPINION"},
+  columns: {title:"Columns", description:"Recurring perspectives and commentary from Politic writers.", terms:["columns","column"], nav:"OPINION"},
+  democracy: {title:"Democracy", description:"Reporting and ideas about democratic institutions, participation, and public trust.", terms:["democracy"], nav:"OPINION"},
+  conversations: {title:"Conversations", description:"Interviews with the people shaping politics, culture, and public life.", terms:["interviews","conversation"], sections:["interviews"], nav:"INTERVIEWS"},
+  profiles: {title:"Profiles", description:"Meet the people behind the ideas, movements, and decisions in the news.", terms:["profiles","profile"], sections:["interviews"], nav:"INTERVIEWS"}
 };
 function shell(content, active) {
   let links = navItems.map(function (item) {
@@ -269,6 +287,24 @@ function sectionPage(slug) {
   else content+=rows.map(listItem).join('')||'<p>No published articles in this section yet.</p>';
   return pageWrap(cat.name,content+result.controls,slug.toUpperCase());
 }
+function topicPage(slug) {
+  const topic=topicDefinitions[slug];if(!topic)return notFound();
+  const bodyResults=topic.terms.map(bodyMatches);
+  const matches=state.posts.filter(post=>{
+    if(topic.sections?.some(section=>hasCategory(post,section)))return true;
+    const metadata=new Set(searchTokens([post.title,post.excerpt,post.author?.name,...post.categories.map(c=>c.name),...post.tags.map(t=>t.name)].join(' ')));
+    return topic.terms.some((term,index)=>{
+      const tokens=searchTokens(term).filter(token=>token.length>=2);
+      return tokens.length>0&&tokens.every(token=>metadata.has(token))||bodyResults[index]?.has(post.id);
+    });
+  });
+  const result=paginate(matches,16),rows=result.rows,lead=rows[0];
+  let content=sectionHeader(topic.title,topic.description)+'<div class="result-count">'+matches.length+' articles</div>';
+  if(lead&&result.current===1)content+='<section class="landing-grid"><article class="landing-lead">'+photo(lead,'hero-image')+'<div class="eyebrow">'+esc(label(lead))+'</div><h2><a href="'+href(lead)+'">'+esc(lead.title)+'</a></h2><p class="large-deck">'+esc(deck(lead))+'</p><div class="byline">'+byline(lead)+'</div></article><div class="landing-side">'+rows.slice(1,4).map(p=>card(p,true)).join('')+'</div></section><div class="article-list">'+rows.slice(4).map(listItem).join('')+'</div>';
+  else if(rows.length)content+=rows.map(listItem).join('');
+  else content+='<p class="empty-state">There are no articles in this collection yet. Explore the <a href="/section/'+esc(topic.nav.toLowerCase())+'/">'+esc(topic.nav==='LOCAL'?'Local':topic.nav==='NATIONAL'?'National':topic.nav==='WORLD'?'World':topic.nav==='CULTURE'?'Culture':topic.nav==='OPINION'?'Opinion':'Interviews')+' desk</a> for more reporting.</p>';
+  return pageWrap(topic.title,'<div class="section-page topic-page">'+content+result.controls+'</div>',topic.nav);
+}
 function multimedia() {
   return pageWrap('Listen & Watch',sectionHeader('Listen & Watch','Podcasts, films, and photojournalism from The Politic.')+['documentary','podcasts','photojournalism'].map(slug=>'<section class="subsection">'+sectionRule(slug==='documentary'?'Documentary':slug==='podcasts'?'Podcasts':'Photojournalism')+'<div class="analysis-grid">'+state.posts.filter(p=>hasCategory(p,slug)||(slug==='photojournalism'&&hasCategory(p,'photo-essay'))).slice(0,3).map(p=>card(p)).join('')+'</div><a class="button button-outline" href="/section/'+slug+'/">Browse all '+slug+' →</a></section>').join('')+'<section class="subsection">'+sectionRule('Print editions')+'<p>Read available PDFs in the website.</p><a class="button button-solid" href="/archive/">Explore the archive →</a></section>','MULTIMEDIA');
 }
@@ -432,6 +468,7 @@ function renderRoute() {
   if(['article','interview'].includes(name))return value?articlePage(value):sectionPage('interviews');
   if(name==='opinion')return value?articlePage(value):sectionPage('opinion');
   if(name==='section')return sectionPage(value);
+  if(name==='topic')return topicPage(value);
   if(['world','culture','us-politics','photojournalism'].includes(name))return sectionPage(name);
   if(name==='interviews')return sectionPage('interviews');
   if(name==='multimedia')return multimedia();
@@ -458,6 +495,9 @@ async function navigate() {
     if(['article','opinion','interview'].includes(route.name)&&route.value)await loadArticleChunk(route.value);
     if(route.name==='search'&&route.value&&(route.params.get('type')||'articles')==='articles'){
       app.setAttribute('aria-busy','true');await loadSearchShards(route.value);
+    }
+    if(route.name==='topic'&&topicDefinitions[route.value]){
+      app.setAttribute('aria-busy','true');await loadSearchShards(topicDefinitions[route.value].terms.join(' '));
     }
     if(version!==routeVersion)return;
     app.innerHTML=renderRoute();app.removeAttribute('aria-busy');bind();
