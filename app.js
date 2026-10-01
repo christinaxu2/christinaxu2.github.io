@@ -367,20 +367,36 @@ function competitionPage() {
   const source=document.createElement('template');source.innerHTML=safeHtml(page.content);
   const resultsLink=source.content.querySelector('a[href*="drive.google.com/file/d/"]');
   const resultsUrl=resultsLink?.getAttribute('href')||'https://drive.google.com/file/d/1RN3bcGfAIbaBEhK9XHdrFdU0Vyo_dpRY/view?usp=sharing';
+  const winnerHeading=[...source.content.querySelectorAll('p,h2,h3')].find(el=>/^top three winners\b/i.test(el.textContent.trim()));
+  const winners=[...(winnerHeading?.nextElementSibling?.querySelectorAll('li')||[])].map(item=>{
+    const link=item.querySelector('a[href]'),name=strip(link?.textContent||item.textContent);
+    let post=null;
+    try{
+      const target=new URL(link?.getAttribute('href')||'',location.origin),parts=target.pathname.split('/').filter(Boolean);
+      const localArticle=target.origin===location.origin&&parts[0]==='article';
+      const slug=decodeURIComponent(localArticle?parts[1]||'':parts.at(-1)||'');
+      if(localArticle||['thepolitic.org','www.thepolitic.org'].includes(target.hostname))post=state.posts.find(candidate=>candidate.slug===slug)||null;
+    }catch{}
+    return {name,post,href:post?'/article/'+encodeURIComponent(post.slug)+'/':''};
+  }).filter(winner=>winner.name);
+  const honorableHeading=[...source.content.querySelectorAll('p,h2,h3')].find(el=>/^\s*honorable mentions\b/i.test(el.textContent.trim()));
+  const honorableMentions=[...(honorableHeading?.nextElementSibling?.querySelectorAll('li')||[])].map(item=>strip(item.textContent)).filter(Boolean);
+  const winnerCards=winners.map((winner,index)=>{
+    const post=winner.post,title=post?.title||winner.name;
+    const image=post?.featured_media?.url?'<a class="competition-winner-image" href="'+winner.href+'"><img src="'+esc(localMedia(post.featured_media.url))+'" alt="'+esc(post.featured_media.alt||title)+'" loading="lazy"></a>':'';
+    const excerpt=post?.excerpt?'<p>'+esc(post.excerpt)+'</p>':'';
+    return '<article><strong>'+String(index+1)+'</strong>'+image+'<div class="competition-winner-copy"><h3><a href="'+winner.href+'">'+esc(title)+'</a></h3><p class="competition-winner-name">'+esc(winner.name)+'</p>'+excerpt+'<a class="arrow-link" href="'+winner.href+'">Read article →</a></div></article>';
+  }).join('');
   const deadlineHeading=[...source.content.querySelectorAll('h2')].find(h=>/dates and deadlines/i.test(h.textContent));
   const deadlineTable=deadlineHeading?.nextElementSibling?.outerHTML||'';
   const rules=[...source.content.querySelectorAll('details')];
   for(const rule of rules)for(const link of rule.querySelectorAll('a[href*="buy.stripe.com"]'))link.replaceWith(document.createTextNode(link.textContent||'online payment'));
-  const resultsCards=[
-    ['2026','Inaugural competition','The first high school essay competition organized by The Politic.'],
-    [String(competitionSemiFinalists.length),'Semi-finalists','Students recognized in the published 2026 results.'],
-    ['800–1,200','Words per essay','The original submission range set in the competition rules.']
-  ].map(([number,title,copy])=>'<article><strong>'+esc(number)+'</strong><div><h3>'+esc(title)+'</h3><p>'+esc(copy)+'</p></div></article>').join('');
   const finalistRows=competitionSemiFinalists.map(name=>'<tr><td>'+esc(name)+'</td><td>Semi-finalist</td></tr>').join('');
   const rulesMarkup=rules.map(rule=>'<details class="competition-rule">'+rule.innerHTML+'</details>').join('');
   const html='<div class="competition-page">'+
     '<section class="competition-hero"><div class="competition-hero-copy"><div class="eyebrow red">Opportunities</div><h1>The Politic High School Essay Competition</h1><p>The Politic’s first-ever high school competition invited students to report on issues in their local communities. The 2026 competition has concluded; explore the published results and the original competition information below.</p><a class="competition-contact" href="mailto:competition.yale.politic@gmail.com">Questions? Contact the competition team →</a></div><figure><img src="/assets/uploads/1587a849e1b49b0d0aee.webp" alt="Students gather on Yale’s campus" fetchpriority="high"></figure></section>'+
-    '<section class="competition-section"><div class="competition-section-heading"><h2>2026 Competition</h2><span>Young perspectives. A more thoughtful tomorrow.</span></div><div class="competition-highlights">'+resultsCards+'</div><p class="competition-result-link"><a class="arrow-link" href="'+esc(resultsUrl)+'" target="_blank" rel="noopener noreferrer">View the official results →</a></p></section>'+
+    '<section class="competition-section"><div class="competition-section-heading"><h2>2026 Winners</h2><span>Young perspectives. A more thoughtful tomorrow.</span></div><div class="competition-highlights">'+(winnerCards||'<p class="competition-note">The published results are available in the official results document.</p>')+'</div><p class="competition-result-link"><a class="arrow-link" href="'+esc(resultsUrl)+'" target="_blank" rel="noopener noreferrer">View the official results →</a></p></section>'+
+    (honorableMentions.length?'<section class="competition-section competition-mentions"><div class="competition-section-heading"><h2>Honorable Mentions</h2><span>No ranking beyond the top three</span></div><ul class="competition-mention-list">'+honorableMentions.map(name=>'<li>'+esc(name)+'</li>').join('')+'</ul></section>':'')+
     '<section class="competition-section competition-finalists"><div class="competition-section-heading"><h2>Semi-finalists</h2><span>Recognized in the inaugural competition</span></div><p class="competition-note">The names below are reproduced from the published results. The official document also lists quarter-finalists.</p><div class="competition-table-wrap"><table class="competition-finalist-table"><thead><tr><th scope="col">Student</th><th scope="col">Recognition</th></tr></thead><tbody>'+finalistRows+'</tbody></table></div><a class="arrow-link" href="'+esc(resultsUrl)+'" target="_blank" rel="noopener noreferrer">See semi-finalists and quarter-finalists in the official results →</a></section>'+
     '<section class="competition-section"><div class="competition-section-heading"><h2>How It Worked</h2><span>Ideas today. Leaders tomorrow.</span></div><div class="competition-steps"><article><b>1</b><div><h3>Report</h3><p>Students submitted original, community-rooted investigative journalism, 800–1,200 words in length.</p></div></article><article><b>2</b><div><h3>Review</h3><p>The Politic’s editorial team reviewed submissions under the published eligibility, standards, and judging rules.</p></div></article><article><b>3</b><div><h3>Recognize</h3><p>The competition published its semi-finalist and quarter-finalist results. Judging decisions are final.</p></div></article></div></section>'+
     '<section class="competition-contact-block"><span>Interested in future competitions?</span><a class="button button-solid" href="mailto:competition.yale.politic@gmail.com">Contact the competition team →</a></section>'+

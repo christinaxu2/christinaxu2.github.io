@@ -496,12 +496,20 @@ button,.button{min-height:44px}
 .competition-section-heading h2{font:700 23px/1.1 var(--serif);letter-spacing:-.025em;color:var(--navy);margin:0;text-transform:uppercase}
 .competition-section-heading span{font:600 10px/1.4 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--navy);text-align:right}
 .competition-highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
-.competition-highlights article{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;padding:7px 20px 3px 0;min-width:0}
+.competition-highlights article{display:grid;grid-template-columns:28px minmax(62px,84px) minmax(0,1fr);gap:12px;align-items:start;padding:7px 20px 3px 0;min-width:0}
 .competition-highlights article+article{border-left:1px solid var(--line);padding-left:20px}
 .competition-highlights article>strong{font:700 clamp(34px,4vw,48px)/.95 var(--display);letter-spacing:-.07em;color:var(--red);white-space:nowrap}
+.competition-winner-image{display:block;aspect-ratio:.62;overflow:hidden;background:#e7e5df}
+.competition-winner-image img{display:block;width:100%;height:100%;object-fit:cover}
+.competition-winner-copy{min-width:0}
 .competition-highlights h3{font:700 18px/1.1 var(--serif);letter-spacing:-.025em;margin:3px 0 7px}
 .competition-highlights p{font-size:13px;line-height:1.38;margin:0}
+.competition-highlights .competition-winner-name{font-weight:700;margin:9px 0 5px}
+.competition-highlights .arrow-link{display:inline-block;margin-top:10px}
 .competition-result-link{display:flex;justify-content:flex-end;margin:11px 0 0}
+.competition-mention-list{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin:0;padding:0}
+.competition-mention-list li{padding:8px 12px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font:15px/1.35 var(--serif)}
+.competition-mention-list li:nth-child(5n){border-right:0}
 .competition-finalists{margin-top:19px}
 .competition-note{font-size:13px;color:var(--muted);margin:0 0 9px}
 .competition-table-wrap{overflow-x:auto;margin-bottom:10px}
@@ -534,9 +542,12 @@ button,.button{min-height:44px}
  .competition-section-heading h2{font-size:20px}
  .competition-section-heading span{font-size:9px;max-width:48%}
  .competition-highlights{grid-template-columns:1fr}
- .competition-highlights article,.competition-highlights article+article{border-left:0;border-bottom:1px solid var(--line);padding:12px 0;grid-template-columns:76px 1fr}
+ .competition-highlights article,.competition-highlights article+article{border-left:0;border-bottom:1px solid var(--line);padding:12px 0;grid-template-columns:28px 76px minmax(0,1fr)}
  .competition-highlights article:last-child{border-bottom:0}
  .competition-highlights article>strong{font-size:37px}
+ .competition-mention-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .competition-mention-list li:nth-child(5n){border-right:1px solid var(--line)}
+ .competition-mention-list li:nth-child(2n){border-right:0}
  .competition-steps{grid-template-columns:1fr}
  .competition-steps article,.competition-steps article+article{border-left:0;border-bottom:1px solid var(--line);padding:13px 0;grid-template-columns:40px 1fr}
  .competition-steps article:last-child{border-bottom:0}
