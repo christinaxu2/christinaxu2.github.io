@@ -38,7 +38,7 @@ const teamBios = [
     "name": "William Shiu",
     "role": "Director of Business · Associate Editor",
     "section": "BUSINESS & EDITORIAL",
-    "bio": "William is the Director of Business and an Associate Editor of The Politic. His interests include the governance of innovations whose consequences are ambiguous and how the historical memory of conflict shapes the geopolitical ambitions of modern states. At Yale, he studies Applied Mathematics and Humanities, with a research focus in developing physics-informed models of biology.",
+    "bio": "William is a Business Director, Associate Editor, and Staff Writer of The Politic. He is a sophomore from Brooklyn, New York interested in understanding how historical memory shapes the geopolitical ambitions of modern powers. His past long-form investigations focus on Sino-U.S. relations and the governance of emerging technologies with ambiguous consequences.",
     "image": "/assets/team/william-shiu.webp"
   },
   {
