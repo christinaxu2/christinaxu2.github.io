@@ -3,7 +3,7 @@ const teamBios = [
     "name": "Hanna Klingbeil Canale",
     "role": "Editor-in-Chief",
     "section": "EDITORIAL",
-    "bio": "",
+    "bio": "Hanna Klingbeil Canale is a junior studying Ethics, Politics, and Economics with a Certificate in Global Health Studies. Hanna joined The Politic as a staff writer, served as Multimedia Manager, and is currently the Editor-in-Chief. Her writing and interviews focus on Latin American politics, conflict reporting, and local stories with a photojournalism focus.",
     "image": ""
   },
   {
