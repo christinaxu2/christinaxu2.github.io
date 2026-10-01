@@ -357,6 +357,9 @@ html{scroll-behavior:auto}main:focus,h1:focus{outline:none}a:focus-visible,butto
 .newsletter{border-top:1px solid var(--line);margin-top:35px;padding-top:25px}.newsletter h2{font-size:32px}.newsletter form{display:grid;gap:12px}.newsletter input{max-width:100%;padding:10px;border:1px solid var(--line);background:transparent}.newsletter .button{justify-self:start}.newsletter .small-note{font:13px/1.5 var(--sans);margin-top:12px}.signup-honeypot{position:absolute;left:-5000px}.signup-honeypot input{width:1px}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 
+/* Keep solid calls to action legible inside editorial copy links. */
+.article-body a.button-solid{color:#fff}
+
 /* Equal co-editor cards first, then managing editors and the publisher. */
 .team-roster-section{margin:32px 0 40px}.team-row-heading{font:600 25px/1.2 var(--serif);margin:0 0 18px}.team-roster-section .team-bio-card{min-width:0}.team-row-editors{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}.team-row-editors .team-bio-card h3{font-size:32px;line-height:1.2}.team-row-editors .team-bio-card img,.team-row-editors .person-photo-placeholder{height:300px}.team-row-managing{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}.team-row-managing .team-bio-card h3{font-size:27px;line-height:1.2}.team-row-managing .team-bio-role{margin-bottom:0}.team-row-staff{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:1000px){.team-row-managing{gap:16px}.team-row-managing .team-bio-card h3{font-size:23px}.team-row-staff{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -479,6 +482,66 @@ button,.button{min-height:44px}
   .article-hero{max-width:100%!important;margin:16pt 0!important;break-inside:avoid}
   .article-hero img{max-height:8in!important;object-fit:contain!important}
   a{color:inherit!important;text-decoration:none!important}
+}
+
+/* High school competition: compact editorial layout matching the approved page mock. */
+.competition-page .competition-hero{display:grid;grid-template-columns:.82fr 1.18fr;gap:34px;align-items:center;padding:2px 0 23px;border-bottom:1px solid var(--navy)}
+.competition-hero-copy h1{font-size:clamp(38px,4.1vw,54px);line-height:.99;letter-spacing:-.055em;margin:9px 0 11px;text-transform:uppercase}
+.competition-hero-copy p{font-size:17px;line-height:1.4;margin:0 0 12px;max-width:470px}
+.competition-contact,.arrow-link{font:600 11px/1.5 var(--sans);letter-spacing:.08em;color:var(--navy);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px}
+.competition-hero figure{margin:0;aspect-ratio:1.55;overflow:hidden;background:#e7e5df}
+.competition-hero figure img{display:block;width:100%;height:100%;object-fit:cover}
+.competition-section{margin-top:20px;padding-bottom:20px;border-bottom:1px solid var(--navy)}
+.competition-section-heading{display:flex;align-items:baseline;justify-content:space-between;gap:18px;border-bottom:1px solid var(--line);margin-bottom:15px;padding-bottom:5px}
+.competition-section-heading h2{font:700 23px/1.1 var(--serif);letter-spacing:-.025em;color:var(--navy);margin:0;text-transform:uppercase}
+.competition-section-heading span{font:600 10px/1.4 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--navy);text-align:right}
+.competition-highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.competition-highlights article{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;padding:7px 20px 3px 0;min-width:0}
+.competition-highlights article+article{border-left:1px solid var(--line);padding-left:20px}
+.competition-highlights article>strong{font:700 clamp(34px,4vw,48px)/.95 var(--display);letter-spacing:-.07em;color:var(--red);white-space:nowrap}
+.competition-highlights h3{font:700 18px/1.1 var(--serif);letter-spacing:-.025em;margin:3px 0 7px}
+.competition-highlights p{font-size:13px;line-height:1.38;margin:0}
+.competition-result-link{display:flex;justify-content:flex-end;margin:11px 0 0}
+.competition-finalists{margin-top:19px}
+.competition-note{font-size:13px;color:var(--muted);margin:0 0 9px}
+.competition-table-wrap{overflow-x:auto;margin-bottom:10px}
+.competition-finalist-table{width:100%;border-collapse:collapse;text-align:left;font-size:14px}
+.competition-finalist-table th{font:600 10px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--navy);padding:7px 11px;border-bottom:1px solid var(--line)}
+.competition-finalist-table td{padding:6px 11px;border-bottom:1px solid #d7dce1}
+.competition-finalist-table th:first-child,.competition-finalist-table td:first-child{width:68%}
+.competition-finalist-table td:last-child{font:600 10px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
+.competition-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.competition-steps article{display:grid;grid-template-columns:40px 1fr;gap:11px;padding:3px 20px 4px 0;min-width:0}
+.competition-steps article+article{border-left:1px solid var(--line);padding-left:20px}
+.competition-steps article>b{font:700 43px/.95 var(--display);color:var(--red)}
+.competition-steps h3{font-size:20px;margin:1px 0 6px}
+.competition-steps p{font-size:13px;line-height:1.4;margin:0}
+.competition-contact-block{display:grid;justify-items:center;gap:10px;padding:23px 0 4px;border-bottom:1px solid var(--navy);font:600 10px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.competition-contact-block .button{margin-bottom:20px;text-decoration:none}
+.competition-terms{border-bottom:0;margin-top:22px}
+.competition-rule{border-bottom:1px solid var(--line);padding:10px 2px;font-size:14px}
+.competition-rule summary{font:600 14px/1.35 var(--sans);letter-spacing:.015em;color:var(--navy);cursor:pointer}
+.competition-rule[open] summary{margin-bottom:12px}
+.competition-rule p,.competition-rule li{line-height:1.55}
+.competition-rule table{width:100%;border-collapse:collapse;font-size:12px}
+.competition-rule td,.competition-rule th{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left}
+.competition-disclaimer{border-top:1px solid var(--line);padding-top:12px;margin:16px 0 0;font:11px/1.5 var(--sans);color:var(--muted)}
+@media(max-width:800px){
+ .competition-page .competition-hero{grid-template-columns:1fr;gap:16px;padding-top:2px}
+ .competition-hero-copy h1{font-size:clamp(37px,10vw,48px);max-width:560px}
+ .competition-hero figure{aspect-ratio:1.55}
+ .competition-section-heading{align-items:flex-start}
+ .competition-section-heading h2{font-size:20px}
+ .competition-section-heading span{font-size:9px;max-width:48%}
+ .competition-highlights{grid-template-columns:1fr}
+ .competition-highlights article,.competition-highlights article+article{border-left:0;border-bottom:1px solid var(--line);padding:12px 0;grid-template-columns:76px 1fr}
+ .competition-highlights article:last-child{border-bottom:0}
+ .competition-highlights article>strong{font-size:37px}
+ .competition-steps{grid-template-columns:1fr}
+ .competition-steps article,.competition-steps article+article{border-left:0;border-bottom:1px solid var(--line);padding:13px 0;grid-template-columns:40px 1fr}
+ .competition-steps article:last-child{border-bottom:0}
+ .competition-finalist-table{min-width:390px}
+ .competition-finalist-table th:first-child,.competition-finalist-table td:first-child{width:62%}
 }
 
 /* Crawlable article fallback and lighter, year-scoped full-text search. */

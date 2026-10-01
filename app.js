@@ -104,6 +104,7 @@ function setCanonical(url) {
   if(!node){node=document.createElement('link');node.rel='canonical';document.head.append(node);}
   node.href=url;
 }
+const siteRobots=document.head.querySelector('meta[name="robots"]')?.content||'';
 function pageMeta(title,description) {
   const cleanPath=location.pathname||'/';
   const canonicalUrl=location.origin+cleanPath;
@@ -121,9 +122,11 @@ function pageMeta(title,description) {
   updateMeta('name','twitter:card','summary_large_image');
   updateMeta('name','twitter:image',location.origin+'/assets/capitol-reporting.png');
   setCanonical(canonicalUrl);
-  if(siteRobots)updateMeta('name','robots',siteRobots);else document.head.querySelector('meta[name="robots"]')?.remove();
+  if(siteRobots)updateMeta('name','robots',siteRobots);
+  else document.head.querySelector('meta[name="robots"]')?.remove();
 }
-const siteRobots=document.head.querySelector('meta[name="robots"]')?.content||'';
+const shellBeforePagesCleanup=shell;
+shell=(content,active)=>shellBeforePagesCleanup(content,active).replace('<a href="/pages/">All pages &amp; projects</a>','');
 const pageWrap=(title,html,active='',description)=>{pageMeta(title,description);return shell('<div class="shell page">'+html+'</div>',active);};
 const notFound=()=>{
   const html=pageWrap('Page not found',sectionHeader('Page not found','We couldn’t find that page.')+'<a class="button button-solid" href="/search/">Search the archive →</a>');
@@ -251,11 +254,13 @@ function currentIssueFeature(current,excluded=new Set()) {
   const allStories=state.posts.filter(p=>hasCategory(p,current.slug));
   const stories=allStories.filter(p=>!excluded.has(p.id));
   const collection='/section/'+encodeURIComponent(current.slug)+'/';
+  const issue=issueCatalog.find(i=>i.categorySlug===current.slug);
+  const issueHref=issue?'/issue/'+encodeURIComponent(issue.id)+'/':collection;
   const name=current.name.replace(/\b(19\d{2}|20\d{2})-(19\d{2}|20\d{2})\b/g,'$1–$2');
   const number=name.match(/\bIssue\s+(.+)$/i)?.[1]||'';
   const year=name.replace(/\s*Issue\s+.+$/i,'');
   return '<section class="issue-band current-issue-feature" aria-label="Current issue">'+sectionRule('Current Issue','STUDENT VOICES. A WIDER CONVERSATION.')
-    +'<div class="current-issue-grid"><figure class="current-issue-cover"><a class="current-issue-jacket" href="'+collection+'" aria-label="Explore '+esc(name)+'"><span class="issue-jacket-wordmark">The Politic</span><span class="issue-jacket-year">'+esc(year)+'</span><span class="issue-jacket-number"><small>ISSUE</small>'+esc(number||name)+'</span><span class="issue-jacket-footer">Yale’s political journal<br>Since 1947</span></a></figure>'
+    +'<div class="current-issue-grid"><figure class="current-issue-cover"><a class="current-issue-jacket" href="'+issueHref+'" aria-label="Read '+esc(name)+'"><span class="issue-jacket-wordmark">The Politic</span><span class="issue-jacket-year">'+esc(year)+'</span><span class="issue-jacket-number"><small>ISSUE</small>'+esc(number||name)+'</span><span class="issue-jacket-footer">Yale’s political journal<br>Since 1947</span></a></figure>'
     +'<div class="current-issue-details"><p class="current-issue-edition">'+esc(year)+'</p><h2>'+esc(name)+'</h2><p class="current-issue-deck">Reporting and analysis from Yale and beyond. Explore '+allStories.length+' stories on politics, culture, and the forces shaping our world.</p><span class="current-issue-accent" aria-hidden="true"></span><a class="button button-solid current-issue-read" href="'+collection+'">Explore the collection <span aria-hidden="true">⟶</span></a><a class="current-issue-archive-link" href="/archive/">Browse past issues <span aria-hidden="true">→</span></a></div>'
     +'<nav class="current-issue-toc" aria-label="In this issue"><h3>In this issue</h3><ol>'+stories.slice(0,4).map(p=>'<li><a href="'+href(p)+'"><span class="current-issue-story-title">'+esc(p.title)+'</span><span class="current-issue-story-author">'+esc(p.author?.name||'The Politic')+'</span></a></li>').join('')+'</ol><a class="current-issue-all" href="'+collection+'">View all '+allStories.length+' articles <span aria-hidden="true">→</span></a></nav></div></section>';
 }
@@ -354,11 +359,34 @@ function pageContent(slug) {
   let content=safeHtml(page.content);
   if(!strip(content))content='<p>This page has no additional text available.</p><a href="/search/" class="button button-outline">Search articles →</a>';
   const signup=slug==='contact'?'<section class="newsletter"><h2>Join the mailing list</h2><p>Subscribe through The Politic’s existing Mailchimp list.</p><form method="post" action="https://ThePolitic.us10.list-manage.com/subscribe/post?u=3295399f1c9bdc03fe6a62f57&amp;id=58e3584e9e" target="_blank" rel="noopener"><label for="newsletter-email">Email address</label><input id="newsletter-email" name="EMAIL" type="email" autocomplete="email" required><div class="signup-honeypot" aria-hidden="true"><input name="b_3295399f1c9bdc03fe6a62f57_58e3584e9e" tabindex="-1" autocomplete="off"></div><button class="button button-solid" type="submit">Subscribe on Mailchimp ↗</button></form><p class="small-note">Your address is sent to Mailchimp only when you submit this form. Confirmation opens in a new tab.</p></section>':'';
-  return pageWrap(page.title,sectionHeader(page.title)+'<div class="source-page article-body">'+content+signup+'</div><div class="source-page-links"><a href="/pages/">All pages &amp; projects →</a></div>');
+  return pageWrap(page.title,sectionHeader(page.title)+'<div class="source-page article-body">'+content+signup+'</div>');
 }
-function pagesPage() {
-  const result=paginate([...state.pages].sort((a,b)=>a.title.localeCompare(b.title)));
-  return pageWrap('Pages & Projects',sectionHeader('Pages & Projects','Explore The Politic’s pages and projects.')+result.rows.map(p=>'<article class="directory-row"><h2><a href="/page/'+encodeURIComponent(p.slug)+'/">'+esc(p.title)+'</a></h2><p>'+esc((p.excerpt||strip(p.content)).slice(0,200))+'</p></article>').join('')+result.controls);
+const competitionSemiFinalists=['Aadya Jain','Andrew Larsen','Arin Lee','Aritra Ray','Astrid Ferrante Gomes','Brianna Tang','Elina Jadhav','Elliott David','Gavin Reddy','Hoang Anh Tuan','Jack Tuomi','Jackson Scott','Johan Shyam','Kevin Diao','Krisha Madan','Lauren Schwartz','Leyth Sharaf','Marie Morali','Martin Ramirez Pachon','Medhavika Rai','Naisha Gupta','Niel Peddibhotla','Omar Mehboob','Rebecca Chen','Zaara Chinoy'];
+function competitionPage() {
+  const page=state.pages.find(p=>p.slug==='high-school-competition');if(!page)return notFound();
+  const source=document.createElement('template');source.innerHTML=safeHtml(page.content);
+  const resultsLink=source.content.querySelector('a[href*="drive.google.com/file/d/"]');
+  const resultsUrl=resultsLink?.getAttribute('href')||'https://drive.google.com/file/d/1RN3bcGfAIbaBEhK9XHdrFdU0Vyo_dpRY/view?usp=sharing';
+  const deadlineHeading=[...source.content.querySelectorAll('h2')].find(h=>/dates and deadlines/i.test(h.textContent));
+  const deadlineTable=deadlineHeading?.nextElementSibling?.outerHTML||'';
+  const rules=[...source.content.querySelectorAll('details')];
+  for(const rule of rules)for(const link of rule.querySelectorAll('a[href*="buy.stripe.com"]'))link.replaceWith(document.createTextNode(link.textContent||'online payment'));
+  const resultsCards=[
+    ['2026','Inaugural competition','The first high school essay competition organized by The Politic.'],
+    [String(competitionSemiFinalists.length),'Semi-finalists','Students recognized in the published 2026 results.'],
+    ['800–1,200','Words per essay','The original submission range set in the competition rules.']
+  ].map(([number,title,copy])=>'<article><strong>'+esc(number)+'</strong><div><h3>'+esc(title)+'</h3><p>'+esc(copy)+'</p></div></article>').join('');
+  const finalistRows=competitionSemiFinalists.map(name=>'<tr><td>'+esc(name)+'</td><td>Semi-finalist</td></tr>').join('');
+  const rulesMarkup=rules.map(rule=>'<details class="competition-rule">'+rule.innerHTML+'</details>').join('');
+  const html='<div class="competition-page">'+
+    '<section class="competition-hero"><div class="competition-hero-copy"><div class="eyebrow red">Opportunities</div><h1>The Politic High School Essay Competition</h1><p>The Politic’s first-ever high school competition invited students to report on issues in their local communities. The 2026 competition has concluded; explore the published results and the original competition information below.</p><a class="competition-contact" href="mailto:competition.yale.politic@gmail.com">Questions? Contact the competition team →</a></div><figure><img src="/assets/uploads/1587a849e1b49b0d0aee.webp" alt="Students gather on Yale’s campus" fetchpriority="high"></figure></section>'+
+    '<section class="competition-section"><div class="competition-section-heading"><h2>2026 Competition</h2><span>Young perspectives. A more thoughtful tomorrow.</span></div><div class="competition-highlights">'+resultsCards+'</div><p class="competition-result-link"><a class="arrow-link" href="'+esc(resultsUrl)+'" target="_blank" rel="noopener noreferrer">View the official results →</a></p></section>'+
+    '<section class="competition-section competition-finalists"><div class="competition-section-heading"><h2>Semi-finalists</h2><span>Recognized in the inaugural competition</span></div><p class="competition-note">The names below are reproduced from the published results. The official document also lists quarter-finalists.</p><div class="competition-table-wrap"><table class="competition-finalist-table"><thead><tr><th scope="col">Student</th><th scope="col">Recognition</th></tr></thead><tbody>'+finalistRows+'</tbody></table></div><a class="arrow-link" href="'+esc(resultsUrl)+'" target="_blank" rel="noopener noreferrer">See semi-finalists and quarter-finalists in the official results →</a></section>'+
+    '<section class="competition-section"><div class="competition-section-heading"><h2>How It Worked</h2><span>Ideas today. Leaders tomorrow.</span></div><div class="competition-steps"><article><b>1</b><div><h3>Report</h3><p>Students submitted original, community-rooted investigative journalism, 800–1,200 words in length.</p></div></article><article><b>2</b><div><h3>Review</h3><p>The Politic’s editorial team reviewed submissions under the published eligibility, standards, and judging rules.</p></div></article><article><b>3</b><div><h3>Recognize</h3><p>The competition published its semi-finalist and quarter-finalist results. Judging decisions are final.</p></div></article></div></section>'+
+    '<section class="competition-contact-block"><span>Interested in future competitions?</span><a class="button button-solid" href="mailto:competition.yale.politic@gmail.com">Contact the competition team →</a></section>'+
+    '<section class="competition-section competition-terms"><div class="competition-section-heading"><h2>2026 Rules &amp; Information</h2><span>Original terms from the inaugural competition</span></div><details class="competition-rule"><summary>2026 dates and deadlines</summary>'+safeHtml(deadlineTable)+'</details>'+rulesMarkup+'</section>'+
+    '<p class="competition-disclaimer">The Yale Politic is published by Yale College students. Yale University is not responsible for the contents of The Politic or this competition.</p></div>';
+  return pageWrap('The Politic High School Essay Competition',html,'','The Politic’s inaugural high school essay competition: published 2026 results, semi-finalists, and original rules.');
 }
 function authorsPage() {
   const result=paginate(Object.values(state.authors).sort((a,b)=>a.name.localeCompare(b.name)),40);
@@ -406,7 +434,7 @@ function archive() {
   const filters='<form data-archive-filter class="filter-bar"><label>Year <select name="year"><option value="">All years</option>'+years.map(y=>'<option '+(y===year?'selected':'')+'>'+y+'</option>').join('')+'</select></label><label>Format <select name="format"><option value="">All print editions</option><option value="pdf" '+(format==='pdf'?'selected':'')+'>PDF editions</option><option value="issuu" '+(format==='issuu'?'selected':'')+'>Online reader</option></select></label><button class="button button-outline">Apply</button></form>';
   const sourceNote='<p>Browse print issues from The Politic’s archive. Select a cover to read the edition.</p>';
   const printGrid='<section class="subsection">'+sectionRule('Print Archive')+sourceNote+filters+'<p class="archive-result-count">'+issues.length+' print editions</p><div class="issue-catalog-grid issue-cover-grid">'+issues.map(archiveIssueCard).join('')+'</div>'+(!issues.length?'<p>No print editions match these filters.</p>':'')+'</section>';
-  const articleGrid=!format&&collections.length?'<section class="subsection">'+sectionRule('Article Collections')+'<p>Explore articles published as part of these collections.</p><div class="issue-catalog-grid">'+collections.map(i=>'<article class="issue-catalog-card"><h2><a href="/section/'+esc(i.categorySlug)+'/">'+esc(issueDisplayName(i))+'</a></h2></article>').join('')+'</div></section>':'';
+  const articleGrid=!format&&collections.length?'<section class="subsection">'+sectionRule('Article Collections')+'<p>Explore articles published as part of these collections.</p><div class="issue-catalog-grid">'+collections.map(i=>'<article class="issue-catalog-card"><h2><a href="/issue/'+encodeURIComponent(i.id)+'/">'+esc(issueDisplayName(i))+'</a></h2></article>').join('')+'</div></section>':'';
   return pageWrap('History & Archive',sectionHeader('Since 1947','The Politic’s history, reporting, and print editions.')+'<div class="archive-intro"><p>A magazine of student opinion. Explore the publication’s history and its archive of student journalism.</p><a class="button button-outline" href="/page/our-history/">Read our history →</a> <a class="button button-outline" href="/search/">Search all articles →</a></div>'+printGrid+articleGrid,'ISSUES');
 }
 function issueEmbedUrl(issue) {
@@ -480,8 +508,7 @@ function renderRoute() {
   if(name==='alumni')return alumniPage();
   if(name==='team')return teamPage();
   if(name==='page')return pageContent(value);
-  if(name==='pages')return pagesPage();
-  if(['competition','high-school-competition'].includes(name))return pageContent('high-school-competition');
+  if(['competition','high-school-competition'].includes(name))return competitionPage();
   if(name==='search')return searchPage();
   if(name==='saved')return savedPage();
   if(name==='join')return joinPage();
