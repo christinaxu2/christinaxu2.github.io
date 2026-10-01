@@ -38,7 +38,7 @@ const teamBios = [
     "name": "William Shiu",
     "role": "Director of Business · Associate Editor",
     "section": "BUSINESS & EDITORIAL",
-    "bio": "William is a Business Director, Associate Editor, and Staff Writer of The Politic. He is a sophomore from Brooklyn, New York interested in understanding how historical memory shapes the geopolitical ambitions of modern powers. His past long-form investigations focus on Sino-U.S. relations and the governance of emerging technologies with ambiguous consequences.",
+    "bio": "William is a Business Director, Associate Editor, and Staff Writer of The Politic. He is a sophomore from Brooklyn interested in understanding how political culture and historical memory shape the ambitions of modern states. His past investigations focus on Sino-U.S. relations and what the rivalry means for the daily lives of people in both countries.",
     "image": "/assets/team/william-shiu.webp"
   },
   {
