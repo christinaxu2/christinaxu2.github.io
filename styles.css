@@ -567,3 +567,112 @@ button,.button{min-height:44px}
 .person-photo-placeholder{font-size:clamp(38px,6vw,64px)!important;letter-spacing:.08em!important}
 .source-page,.article-body,.directory-row{overflow-wrap:anywhere}
 @media(max-width:800px){.static-article>h1{font-size:37px}.static-article>.article-deck{font-size:18px}}
+
+/* ---- Editor feedback, October 2026. Keep after the rules above. ---- */
+/* Top bar: tagline on wide screens, MENU on phones; the date is gone. */
+.utility{grid-template-columns:1fr auto}
+.utility-left{display:flex;align-items:center;min-width:0}
+.utility-tagline b{margin:0 8px}
+.utility .mobile-menu{display:none}
+@media(max-width:800px){
+  .utility-tagline{display:none}
+  .utility .mobile-menu{display:inline-flex;align-items:center;min-height:44px;padding:0 12px 0 0}
+  .site-header{display:flex;flex-direction:column}
+  .site-header .primary-nav{order:1;min-height:0;border-bottom:0}
+  .site-header .masthead{order:2;border-bottom:1px solid var(--navy)}
+}
+/* WordPress wraps coloured link text in <mark>; without this browsers paint it yellow. */
+.article-body mark,.source-page mark{background:none;color:inherit}
+/* Breathing room between a photo and the section label under it. */
+.hero-image+.eyebrow,.card-image+.story-card-copy>.eyebrow:first-child{margin-top:12px}
+.story-card.compact .story-card-copy{padding-top:0}
+.story-card.compact .card-image+.story-card-copy{padding-top:12px}
+/* Section and topic titles line up with the stories below them. */
+.section-page .section-header{display:block;padding:14px 0 12px;margin-bottom:18px}
+.section-page .section-header h1{font-size:clamp(40px,5vw,60px)}
+.section-page .section-header p{width:auto;max-width:720px;margin-top:10px}
+/* Staffers: search by name. */
+.staffer-search{margin:6px 0 22px;max-width:620px}
+.staffer-search label{display:block;font:700 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:8px}
+.staffer-search div{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.staffer-search input{flex:1;min-width:200px;min-height:44px;padding:8px 12px;border:1px solid #65748b;background:#fff;font:16px var(--sans)}
+.staffer-search a{font:600 12px var(--sans);color:var(--navy);text-decoration:underline}
+.staffer-count{font:600 13px var(--sans);color:var(--navy);margin:0 0 14px}
+/* Current issue: the real cover. */
+.current-issue-cover-image{display:block;box-shadow:0 10px 22px #18253733}
+.current-issue-cover-image img{display:block;width:100%;height:auto}
+/* Masthead: the publication's boxed logo. */
+.masthead{padding:16px 0 14px}
+.wordmark-logo{display:block;line-height:0}
+.wordmark-logo img{display:block;width:154px;height:auto}
+@media(max-width:800px){.site-header .masthead{padding:12px 0 12px}.wordmark-logo img{width:118px}}
+/* Alumni: featured alumni with portraits lead the page. */
+.alumni-featured{margin:34px 0 10px}
+.alumni-featured>h2,.history-section>h2{font:700 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--navy);border-top:1px solid var(--navy);border-bottom:1px solid var(--line);padding:12px 0 10px;margin:0 0 20px}
+.alumni-featured-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px 26px}
+.alumni-featured-grid .alumni-card{padding:0;border:0}
+.alumni-featured-grid .alumni-card::after{display:none!important}
+.alumni-photo{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;background:#e7e8e6;margin-bottom:14px}
+.alumni-featured-card h3{font-size:25px}
+.alumni-photo-credit{font:11px/1.5 var(--sans);color:var(--muted);margin:12px 0 0}
+.alumni-photo-credit a{text-decoration:underline}
+@media(max-width:1000px){.alumni-featured-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.alumni-featured-grid{grid-template-columns:1fr}}
+/* History page. */
+.history-page{padding-top:6px}
+.history-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:center;padding:18px 0 34px}
+.history-hero h1{font-size:clamp(40px,5.4vw,66px);line-height:1.02;margin:12px 0 14px}
+.history-deck{font-size:20px;line-height:1.4;margin-bottom:16px}
+.history-quote{margin:0;background:var(--navy);color:#fff;padding:34px 36px}
+.history-quote p{color:#fff;font:italic 19px/1.5 var(--serif);margin:0 0 16px}
+.history-quote cite{font:600 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;font-style:normal}
+.history-section{margin:0 0 38px}
+.history-timeline{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-top:1px solid var(--line)}
+.history-timeline li{position:relative;padding:22px 16px 0 0}
+.history-timeline li::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--red)}
+.history-timeline b{display:block;font:700 18px var(--serif);color:var(--red);margin-bottom:8px}
+.history-timeline p{font-size:14px;line-height:1.45;margin:0}
+.history-columns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px}
+.history-archive-feature{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:22px;align-items:start}
+.history-archive-feature img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+.history-archive-feature h3{font-size:28px;margin:8px 0 10px}
+.history-archive-feature p{font-size:15px}
+.history-voices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:16px}
+.history-voices a{display:block}
+.history-voices img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;background:#e7e8e6;margin-bottom:9px}
+.history-voices b{display:block;font:700 15px/1.25 var(--serif)}
+.history-voices span{display:block;font:12px/1.4 var(--sans);color:var(--muted);margin-top:4px}
+.history-search{display:flex;gap:10px;max-width:620px;margin-bottom:26px}
+.history-search input{flex:1;min-width:0;min-height:44px;padding:8px 12px;border:1px solid #65748b;background:#fff;font:16px var(--sans)}
+.history-subhead{font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:0 0 14px}
+.history-decades{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:18px}
+.history-decades a{display:block}
+.history-decades span{display:block;font:700 16px var(--serif);color:var(--navy);margin-bottom:8px}
+.history-decades img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:top;border:1px solid var(--line);background:#e7e8e6}
+.history-decades b{display:block;font:700 10px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--navy);border:1px solid var(--navy);text-align:center;padding:9px 4px;margin-top:10px}
+.history-all-issues{margin:20px 0 0}
+.history-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 30px}
+.history-links a{font-size:17px;color:var(--navy);padding:9px 0;border-bottom:1px solid var(--line)}
+.history-links a:hover,.history-voices a:hover b,.history-decades a:hover span{text-decoration:underline}
+@media(max-width:800px){
+  .history-hero,.history-columns{grid-template-columns:1fr;gap:26px}
+  .history-quote{padding:24px 22px}
+  .history-timeline{grid-template-columns:1fr;border-top:0;border-left:1px solid var(--line);margin-left:4px}
+  .history-timeline li{padding:0 0 20px 22px}
+  .history-timeline li::before{top:6px;left:-5px}
+  .history-voices{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .history-decades{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .history-links{grid-template-columns:1fr}
+  .history-archive-feature{grid-template-columns:120px minmax(0,1fr)}
+}
+/* Issue pages: the main (print) articles. */
+.issue-main-articles{margin-top:34px}
+/* Phone layout fixes. */
+.byline time,.article-byline time{white-space:nowrap}
+@media(max-width:800px){
+  .current-issue-details .current-issue-archive-link{display:block;margin:14px 0 0}
+  .analysis-grid .story-card h3,.home-side .story-card h3{font-size:19px;line-height:1.15}
+  .list-copy h3{line-height:1.15}
+}
+.share-row{flex-wrap:wrap;gap:0 20px;align-items:center}
+.share-row button,.share-row a{font:600 12px var(--sans);letter-spacing:.03em;color:var(--navy);padding-inline:0}

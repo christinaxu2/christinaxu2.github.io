@@ -1,19 +1,20 @@
 const navItems = [
   ["LOCAL", "/section/local/"], ["NATIONAL", "/section/national/"], ["WORLD", "/section/world/"],
   ["CULTURE", "/section/culture/"], ["OPINION", "/section/opinion/"], ["INTERVIEWS", "/section/interviews/"],
-  ["MULTIMEDIA", "/multimedia/"], ["ISSUES", "/archive/"]
+  ["MULTIMEDIA", "/multimedia/"], ["ISSUES", "/archive/"], ["ABOUT", "/history/"]
 ];
 // Placeholder for the newest issue; shell() resolves it from the loaded data on every render.
 const CURRENT_ISSUE = {currentIssue:true};
 const navMenus = {
-  LOCAL: [["Yale & New Haven", "/section/local/"], ["Campus politics", "/topic/campus-politics/"], ["New Haven", "/topic/new-haven/"], ["History & archive", "/archive/"]],
+  LOCAL: [["Yale & New Haven", "/section/local/"], ["Campus politics", "/topic/campus-politics/"], ["New Haven", "/topic/new-haven/"]],
   NATIONAL: [["National desk", "/section/national/"], ["Elections", "/topic/elections/"], ["Congress", "/topic/congress/"], ["Policy and courts", "/topic/policy-and-courts/"]],
   WORLD: [["World desk", "/section/world/"], ["Africa", "/topic/africa/"], ["Asia", "/topic/asia/"], ["Europe", "/topic/europe/"], ["Foreign affairs", "/topic/foreign-affairs/"]],
-  CULTURE: [["Culture desk", "/section/culture/"], ["Campus life", "/topic/campus-life/"], ["Photojournalism", "/section/photojournalism/"], ["Culture", "/topic/culture/"]],
+  CULTURE: [["Culture desk", "/section/culture/"], ["Campus life", "/topic/campus-life/"], ["Photojournalism", "/section/photojournalism/"]],
   OPINION: [["Opinion desk", "/section/opinion/"], ["Essays", "/topic/essays/"], ["Columns", "/topic/columns/"], ["Democracy", "/topic/democracy/"]],
   INTERVIEWS: [["All interviews", "/section/interviews/"], ["Conversations", "/topic/conversations/"], ["Profiles", "/topic/profiles/"]],
   MULTIMEDIA: [["Multimedia hub", "/multimedia/"], ["Photojournalism", "/section/photojournalism/"], ["Podcasts", "/section/podcasts/"], ["Print archive", "/archive/"]],
-  ISSUES: [["Current issue", CURRENT_ISSUE], ["History & archive", "/archive/"], ["Yale digital archive", "https://elischolar.library.yale.edu/politic/"], ["Search issue articles", "/search/?type=issues"]]
+  ISSUES: [["Current issue", CURRENT_ISSUE], ["History & archive", "/archive/"], ["Yale digital archive", "https://elischolar.library.yale.edu/politic/"], ["Search issue articles", "/search/?type=issues"]],
+  ABOUT: [["Our history", "/history/"], ["The team", "/team/"], ["Alumni", "/alumni/"], ["Past issues", "/archive/"], ["Staffers", "/authors/"]]
 };
 const topicDefinitions = {
   "campus-politics": {title:"Campus Politics", description:"Reporting on student voices, campus debates, and the politics shaping life at Yale.", terms:["campus"], nav:"LOCAL"},
@@ -40,7 +41,7 @@ function shell(content, active) {
     const submenu=children.length?'<button class="nav-toggle" data-nav-toggle aria-label="Open '+item[0].toLowerCase()+' menu" aria-controls="'+menuId+'" aria-expanded="false">⌄</button><div class="nav-dropdown nav-compact" data-nav-menu id="'+menuId+'" hidden>'+children.map(child=>'<a href="'+esc(child[1]===CURRENT_ISSUE?currentIssueHref():child[1])+'">'+child[0]+'<span aria-hidden="true">→</span></a>').join('')+'</div>':'';
     return '<div class="nav-item" data-nav-item data-nav-section="'+item[0].toLowerCase()+'" data-has-menu="'+Boolean(children.length)+'"><a class="nav-trigger '+(active===item[0]?'active':'')+'" data-nav-trigger href="'+item[1]+'">'+item[0]+'</a>'+submenu+'</div>';
   }).join("");
-  return "<div class=\"site\"><a class=\"skip-link\" href=\"#main-content\" data-skip>Skip to content</a><header class=\"site-header\"><div class=\"utility shell\"><span>" + date(new Date().toISOString(), true).toUpperCase() + "</span><span class=\"utility-center\">THE YALE JOURNAL OF POLITICS <b>•</b> SINCE 1947</span><div class=\"utility-actions\"><button class=\"text-button\" data-search>⌕ &nbsp;SEARCH</button><button class=\"join-button\" data-join>INTERESTED IN JOINING?</button></div></div><div class=\"masthead shell\"><a class=\"wordmark\" href=\"/\">The Politic</a></div><nav class=\"primary-nav shell\"><button class=\"mobile-menu\" data-menu>MENU</button><div class=\"nav-links\">" + links + "</div></nav></header><main id=\"main-content\" tabindex=\"-1\">" + content + "</main><footer class=\"site-footer\"><div class=\"shell footer-main\"><div><a class=\"footer-mark\" href=\"/\">The Politic</a><p>Yale's political journal since 1947.<br>Independent voices and student reporting.</p></div><div><h4>EXPLORE</h4><a href=\"/section/local/\">Local</a><a href=\"/section/national/\">National</a><a href=\"/section/world/\">World</a><a href=\"/archive/\">Archive</a></div><div><h4>CONNECT</h4><a href=\"/team/\">The people behind The Politic</a><a href=\"/competition/\">High school competition</a><a href=\"/join/\">Interested in joining?</a><a href=\"/pages/\">All pages &amp; projects</a><a href=\"/alumni/\">Alumni directory</a><a href=\"/authors/\">All contributors</a><a href=\"/page/contact/\">Contact</a></div></div><div class=\"shell footer-bottom\"><span>© " + new Date().getFullYear() + " The Politic</span><span>Truth. Analysis. Yale.</span></div></footer></div>";
+  return "<div class=\"site\"><a class=\"skip-link\" href=\"#main-content\" data-skip>Skip to content</a><header class=\"site-header\"><div class=\"utility shell\"><div class=\"utility-left\"><button class=\"mobile-menu\" data-menu aria-controls=\"site-nav-links\">MENU</button><span class=\"utility-tagline\">YALE’S POLITICAL JOURNAL <b>•</b> SINCE 1947</span></div><div class=\"utility-actions\"><button class=\"text-button\" data-search>⌕ &nbsp;SEARCH</button><button class=\"join-button\" data-join>INTERESTED IN JOINING?</button></div></div><div class=\"masthead shell\"><a class=\"wordmark wordmark-logo\" href=\"/\"><img src=\"/assets/the-politic-logo.png\" alt=\"The Politic\" width=\"396\" height=\"288\"></a></div><nav class=\"primary-nav shell\" aria-label=\"Sections\"><div class=\"nav-links\" id=\"site-nav-links\">" + links + "</div></nav></header><main id=\"main-content\" tabindex=\"-1\">" + content + "</main><footer class=\"site-footer\"><div class=\"shell footer-main\"><div><a class=\"footer-mark\" href=\"/\">The Politic</a><p>Yale's political journal since 1947.</p></div><div><h4>EXPLORE</h4><a href=\"/section/local/\">Local</a><a href=\"/section/national/\">National</a><a href=\"/section/world/\">World</a><a href=\"/archive/\">Archive</a></div><div><h4>CONNECT</h4><a href=\"/history/\">Our history</a><a href=\"/team/\">The team</a><a href=\"/competition/\">High school competition</a><a href=\"/join/\">Interested in joining?</a><a href=\"/pages/\">All pages &amp; projects</a><a href=\"/alumni/\">Alumni directory</a><a href=\"/authors/\">Staffers</a><a href=\"/page/contact/\">Contact</a></div></div><div class=\"shell footer-bottom\"><span>© " + new Date().getFullYear() + " The Politic</span><span>Truth. Analysis. Yale.</span></div></footer></div>";
 }
 
 const app=document.querySelector('#app');
@@ -79,7 +80,10 @@ const strip=v=>{ const t=document.createElement('template');t.innerHTML=String(v
 const date=(v,long=false)=>{const d=new Date(v);return Number.isNaN(d.getTime())?'':new Intl.DateTimeFormat('en-US',{month:long?'long':'short',day:'numeric',year:'numeric'}).format(d);};
 const mainSlugs=['local','national','world','culture','opinion','interviews','podcasts','documentary','photojournalism','photo-essay'];
 const category=p=>p?.categories?.find(c=>mainSlugs.includes(c.slug))?.name||p?.categories?.find(c=>c.slug!=='homepage-featured'&&!/issue/.test(c.slug))?.name||'The Politic';
-const label=p=>{const section=p?.categories?.find(c=>mainSlugs.includes(c.slug))?.name;return (section||(p?.categories?.some(c=>c.slug==='homepage-featured')?'FEATURED':category(p))).toUpperCase();};
+// On a section's own page, stories filed under several sections show that section's name.
+let preferredSection='';
+const label=p=>{const section=p?.categories?.find(c=>c.slug===preferredSection&&mainSlugs.includes(c.slug))?.name||p?.categories?.find(c=>mainSlugs.includes(c.slug))?.name;const text=(section||(p?.categories?.some(c=>c.slug==='homepage-featured')?'FEATURED':category(p))).toUpperCase();return /^THE POLITIC(?: BLOG)?$/.test(text)?'':text;};
+const eyebrow=p=>{const text=label(p);return text?'<div class="eyebrow">'+esc(text)+'</div>':'';};
 const href=p=>'/article/'+encodeURIComponent(p.slug)+'/';
 const authorHref=p=>p?.author?.slug?'/author/'+encodeURIComponent(p.author.slug)+'/':'/authors/';
 const byline=p=>'BY <a href="'+authorHref(p)+'">'+esc(p.author?.name||'The Politic')+'</a><span> · </span><time datetime="'+esc(p.date)+'">'+date(p.date)+'</time>';
@@ -89,8 +93,8 @@ const localMedia=v=>String(v||'').startsWith('/assets/')?v:manifest[canonical(v)
 const decodedSlug=value=>{try{return decodeURIComponent(value||'');}catch{return value;}};
 const hasCategory=(p,slug)=>p.categories.some(c=>c.slug===slug||c.parent===state.categoryIds?.[slug]);
 const photo=(p,cls='card-image')=>p?.featured_media?.url?'<a class="'+cls+'" href="'+href(p)+'"><img src="'+esc(localMedia(p.featured_media.url))+'" alt="'+esc(p.featured_media.alt||'')+'" loading="lazy"></a>':'';
-const card=(p,compact=false)=>p?'<article class="story-card'+(compact?' compact':'')+(!p.featured_media?' no-image':'')+'">'+photo(p)+'<div class="story-card-copy"><div class="eyebrow">'+esc(label(p))+'</div><h3><a href="'+href(p)+'">'+esc(p.title)+'</a></h3><p class="post-subtitle">'+esc(deck(p))+'</p><div class="byline">'+byline(p)+'</div></div></article>':'';
-const listItem=p=>'<article class="list-item'+(!p.featured_media?' no-image':'')+'">'+photo(p,'list-thumb')+'<div class="list-copy"><div class="eyebrow">'+esc(label(p))+'</div><h3><a href="'+href(p)+'">'+esc(p.title)+'</a></h3><p>'+esc(deck(p))+'</p><div class="byline">'+byline(p)+'</div></div></article>';
+const card=(p,compact=false)=>p?'<article class="story-card'+(compact?' compact':'')+(!p.featured_media?' no-image':'')+'">'+photo(p)+'<div class="story-card-copy">'+eyebrow(p)+'<h3><a href="'+href(p)+'">'+esc(p.title)+'</a></h3><p class="post-subtitle">'+esc(deck(p))+'</p><div class="byline">'+byline(p)+'</div></div></article>':'';
+const listItem=p=>'<article class="list-item'+(!p.featured_media?' no-image':'')+'">'+photo(p,'list-thumb')+'<div class="list-copy">'+eyebrow(p)+'<h3><a href="'+href(p)+'">'+esc(p.title)+'</a></h3><p>'+esc(deck(p))+'</p><div class="byline">'+byline(p)+'</div></div></article>';
 const sectionRule=(title,note='')=>'<div class="section-rule"><span>'+esc(title)+'</span><i></i><small>'+esc(note)+'</small></div>';
 const sectionHeader=(title,description='',eyebrow='')=>'<div class="section-header">'+(eyebrow?'<div class="eyebrow">'+esc(eyebrow)+'</div>':'')+'<h1>'+esc(title)+'</h1>'+(description?'<p>'+esc(description)+'</p>':'')+'</div>';
 const issueDisplayName=issue=>String(issue?.title||'').replace(/^(?:The )?Yale Political Journal;\s*A Magazine of Student Opinion\s*/i,'').replace(/^(?:The )?Yale Political (?:Quarterly|Monthly|Magazine)\s*/i,'').replace(/^The Politic\s*/i,'').replace(/\b(19\d{2}|20\d{2})-(19\d{2}|20\d{2})\b/g,'$1–$2').replace(/\bIssue IIII\b/gi,'Issue IV').replace(/\b((?:19|20)\d{2})\s+(January|February|March|April|May|June|July|August|September|October|November|December|Spring|Summer|Fall|Winter)\b/gi,'$2 $1').replace(/\s+/g,' ').trim();
@@ -164,7 +168,7 @@ function legacyHashPath(hash) {
   if(['world','culture','photojournalism','opinion','interviews'].includes(name))return routeLink('section',name,params)+anchor;
   if(name==='us-politics')return routeLink('section','national',params)+anchor;
   if(name==='interview')return routeLink('section','interviews',params)+anchor;
-  if(['issues','history'].includes(name))return routeLink('archive','',params)+anchor;
+  if(name==='issues')return routeLink('archive','',params)+anchor;
   if(name==='high-school-competition')return routeLink('competition','',params)+anchor;
   return routeLink(name,value,params)+anchor;
 }
@@ -173,6 +177,20 @@ function latestIssueCategory() {
   for(const c of Object.values(state.categories||{}))if(/issue/.test(c.slug)&&c.count>0)latest.set(c.slug,{category:c,date:-Infinity});
   for(const p of state.posts)for(const c of p.categories){const entry=latest.get(c.slug);if(entry)entry.date=Math.max(entry.date,Date.parse(p.date));}
   return [...latest.values()].sort((a,b)=>b.date-a.date)[0]?.category;
+}
+// Each issue's main (print) articles are listed by hand in issue-highlights.js, as article
+// links or slugs. They lead that issue's pages; everything else follows in the usual order.
+const mainArticleEntries=typeof issueMainArticles==='object'&&issueMainArticles?issueMainArticles:{};
+function mainArticles(issueSlug) {
+  const seen=new Set();
+  return (mainArticleEntries[issueSlug]||[]).map(entry=>{
+    const slug=decodedSlug(String(entry).split(/[?#]/)[0].split('/').filter(Boolean).pop()||'');
+    return state.posts.find(p=>decodedSlug(p.slug)===slug&&hasCategory(p,issueSlug));
+  }).filter(p=>p&&!seen.has(p.id)&&seen.add(p.id));
+}
+function mainArticlesFirst(posts,issueSlug) {
+  const main=mainArticles(issueSlug).filter(p=>posts.includes(p));
+  return main.length?[...main,...posts.filter(p=>!main.includes(p))]:posts;
 }
 function currentIssueHref() {
   const current=latestIssueCategory();
@@ -251,16 +269,18 @@ function safeHtml(value) {
 }
 function currentIssueFeature(current,excluded=new Set()) {
   if(!current)return '';
-  const allStories=state.posts.filter(p=>hasCategory(p,current.slug));
+  const allStories=mainArticlesFirst(state.posts.filter(p=>hasCategory(p,current.slug)),current.slug);
   const stories=allStories.filter(p=>!excluded.has(p.id));
   const collection='/section/'+encodeURIComponent(current.slug)+'/';
   const issue=issueCatalog.find(i=>i.categorySlug===current.slug);
   const issueHref=issue?'/issue/'+encodeURIComponent(issue.id)+'/':collection;
+  // The real cover when the archive has one; otherwise a plain typographic jacket.
+  const cover=issue&&issueCovers[issue.id];
   const name=current.name.replace(/\b(19\d{2}|20\d{2})-(19\d{2}|20\d{2})\b/g,'$1–$2');
   const number=name.match(/\bIssue\s+(.+)$/i)?.[1]||'';
   const year=name.replace(/\s*Issue\s+.+$/i,'');
   return '<section class="issue-band current-issue-feature" aria-label="Current issue">'+sectionRule('Current Issue','STUDENT VOICES. A WIDER CONVERSATION.')
-    +'<div class="current-issue-grid"><figure class="current-issue-cover"><a class="current-issue-jacket" href="'+issueHref+'" aria-label="Read '+esc(name)+'"><span class="issue-jacket-wordmark">The Politic</span><span class="issue-jacket-year">'+esc(year)+'</span><span class="issue-jacket-number"><small>ISSUE</small>'+esc(number||name)+'</span><span class="issue-jacket-footer">Yale’s political journal<br>Since 1947</span></a></figure>'
+    +'<div class="current-issue-grid"><figure class="current-issue-cover">'+(cover?.url?'<a class="current-issue-cover-image" href="'+issueHref+'" aria-label="Read '+esc(name)+'"><img src="'+esc(cover.url)+'" alt="Front cover of '+esc(name)+'" width="'+cover.width+'" height="'+cover.height+'"></a>':'<a class="current-issue-jacket" href="'+issueHref+'" aria-label="Read '+esc(name)+'"><span class="issue-jacket-wordmark">The Politic</span><span class="issue-jacket-year">'+esc(year)+'</span><span class="issue-jacket-number"><small>ISSUE</small>'+esc(number||name)+'</span><span class="issue-jacket-footer">Yale’s political journal<br>Since 1947</span></a>')+'</figure>'
     +'<div class="current-issue-details"><p class="current-issue-edition">'+esc(year)+'</p><h2>'+esc(name)+'</h2><p class="current-issue-deck">Reporting and analysis from Yale and beyond. Explore '+allStories.length+' stories on politics, culture, and the forces shaping our world.</p><span class="current-issue-accent" aria-hidden="true"></span><a class="button button-solid current-issue-read" href="'+collection+'">Explore the collection <span aria-hidden="true">⟶</span></a><a class="current-issue-archive-link" href="/archive/">Browse past issues <span aria-hidden="true">→</span></a></div>'
     +'<nav class="current-issue-toc" aria-label="In this issue"><h3>In this issue</h3><ol>'+stories.slice(0,4).map(p=>'<li><a href="'+href(p)+'"><span class="current-issue-story-title">'+esc(p.title)+'</span><span class="current-issue-story-author">'+esc(p.author?.name||'The Politic')+'</span></a></li>').join('')+'</ol><a class="current-issue-all" href="'+collection+'">View all '+allStories.length+' articles <span aria-hidden="true">→</span></a></nav></div></section>';
 }
@@ -272,11 +292,11 @@ function home() {
   const homeSide=rest.slice(0,3);
   const used=new Set([lead,...homeSide].map(p=>p.id));
   const currentIssue=currentIssueFeature(current,used);
-  if(current)state.posts.filter(p=>hasCategory(p,current.slug)&&!used.has(p.id)).slice(0,4).forEach(p=>used.add(p.id));
+  if(current)mainArticlesFirst(state.posts.filter(p=>hasCategory(p,current.slug)),current.slug).filter(p=>!used.has(p.id)).slice(0,4).forEach(p=>used.add(p.id));
   const latest=rest.filter(p=>!used.has(p.id)).slice(0,3);latest.forEach(p=>used.add(p.id));
   const local=state.posts.filter(p=>hasCategory(p,'local')&&!used.has(p.id)).slice(0,3);local.forEach(p=>used.add(p.id));
   const more=state.posts.filter(p=>!used.has(p.id)).slice(0,6);
-  return pageWrap('The Politic',sectionRule('Featured','POLITICS LIVES HERE')+'<section class="home-lead"><article class="hero-story">'+photo(lead,'hero-image')+'<div class="eyebrow">'+esc(label(lead))+'</div><h1><a href="'+href(lead)+'">'+esc(lead.title)+'</a></h1><p class="hero-deck">'+esc(deck(lead))+'</p><div class="byline">'+byline(lead)+'</div></article><div class="home-side">'+homeSide.map(p=>card(p,true)).join('')+'</div></section>'
+  return pageWrap('The Politic',sectionRule('Featured','POLITICS LIVES HERE')+'<section class="home-lead"><article class="hero-story">'+photo(lead,'hero-image')+eyebrow(lead)+'<h1><a href="'+href(lead)+'">'+esc(lead.title)+'</a></h1><p class="hero-deck">'+esc(deck(lead))+'</p><div class="byline">'+byline(lead)+'</div></article><div class="home-side">'+homeSide.map(p=>card(p,true)).join('')+'</div></section>'
     +currentIssue
     +'<section class="subsection">'+sectionRule('Latest','NEWS. PERSPECTIVE. ALWAYS.')+'<div class="analysis-grid">'+latest.map(p=>card(p)).join('')+'</div></section><section class="subsection">'+sectionRule('Yale & New Haven','OUR CITY. A WIDER WORLD.')+'<div class="analysis-grid">'+local.map(p=>card(p)).join('')+'</div></section><section class="subsection">'+sectionRule('More Reporting')+more.map(listItem).join('')+'<a class="button button-outline centered" href="/search/">Browse all '+state.posts.length.toLocaleString()+' articles →</a></section>','HOME');
 }
@@ -284,14 +304,14 @@ function sectionPage(slug) {
   slug=slug==='us-politics'?'national':slug;
   const cat=Object.values(state.categories).find(c=>c.slug===slug);
   if(!cat)return notFound();
-  const matches=state.posts.filter(p=>hasCategory(p,slug)||(slug==='photojournalism'&&hasCategory(p,'photo-essay')));
+  const matches=mainArticlesFirst(state.posts.filter(p=>hasCategory(p,slug)||(slug==='photojournalism'&&hasCategory(p,'photo-essay'))),slug);
   const result=paginate(matches,16);
   const rows=result.rows;
   const lead=rows[0];
-  let content=sectionHeader(cat.name,strip(cat.description)||'Reporting and ideas from The Politic.')+'<div class="result-count">'+matches.length+' articles</div>';
-  if(lead&&result.current===1)content+='<section class="landing-grid"><article class="landing-lead">'+photo(lead,'hero-image')+'<div class="eyebrow">'+esc(label(lead))+'</div><h2><a href="'+href(lead)+'">'+esc(lead.title)+'</a></h2><p class="large-deck">'+esc(deck(lead))+'</p><div class="byline">'+byline(lead)+'</div></article><div class="landing-side">'+rows.slice(1,4).map(p=>card(p,true)).join('')+'</div></section><div class="article-list">'+rows.slice(4).map(listItem).join('')+'</div>';
+  let content=sectionHeader(cat.name,strip(cat.description));
+  if(lead&&result.current===1)content+='<section class="landing-grid"><article class="landing-lead">'+photo(lead,'hero-image')+eyebrow(lead)+'<h2><a href="'+href(lead)+'">'+esc(lead.title)+'</a></h2><p class="large-deck">'+esc(deck(lead))+'</p><div class="byline">'+byline(lead)+'</div></article><div class="landing-side">'+rows.slice(1,4).map(p=>card(p,true)).join('')+'</div></section><div class="article-list">'+rows.slice(4).map(listItem).join('')+'</div>';
   else content+=rows.map(listItem).join('')||'<p>No published articles in this section yet.</p>';
-  return pageWrap(cat.name,content+result.controls,slug.toUpperCase());
+  return pageWrap(cat.name,'<div class="section-page">'+content+result.controls+'</div>',slug.toUpperCase());
 }
 function topicPage(slug) {
   const topic=topicDefinitions[slug];if(!topic)return notFound();
@@ -305,14 +325,14 @@ function topicPage(slug) {
     });
   });
   const result=paginate(matches,16),rows=result.rows,lead=rows[0];
-  let content=sectionHeader(topic.title,topic.description)+'<div class="result-count">'+matches.length+' articles</div>';
-  if(lead&&result.current===1)content+='<section class="landing-grid"><article class="landing-lead">'+photo(lead,'hero-image')+'<div class="eyebrow">'+esc(label(lead))+'</div><h2><a href="'+href(lead)+'">'+esc(lead.title)+'</a></h2><p class="large-deck">'+esc(deck(lead))+'</p><div class="byline">'+byline(lead)+'</div></article><div class="landing-side">'+rows.slice(1,4).map(p=>card(p,true)).join('')+'</div></section><div class="article-list">'+rows.slice(4).map(listItem).join('')+'</div>';
+  let content=sectionHeader(topic.title);
+  if(lead&&result.current===1)content+='<section class="landing-grid"><article class="landing-lead">'+photo(lead,'hero-image')+eyebrow(lead)+'<h2><a href="'+href(lead)+'">'+esc(lead.title)+'</a></h2><p class="large-deck">'+esc(deck(lead))+'</p><div class="byline">'+byline(lead)+'</div></article><div class="landing-side">'+rows.slice(1,4).map(p=>card(p,true)).join('')+'</div></section><div class="article-list">'+rows.slice(4).map(listItem).join('')+'</div>';
   else if(rows.length)content+=rows.map(listItem).join('');
   else content+='<p class="empty-state">There are no articles in this collection yet. Explore the <a href="/section/'+esc(topic.nav.toLowerCase())+'/">'+esc(topic.nav==='LOCAL'?'Local':topic.nav==='NATIONAL'?'National':topic.nav==='WORLD'?'World':topic.nav==='CULTURE'?'Culture':topic.nav==='OPINION'?'Opinion':'Interviews')+' desk</a> for more reporting.</p>';
   return pageWrap(topic.title,'<div class="section-page topic-page">'+content+result.controls+'</div>',topic.nav);
 }
 function multimedia() {
-  return pageWrap('Listen & Watch',sectionHeader('Listen & Watch','Podcasts, films, and photojournalism from The Politic.')+['documentary','podcasts','photojournalism'].map(slug=>'<section class="subsection">'+sectionRule(slug==='documentary'?'Documentary':slug==='podcasts'?'Podcasts':'Photojournalism')+'<div class="analysis-grid">'+state.posts.filter(p=>hasCategory(p,slug)||(slug==='photojournalism'&&hasCategory(p,'photo-essay'))).slice(0,3).map(p=>card(p)).join('')+'</div><a class="button button-outline" href="/section/'+slug+'/">Browse all '+slug+' →</a></section>').join('')+'<section class="subsection">'+sectionRule('Print editions')+'<p>Read available PDFs in the website.</p><a class="button button-solid" href="/archive/">Explore the archive →</a></section>','MULTIMEDIA');
+  return pageWrap('Listen & Watch',sectionHeader('Listen & Watch')+['documentary','podcasts','photojournalism'].map(slug=>'<section class="subsection">'+sectionRule(slug==='documentary'?'Documentary':slug==='podcasts'?'Podcasts':'Photojournalism')+'<div class="analysis-grid">'+state.posts.filter(p=>hasCategory(p,slug)||(slug==='photojournalism'&&hasCategory(p,'photo-essay'))).slice(0,3).map(p=>card(p)).join('')+'</div><a class="button button-outline" href="/section/'+slug+'/">Browse all '+slug+' →</a></section>').join('')+'<section class="subsection">'+sectionRule('Print editions')+'<p>Read available PDFs in the website.</p><a class="button button-solid" href="/archive/">Explore the archive →</a></section>','MULTIMEDIA');
 }
 function authorInfo(author) {
   return {...author,...(teamBios.find(p=>p.name.toLowerCase()===author?.name?.toLowerCase())||{})};
@@ -324,7 +344,7 @@ function authorPage(slug) {
   const author=Object.values(state.authors).find(a=>a.slug===slug);if(!author)return notFound();
   const person=authorInfo(author), result=paginate(state.posts.filter(p=>p.author.id===author.id));
   const portrait=person.image?'<img src="'+esc(person.image)+'" alt="'+esc(person.name)+'">':'';
-  return pageWrap(person.name,'<section class="author-hero real-author'+(!portrait?' no-portrait':'')+'">'+portrait+'<div><div class="eyebrow">Contributor</div><h1>'+esc(person.name)+'</h1>'+(person.role?'<h2>'+esc(person.role)+'</h2>':'')+'<p>'+esc(person.bio||person.description||'Reporting and contributions to The Politic.')+'</p><p>'+result.total+' published articles</p></div></section><section class="subsection">'+sectionRule('Articles')+result.rows.map(listItem).join('')+result.controls+'</section>');
+  return pageWrap(person.name,'<section class="author-hero real-author'+(!portrait?' no-portrait':'')+'">'+portrait+'<div><h1>'+esc(person.name)+'</h1>'+(person.role?'<h2>'+esc(person.role)+'</h2>':'')+((person.bio||person.description)?'<p>'+esc(person.bio||person.description)+'</p>':'')+'<p>'+result.total+' published articles</p></div></section><section class="subsection">'+sectionRule('Articles')+result.rows.map(listItem).join('')+result.controls+'</section>');
 }
 function articlePage(slug) {
   const post=state.posts.find(p=>p.slug===slug);if(!post)return notFound();
@@ -343,7 +363,7 @@ function articlePage(slug) {
   updateMeta('name','twitter:card','summary_large_image');
   updateMeta('name','twitter:image',new URL(image,location.origin).href);
   const saved=readSaved().includes(post.id);
-  return shell('<div class="shell article-page"><div class="article-layout"><article class="article-main"><div class="eyebrow">'+esc(label(post))+'</div><h1>'+esc(post.title)+'</h1>'+(description?'<p class="article-deck">'+esc(description)+'</p>':'')+'<div class="article-byline">'+byline(post)+'<span> · </span>'+post.readingMinutes+' MIN READ</div><div class="share-row"><button data-copy>Copy link</button><a href="https://twitter.com/intent/tweet?url='+shareUrl+'&amp;text='+shareTitle+'" target="_blank" rel="noopener noreferrer">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u='+shareUrl+'" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/sharing/share-offsite/?url='+shareUrl+'" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:?subject='+shareTitle+'&amp;body='+shareUrl+'">Email</a><button data-save="'+post.id+'" aria-pressed="'+saved+'">'+(saved?'Saved':'Save article')+'</button><a href="/saved/">Saved articles</a><a href="'+href(post)+'#comments-heading">Comments</a><span class="share-status" role="status"></span></div>'+(post.featured_media?'<figure class="article-hero"><img src="'+esc(localMedia(post.featured_media.url))+'" alt="'+esc(post.featured_media.alt||'')+'">'+(post.featured_media.caption?'<figcaption>'+safeHtml(post.featured_media.caption)+'</figcaption>':'')+'</figure>':'')+'<div class="article-body">'+safeHtml(body.content)+'</div><div class="article-author">'+(author.image?'<img src="'+esc(author.image)+'" alt="'+esc(author.name)+'">':'')+'<div><div class="eyebrow">About the author</div><h3><a href="'+authorHref(post)+'">'+esc(author.name)+'</a></h3><p>'+esc(author.bio||author.description||'Explore this contributor’s reporting.')+'</p></div><a class="button button-outline" href="'+authorHref(post)+'">View all articles →</a></div></article></div>'+guestComments(post)+'<section class="subsection related-coverage">'+sectionRule('Related Coverage')+'<div class="analysis-grid">'+related.map(p=>card(p)).join('')+'</div></section>'+(body.comments?.length?'<section class="discussion">'+sectionRule('Archived Comments')+body.comments.map(c=>'<article><h3>'+esc(c.author_name)+'</h3><time>'+date(c.date)+'</time>'+safeHtml(c.content.rendered)+'</article>').join('')+'</section>':'')+'</div>',category(post).toUpperCase());
+  return shell('<div class="shell article-page"><div class="article-layout"><article class="article-main">'+eyebrow(post)+'<h1>'+esc(post.title)+'</h1>'+(description?'<p class="article-deck">'+esc(description)+'</p>':'')+'<div class="article-byline">'+byline(post)+'<span> · </span>'+post.readingMinutes+' MIN READ</div><div class="share-row"><button data-copy>Copy link</button><a href="https://twitter.com/intent/tweet?url='+shareUrl+'&amp;text='+shareTitle+'" target="_blank" rel="noopener noreferrer">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u='+shareUrl+'" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/sharing/share-offsite/?url='+shareUrl+'" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:?subject='+shareTitle+'&amp;body='+shareUrl+'">Email</a><button data-save="'+post.id+'" aria-pressed="'+saved+'">'+(saved?'Saved':'Save article')+'</button><a href="/saved/">Saved articles</a><a href="'+href(post)+'#comments-heading">Comments</a><span class="share-status" role="status"></span></div>'+(post.featured_media?'<figure class="article-hero"><img src="'+esc(localMedia(post.featured_media.url))+'" alt="'+esc(post.featured_media.alt||'')+'">'+(post.featured_media.caption?'<figcaption>'+safeHtml(post.featured_media.caption)+'</figcaption>':'')+'</figure>':'')+'<div class="article-body">'+safeHtml(body.content)+'</div><div class="article-author">'+(author.image?'<img src="'+esc(author.image)+'" alt="'+esc(author.name)+'">':'')+'<div><div class="eyebrow">About the author</div><h3><a href="'+authorHref(post)+'">'+esc(author.name)+'</a></h3>'+((author.bio||author.description)?'<p>'+esc(author.bio||author.description)+'</p>':'')+'</div><a class="button button-outline" href="'+authorHref(post)+'">View all articles →</a></div></article></div>'+guestComments(post)+'<section class="subsection related-coverage">'+sectionRule('Related Coverage')+'<div class="analysis-grid">'+related.map(p=>card(p)).join('')+'</div></section>'+(body.comments?.length?'<section class="discussion">'+sectionRule('Archived Comments')+body.comments.map(c=>'<article><h3>'+esc(c.author_name)+'</h3><time>'+date(c.date)+'</time>'+safeHtml(c.content.rendered)+'</article>').join('')+'</section>':'')+'</div>',category(post).toUpperCase());
 }
 function articleDeck(post,content) {
   const summary=deck(post).trim();
@@ -405,8 +425,13 @@ function competitionPage() {
   return pageWrap('The Politic High School Essay Competition',html,'','The Politic’s inaugural high school essay competition: published 2026 results, semi-finalists, and original rules.');
 }
 function authorsPage() {
-  const result=paginate(Object.values(state.authors).sort((a,b)=>a.name.localeCompare(b.name)),40);
-  return pageWrap('Contributors',sectionHeader('Contributors','Explore reporting by every Politic contributor.')+'<div class="contributors-grid">'+result.rows.map(a=>'<a href="/author/'+encodeURIComponent(a.slug)+'/">'+esc(a.name)+'</a>').join('')+'</div>'+result.controls);
+  const query=(route.params.get('q')||'').trim();
+  const normalize=text=>String(text).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  const terms=normalize(query).split(/\s+/).filter(Boolean);
+  const people=Object.values(state.authors).filter(a=>{const name=normalize(a.name);return terms.every(term=>name.includes(term));}).sort((a,b)=>a.name.localeCompare(b.name));
+  const result=paginate(people,40);
+  const search='<form class="staffer-search" data-staffer-search role="search" aria-label="Search staffers"><label for="staffer-query">Search by name</label><div><input id="staffer-query" type="search" name="q" value="'+esc(query)+'" placeholder="Type a name" autocomplete="off"><button class="button button-solid" type="submit">Search</button>'+(query?'<a href="/authors/">Clear</a>':'')+'</div></form>';
+  return pageWrap('Staffers',sectionHeader('Staffers')+search+(query?'<p class="staffer-count" role="status">'+people.length+(people.length===1?' staffer matches':' staffers match')+' “'+esc(query)+'”</p>':'')+(people.length?'<div class="contributors-grid">'+result.rows.map(a=>'<a href="/author/'+encodeURIComponent(a.slug)+'/">'+esc(a.name)+'</a>').join('')+'</div>':'<p class="empty-state">No staffer by that name. Check the spelling or <a href="/authors/">see everyone</a>.</p>')+result.controls,'ABOUT');
 }
 function alumniPage() {
   const query=(route.params.get('q')||'').trim();
@@ -418,12 +443,20 @@ function alumniPage() {
     return (!field||person.field===field)&&terms.every(term=>text.includes(term));
   }).sort((a,b)=>a.sortName.localeCompare(b.sortName));
   const options=alumniFields.map(([id,label])=>'<option value="'+id+'"'+(field===id?' selected':'')+'>'+esc(label)+'</option>').join('');
-  const cards=people.map(person=>{
+  const featuredList=!query&&!field&&typeof alumniFeatured==='object'?alumniFeatured.filter(f=>alumniDirectory.some(p=>p.name===f.name)):[];
+  const featuredNames=featuredList.map(f=>f.name);
+  const card=person=>{
     const names=[person.name,...(person.aliases||[])];
     const author=Object.values(state.authors).find(a=>names.includes(a.name)&&state.posts.some(p=>p.author?.id===a.id));
-    return '<article class="alumni-card"><div class="eyebrow">'+esc(alumniFields.find(([id])=>id===person.field)[1])+'</div><h3>'+esc(person.name)+'</h3><p class="alumni-bio">'+esc(person.bio)+'</p><dl class="alumni-connection"><div><dt>The Politic</dt><dd>'+esc(person.role)+'</dd></div><div><dt>Archive</dt><dd>'+esc(person.years)+'</dd></div></dl><div class="alumni-card-links"><a href="'+esc(person.source)+'" target="_blank" rel="noopener noreferrer" aria-label="Biography of '+esc(person.name)+' (opens in a new tab)">Biography <span aria-hidden="true">↗</span></a>'+(author?'<a href="/author/'+encodeURIComponent(author.slug)+'/">Articles in The Politic <span aria-hidden="true">→</span></a>':'')+'</div></article>';
-  }).join('');
-  return pageWrap('Alumni Directory','<section class="alumni-intro"><div><div class="eyebrow">Alumni directory</div><h1>Alumni &amp; Contributors</h1><p class="alumni-deck">A continuing conversation.</p></div><div class="alumni-intro-copy"><p>A selection of the editors, writers, and contributors who have shaped The Politic—and the conversations beyond its pages.</p><p>This directory includes former staff and guest contributors; not every person listed was a student alumnus. Archive dates refer to recorded issues, not graduation years or complete tenures.</p></div></section><form class="alumni-filters" data-alumni-filter role="search" aria-label="Search alumni directory"><label for="alumni-query">Search the directory<input id="alumni-query" type="search" name="q" value="'+esc(query)+'" placeholder="Name, work, or year"></label><label for="alumni-field">Field<select id="alumni-field" name="field"><option value="">All fields</option>'+options+'</select></label><button class="button button-solid" type="submit">Search directory</button>'+((query||field)?'<a class="alumni-clear" href="/alumni/">Clear filters</a>':'')+'</form><div class="alumni-directory-heading"><h2>Selected directory</h2><p role="status">'+people.length+' of '+alumniDirectory.length+' profiles · Alphabetical by surname</p></div>'+(people.length?'<div class="alumni-grid">'+cards+'</div>':'<div class="alumni-empty"><h3>No matching profiles</h3><p>Try a different name or field, or <a href="/alumni/">view the full selection</a>.</p></div>')+'<aside class="alumni-bottom"><div><h2>Explore the wider story</h2><p>This is a selected directory, not a complete list of everyone who has contributed to The Politic.</p></div><div><a href="/authors/">All contributors →</a><a href="/archive/">Read the archive →</a><a href="/team/">Meet the current team →</a></div></aside>');
+    const feature=featuredList.find(f=>f.name===person.name);
+    const portrait=feature?'<img class="alumni-photo" src="'+esc(feature.photo)+'" alt="'+esc(person.name)+'" width="480" height="600" loading="lazy">':'';
+    const credit=feature?'<p class="alumni-photo-credit">Photo: <a href="'+esc(feature.creditUrl)+'" target="_blank" rel="noopener noreferrer">'+esc(feature.credit)+'</a> · '+esc(feature.license)+'</p>':'';
+    return '<article class="alumni-card'+(feature?' alumni-featured-card':'')+'">'+portrait+'<div class="eyebrow">'+esc(alumniFields.find(([id])=>id===person.field)[1])+'</div><h3>'+esc(person.name)+'</h3><p class="alumni-bio">'+esc(person.bio)+'</p><dl class="alumni-connection"><div><dt>The Politic</dt><dd>'+esc(person.role)+'</dd></div><div><dt>Archive</dt><dd>'+esc(person.years)+'</dd></div></dl><div class="alumni-card-links"><a href="'+esc(person.source)+'" target="_blank" rel="noopener noreferrer" aria-label="Biography of '+esc(person.name)+' (opens in a new tab)">Biography <span aria-hidden="true">↗</span></a>'+(author?'<a href="/author/'+encodeURIComponent(author.slug)+'/">Articles in The Politic <span aria-hidden="true">→</span></a>':'')+'</div>'+credit+'</article>';
+  };
+  const featuredCards=featuredNames.map(name=>card(alumniDirectory.find(p=>p.name===name))).join('');
+  const rest=people.filter(p=>!featuredNames.includes(p.name));
+  const cards=rest.map(card).join('');
+  return pageWrap('Alumni Directory','<section class="alumni-intro"><div><div class="eyebrow">Alumni directory</div><h1>Alumni &amp; Contributors</h1><p class="alumni-deck">A continuing conversation.</p></div><div class="alumni-intro-copy"><p>A selection of the editors, writers, and contributors who have shaped The Politic—and the conversations beyond its pages.</p><p>This directory includes former staff and guest contributors; not every person listed was a student alumnus. Archive dates refer to recorded issues, not graduation years or complete tenures.</p></div></section><form class="alumni-filters" data-alumni-filter role="search" aria-label="Search alumni directory"><label for="alumni-query">Search the directory<input id="alumni-query" type="search" name="q" value="'+esc(query)+'" placeholder="Name, work, or year"></label><label for="alumni-field">Field<select id="alumni-field" name="field"><option value="">All fields</option>'+options+'</select></label><button class="button button-solid" type="submit">Search directory</button>'+((query||field)?'<a class="alumni-clear" href="/alumni/">Clear filters</a>':'')+'</form>'+(featuredCards?'<section class="alumni-featured" aria-labelledby="alumni-featured-heading"><h2 id="alumni-featured-heading">Notable alumni</h2><div class="alumni-featured-grid">'+featuredCards+'</div></section>':'')+'<div class="alumni-directory-heading"><h2>'+(featuredCards?'More alumni &amp; contributors':'Selected directory')+'</h2><p role="status">'+people.length+' of '+alumniDirectory.length+' profiles · Alphabetical by surname</p></div>'+(people.length?'<div class="alumni-grid">'+cards+'</div>':'<div class="alumni-empty"><h3>No matching profiles</h3><p>Try a different name or field, or <a href="/alumni/">view the full selection</a>.</p></div>')+'<aside class="alumni-bottom"><div><h2>Explore the wider story</h2><p>This is a selected directory, not a complete list of everyone who has contributed to The Politic.</p></div><div><a href="/authors/">All staffers →</a><a href="/archive/">Read the archive →</a><a href="/team/">Meet the current team →</a></div></aside>','ABOUT');
 }
 function teamPage() {
   const leadershipNames=new Set(teamRows.flatMap(row=>row.names));
@@ -434,7 +467,38 @@ function teamPage() {
     const portrait=p.image?'<img src="'+esc(p.image)+'" alt="'+esc(p.name)+'" loading="lazy">':showPortrait?'<div class="person-photo-placeholder" role="img" aria-label="No portrait supplied for '+esc(p.name)+'">'+esc(initials)+'</div>':'';
     return '<article class="team-bio-card">'+portrait+'<div class="eyebrow">'+esc(p.section)+'</div><h3>'+(a?'<a href="/author/'+encodeURIComponent(a.slug)+'/">'+esc(p.name)+'</a>':esc(p.name))+'</h3><p class="team-bio-role">'+esc(p.role)+'</p>'+(p.bio?'<p class="team-bio-copy">'+esc(p.bio)+'</p>':'')+'</article>';
   };
-  return pageWrap('The People Behind The Politic',sectionHeader('The People Behind The Politic','A student newsroom. A stronger conversation.')+rows.map(row=>'<section class="team-roster-section" aria-labelledby="team-'+row.id+'-heading"><h2 class="team-row-heading" id="team-'+row.id+'-heading">'+esc(row.title)+'</h2><div class="team-bio-grid team-row-'+row.id+'">'+row.people.map(p=>personCard(p,row.id!=='managing')).join('')+'</div></section>').join('')+'<section class="subsection"><a class="button button-outline" href="/page/our-team/">Read the masthead →</a> <a class="button button-outline" href="/authors/">All contributors →</a> <a class="button button-outline" href="/alumni/">Alumni directory →</a></section>');
+  return pageWrap('The Team',sectionHeader('The Team')+rows.map(row=>'<section class="team-roster-section" aria-labelledby="team-'+row.id+'-heading"><h2 class="team-row-heading" id="team-'+row.id+'-heading">'+esc(row.title)+'</h2><div class="team-bio-grid team-row-'+row.id+'">'+row.people.map(p=>personCard(p,row.id!=='managing')).join('')+'</div></section>').join('')+'<section class="subsection"><a class="button button-outline" href="/page/our-team/">Read the masthead →</a> <a class="button button-outline" href="/authors/">All staffers →</a> <a class="button button-outline" href="/alumni/">Alumni directory →</a></section>','ABOUT');
+}
+// Dates and wording follow the publication's own history page (/page/our-history/).
+const historyTimeline=[
+  ['1947','Students found the Yale Political Journal: A Magazine of Student Opinion.'],
+  ['1979','Robert Kagan ’80 revives the publication as the Yale Political Monthly.'],
+  ['2001','Students relaunch it as The Politic after the 2000 presidential election.'],
+  ['2014','Interviews with more than 100 diplomats are published as the book Diplomatic Discourse.'],
+  ['2017','The Politic releases its first documentary, Resettled: New Haven’s Refugee Community.'],
+  ['Today','Long-form reporting in print, with daily articles and multimedia online.']
+];
+function historyPage() {
+  const issueYear=issue=>Number((issue.era.match(/\d{4}/)||[])[0])||0;
+  // The catalog runs newest first, so reversing it gives each decade's earliest readable issue.
+  const readable=[...issueCatalog].reverse().filter(i=>issueCovers[i.id]?.url&&(i.pdf||issueEmbedUrl(i))).sort((a,b)=>issueYear(a)-issueYear(b));
+  const decades=new Map();
+  for(const issue of readable){const decade=Math.floor(issueYear(issue)/10)*10;if(decade&&!decades.has(decade))decades.set(decade,issue);}
+  const first=readable[0];
+  const cover=(issue,cls='')=>{const c=issueCovers[issue.id];return '<img'+(cls?' class="'+cls+'"':'')+' src="'+esc(c.url)+'" alt="Front cover of '+esc(issueDisplayName(issue))+'" width="'+c.width+'" height="'+c.height+'" loading="lazy" decoding="async">';};
+  const voices=(typeof alumniFeatured==='object'?alumniFeatured:[]).slice(0,4).map(f=>({...f,person:alumniDirectory.find(p=>p.name===f.name)})).filter(v=>v.person);
+  const timeline='<ol class="history-timeline">'+historyTimeline.map(([year,text])=>'<li><b>'+esc(year)+'</b><p>'+esc(text)+'</p></li>').join('')+'</ol>';
+  const archiveFeature=first?'<section class="history-section"><h2>From the archive</h2><div class="history-archive-feature"><a href="/issue/'+encodeURIComponent(first.id)+'/">'+cover(first)+'</a><div><div class="eyebrow red">The first issue</div><h3>'+esc(issueDisplayName(first))+'</h3><p>Read the first issue of the Yale Political Journal, page by page, in the on-site reader.</p><a class="arrow-link" href="/issue/'+encodeURIComponent(first.id)+'/">Read the issue →</a></div></div></section>':'';
+  const voicesSection=voices.length?'<section class="history-section"><h2>Notable alumni</h2><div class="history-voices">'+voices.map(v=>'<a href="/alumni/"><img src="'+esc(v.photo)+'" alt="'+esc(v.name)+'" width="480" height="600" loading="lazy"><b>'+esc(v.name)+'</b><span>'+esc(v.person.role)+', '+esc(v.person.years)+'</span></a>').join('')+'</div><a class="arrow-link" href="/alumni/">See the alumni directory →</a></section>':'';
+  const decadeRow=decades.size?'<h3 class="history-subhead">Browse by decade</h3><div class="history-decades">'+[...decades].map(([decade,issue])=>'<a href="/issue/'+encodeURIComponent(issue.id)+'/"><span>'+decade+'s</span>'+cover(issue)+'<b>Read issue →</b></a>').join('')+'</div>':'';
+  const html='<div class="history-page">'
+    +'<section class="history-hero"><div><div class="eyebrow red">About</div><h1>The Politic, since 1947</h1><p class="history-deck">Yale’s undergraduate journal of politics and culture.</p><a class="arrow-link" href="/page/our-history/">Read the full history →</a></div><blockquote class="history-quote"><p>“We have coined as our by-line, ‘a magazine of student opinion,’ presupposing that student opinion is worthy of separation from the attitudes of other groups and that it is worthy as well of attention and study.”</p><cite>The founding editors, 1947</cite></blockquote></section>'
+    +'<section class="history-section"><h2>Our history</h2>'+timeline+'</section>'
+    +'<div class="history-columns">'+archiveFeature+voicesSection+'</div>'
+    +'<section class="history-section"><h2>Explore the archive</h2><form class="history-search" data-history-search role="search" aria-label="Search the archive"><input type="search" name="q" aria-label="Search the archive" placeholder="Search articles, writers, and topics" required><button class="button button-solid" type="submit">Search</button></form>'+decadeRow+'<p class="history-all-issues"><a class="arrow-link" href="/archive/">View all issues →</a></p></section>'
+    +'<section class="history-section"><h2>More about The Politic</h2><div class="history-links"><a href="/team/">The team</a><a href="/alumni/">Alumni</a><a href="/authors/">Staffers</a><a href="/join/">Interested in joining?</a><a href="/page/contact/">Contact</a><a href="https://elischolar.library.yale.edu/politic/" target="_blank" rel="noopener noreferrer">Yale digital archive ↗</a></div></section>'
+    +'</div>';
+  return pageWrap('Our History',html,'ABOUT','The Politic traces its roots to 1947, when Yale students founded the Yale Political Journal: A Magazine of Student Opinion.');
 }
 function archiveIssueCard(issue) {
   const cover=issueCovers[issue.id],titleId='issue-title-'+issue.id;
@@ -472,7 +536,8 @@ function issuePage(id) {
   const issue=issueCatalog.find(i=>i.id===id||i.aliases?.includes(id));if(!issue)return notFound();
   const pdf=issue.pdf?localMedia(issue.pdf):'';
   const external=pdf&&new URL(pdf,location.href).origin!==location.origin;
-  const collection=issue.categorySlug?'<p><a class="arrow-link" href="/section/'+esc(issue.categorySlug)+'/">Read this issue’s articles →</a></p>':'';
+  const main=issue.categorySlug?mainArticles(issue.categorySlug):[];
+  const collection=(main.length?'<section class="subsection issue-main-articles">'+sectionRule('In this issue')+'<div class="analysis-grid">'+main.map(p=>card(p)).join('')+'</div></section>':'')+(issue.categorySlug?'<p><a class="arrow-link" href="/section/'+esc(issue.categorySlug)+'/">Read '+(main.length?'all of ':'')+'this issue’s articles →</a></p>':'');
   const noScan=issue.categorySlug?'<div class="issue-reader-empty"><h2>Online articles are available for this issue.</h2><p>The digital scan is not available here yet. Browse stories from this collection instead.</p>'+collection+'</div>':'<div class="issue-reader-empty"><h2>This digital edition is not available online.</h2><p>We do not have a verified PDF or working Issuu reader for this edition yet.</p></div>';
   const reader=pdf?'<div class="reader-actions"><a class="button button-solid" href="'+esc(pdf)+'" target="_blank" rel="noopener">Open PDF / print ↗</a>'+(!external?'<a class="button button-outline" href="'+esc(pdf)+'" download>Download PDF</a>':'<p>Official Yale PDF'+(issue.sizeLabel?' · '+esc(issue.sizeLabel):'')+'. Yale may require opening its download in a separate tab.</p>')+'</div><div class="issue-reader-canvas"><div class="issue-pdf-reader" data-pdf-cover="'+(issue.record?2:1)+'" data-pdf-url="'+esc(pdf)+'"><p class="pdf-reader-loading" role="status">Loading the print edition…</p></div></div>'+issuuReader(issue,true):issueEmbedUrl(issue)?issuuReader(issue):noScan;
   return pageWrap(issueDisplayName(issue),'<div class="issue-reader-top"><div><div class="eyebrow">'+(pdf||issueEmbedUrl(issue)?'Print edition':'Article collection')+'</div><h1>'+esc(issueDisplayName(issue))+'</h1><p>'+esc(issue.era)+'</p></div><a class="button button-outline" href="/archive/">← Back to archive</a></div>'+reader+(pdf||issueEmbedUrl(issue)?collection:'')+'<p class="source-page-links">'+(issue.record?'<a href="'+esc(issue.record)+'" target="_blank" rel="noopener">View the Yale archive record ↗</a>':'')+'</p>','ISSUES');
@@ -517,6 +582,7 @@ async function loadArticleChunk(slug) {
 }
 function renderRoute() {
   const {name,value}=route;
+  preferredSection=name==='section'?(value==='us-politics'?'national':value):['world','culture','opinion','interviews','photojournalism'].includes(name)?name:'';
   if(!name)return home();
   if(['article','interview'].includes(name))return value?articlePage(value):sectionPage('interviews');
   if(name==='opinion')return value?articlePage(value):sectionPage('opinion');
@@ -525,7 +591,8 @@ function renderRoute() {
   if(['world','culture','us-politics','photojournalism'].includes(name))return sectionPage(name);
   if(name==='interviews')return sectionPage('interviews');
   if(name==='multimedia')return multimedia();
-  if(['archive','issues','history'].includes(name))return archive();
+  if(['archive','issues'].includes(name))return archive();
+  if(name==='history')return historyPage();
   if(name==='issue')return issuePage(value);
   if(name==='author')return authorPage(value);
   if(name==='authors')return authorsPage();
@@ -634,6 +701,8 @@ function bind() {
   app.querySelector('[data-search-form]')?.addEventListener('submit',e=>{e.preventDefault();const params=Object.fromEntries(['type','year','section','text'].filter(k=>route.params.get(k)).map(k=>[k,route.params.get(k)]));go(routeLink('search',e.currentTarget.elements.q.value.trim(),params));});
   app.querySelector('[data-search-filters]')?.addEventListener('submit',e=>{e.preventDefault();const params=Object.fromEntries(new FormData(e.currentTarget));params.type='articles';go(routeLink('search',route.value,params));});
   app.querySelector('[data-archive-filter]')?.addEventListener('submit',e=>{e.preventDefault();go(routeLink('archive','',Object.fromEntries(new FormData(e.currentTarget))));});
+  app.querySelector('[data-history-search]')?.addEventListener('submit',e=>{e.preventDefault();go(routeLink('search',e.currentTarget.elements.q.value.trim()));});
+  app.querySelector('[data-staffer-search]')?.addEventListener('submit',e=>{e.preventDefault();go(routeLink('authors','',{q:e.currentTarget.elements.q.value.trim()}));});
   app.querySelector('[data-alumni-filter]')?.addEventListener('submit',e=>{e.preventDefault();const form=e.currentTarget;go(routeLink('alumni','',{q:form.elements.q.value.trim(),field:form.elements.field.value}));});
   app.querySelector('[data-copy]')?.addEventListener('click',async e=>{const url=location.origin+'/article/'+encodeURIComponent(route.value)+'/';try{await navigator.clipboard.writeText(url);e.target.textContent='Link copied';}catch{const status=app.querySelector('.share-status');status.textContent='Copy this address: '+url;}});
   app.querySelector('[data-save]')?.addEventListener('click',e=>{const id=Number(e.target.dataset.save);const list=readSaved();const saved=!list.includes(id);try{localStorage.setItem('politic-saved',JSON.stringify(saved?[...list,id]:list.filter(n=>n!==id)));e.target.textContent=saved?'Saved':'Save article';e.target.setAttribute('aria-pressed',String(saved));}catch{app.querySelector('.share-status').textContent='Saving is unavailable in this browser.';}});

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Font options | The Politic</title>
+<!-- Temporary review page for choosing the site's fonts. Delete this folder once a choice is made. -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111214;--navy:#173654;--red:#7c2d35;--paper:#fdfcf9;--line:#b8bbb8;--muted:#5b6168;--sans:"DM Sans",Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 var(--sans)}
+a{color:var(--navy)}
+.wrap{width:min(1040px,calc(100% - 32px));margin-inline:auto}
+header.page{padding:28px 0 22px;border-bottom:1px solid var(--navy)}
+header.page h1{font:700 30px/1.15 var(--sans);margin:0 0 10px}
+header.page p{margin:0 0 8px;max-width:70ch;color:#2b3138}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.jump a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--navy);font:600 13px var(--sans);text-decoration:none}
+.option{padding:34px 0 40px;border-bottom:1px solid var(--line)}
+.option-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin-bottom:22px}
+.option-head b{font:700 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--navy);padding:6px 10px}
+.option-head span{font:600 15px var(--sans)}
+.option-head small{font:14px var(--sans);color:var(--muted);flex-basis:100%}
+.specimen{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px}
+.eyebrow{font:700 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.headline{font-family:var(--display);font-weight:var(--display-weight,700);font-size:clamp(34px,4.6vw,54px);line-height:1.04;letter-spacing:var(--display-tracking,-.02em);margin:10px 0 12px}
+.deck{font-family:var(--serif);font-size:20px;line-height:1.4;margin:0 0 14px;color:#263040}
+.byline{font:600 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--navy)}
+.rule{display:flex;align-items:center;gap:12px;margin:26px 0 14px}
+.rule span{font-family:var(--serif);font-weight:700;font-size:20px}
+.rule i{flex:1;height:1px;background:var(--line)}
+.card h3{font-family:var(--display);font-weight:var(--display-weight,700);font-size:24px;line-height:1.12;letter-spacing:var(--display-tracking,-.02em);margin:6px 0 6px}
+.card p{font-family:var(--serif);font-size:15px;line-height:1.45;margin:0;color:#263040}
+.body p{font-family:var(--serif);font-size:18px;line-height:1.65;margin:0 0 18px}
+.body blockquote{margin:22px 0;padding:6px 0 6px 20px;border-left:4px solid var(--red);font-family:var(--display);font-style:italic;font-weight:500;font-size:25px;line-height:1.25;color:var(--navy)}
+.a{--display:"Libre Baskerville",Georgia,serif;--serif:"Libre Baskerville",Georgia,serif;--display-tracking:-.045em}
+.b{--display:"Source Serif 4",Georgia,serif;--serif:"Source Serif 4",Georgia,serif}
+.c{--display:"Playfair Display",Georgia,serif;--serif:"Source Serif 4",Georgia,serif;--display-tracking:-.01em}
+.d{--display:"Newsreader",Georgia,serif;--serif:"Newsreader",Georgia,serif;--display-weight:600}
+.d .body p{font-size:19px}
+footer.page{padding:26px 0 50px;color:var(--muted);font-size:14px}
+@media(max-width:760px){.specimen{grid-template-columns:1fr;gap:26px}header.page h1{font-size:25px}}
+</style>
+</head>
+<body>
+<header class="page"><div class="wrap">
+  <h1>Font options for The Politic</h1>
+  <p>The same headline, summary, and article text in four font pairings. Option A is what the site uses now. The small labels (section names, bylines, menus) stay in the current sans-serif in every option, since that part got a thumbs-up.</p>
+  <p>Tell Christina the letter you prefer, or a mix, such as “C headlines with A text”.</p>
+  <nav class="jump" aria-label="Options"><a href="#a">A · Current</a><a href="#b">B · Source Serif</a><a href="#c">C · Playfair + Source Serif</a><a href="#d">D · Newsreader</a></nav>
+</div></header>
+<main class="wrap" id="specimens"></main>
+<footer class="page"><div class="wrap">All four are free Google Fonts, so there is no licence cost. <a href="/">Back to the site preview</a></div></footer>
+<template id="specimen">
+  <div class="specimen">
+    <div>
+      <div class="eyebrow">National</div>
+      <h2 class="headline">Dashing for Dollars: How the Gig Economy Leaves Workers Paying the Price</h2>
+      <p class="deck">In the Metro Detroit suburbs, on a morning in 2020 he can no longer place, Omar Zahran accepted a DoorDash order for a box of donuts from Krispy Kreme.</p>
+      <div class="byline">By Eleanor Belinfanti · May 13, 2026</div>
+      <div class="rule"><span>Latest</span><i></i></div>
+      <div class="card"><div class="eyebrow">World</div><h3>Scottish Elections and the Question of Independence</h3><p>The question of Scottish independence continues to evolve as the U.K. sees new political dynamics, the oil question ferments, and Scottish people reconsider their role within Europe.</p></div>
+    </div>
+    <div class="body">
+      <p>The drive was roughly 30 minutes each way. DoorDash was offering him two dollars for an hour of his time. He accepted it.</p>
+      <blockquote>“I have to figure something out. I have to make a pivot.”</blockquote>
+      <p>Zahran grew up in New York, but eventually settled in Detroit, where he built a decade-long career in the tech industry doing contract work for Google and a brief stint with LG Mobile. It was the kind of resumé that looked stable—well-paying jobs with regular salaries and benefits. Until it was not.</p>
+    </div>
+  </div>
+</template>
+<script>
+const options=[
+  ['a','Option A','Libre Baskerville for headlines and text','What the site uses now. Classic and bookish, with wide letters.'],
+  ['b','Option B','Source Serif for headlines and text','Sturdy and clean; the bold weight is the closest of the four to the lettering in the logo.'],
+  ['c','Option C','Playfair Display headlines, Source Serif text','High-contrast magazine headlines, closest to the history page mock-up, with an easy-reading text face.'],
+  ['d','Option D','Newsreader for headlines and text','Designed for news sites; slightly narrower, so headlines take fewer lines.']
+];
+const main=document.getElementById('specimens'),template=document.getElementById('specimen');
+for(const [id,label,fonts,note] of options){
+  const section=document.createElement('section');section.className='option '+id;section.id=id;
+  const head=document.createElement('div');head.className='option-head';
+  for(const [tag,text] of [['b',label],['span',fonts],['small',note]]){const node=document.createElement(tag);node.textContent=text;head.append(node);}
+  section.append(head,template.content.cloneNode(true));main.append(section);
+}
+</script>
+</body>
+</html>

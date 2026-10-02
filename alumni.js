@@ -56,3 +56,18 @@ const alumniFields = [
   ['scholarship','Law & Scholarship'],
   ['advocacy','Business & Advocacy']
 ];
+
+// Alumni shown first on the alumni page and on the history page, most prominent first.
+// Each `name` must match an entry above. Portraits come from Wikimedia Commons under free
+// licences; the page shows the credit, so keep `credit`, `license`, and `creditUrl` accurate
+// when replacing a photo (480×600 WebP in dist/assets/alumni/).
+const alumniFeatured = [
+  {name:'Fareed Zakaria',photo:'/assets/alumni/fareed-zakaria.webp',credit:'Anders Krusberg / Peabody Awards',license:'CC BY 2.0 (cropped)',creditUrl:'https://commons.wikimedia.org/wiki/File:Fareed_Zakaria,_Peabody_Awards_(2012)_(cropped).jpg'},
+  {name:'Daniel Patrick Moynihan',photo:'/assets/alumni/daniel-patrick-moynihan.webp',credit:'John Mathew Smith & www.celebrity-photos.com',license:'CC BY-SA 2.0 (cropped)',creditUrl:'https://commons.wikimedia.org/wiki/File:Patrick_Moynihan_1998_(cropped).jpg'},
+  {name:'Robert Kagan',photo:'/assets/alumni/robert-kagan.webp',credit:'Mariusz Kubik',license:'CC BY 3.0 (cropped)',creditUrl:'https://commons.wikimedia.org/wiki/File:Robert_Kagan_Fot_Mariusz_Kubik_03.jpg'},
+  {name:'Joseph S. Nye Jr.',photo:'/assets/alumni/joseph-nye.webp',credit:'Scott Davis / U.S. Department of Defense',license:'Public domain',creditUrl:'https://commons.wikimedia.org/wiki/File:Portrait_of_Dr._Joseph_S._Nye,_Jr.,_Assistant_Secretary_of_Defense,_International_Security_Affairs.jpg'},
+  {name:'Gideon Rose',photo:'/assets/alumni/gideon-rose.webp',credit:'Halifax International Security Forum',license:'CC BY-SA 2.0 (cropped)',creditUrl:'https://commons.wikimedia.org/wiki/File:Gideon_Rose.jpg'},
+  {name:'Maggie Goodlander',photo:'/assets/alumni/maggie-goodlander.webp',credit:'Nate Payne / U.S. House of Representatives',license:'Public domain',creditUrl:'https://commons.wikimedia.org/wiki/File:Maggie_Goodlander_official_portrait,_119th_Congress.jpg'},
+  {name:'Oona Hathaway',photo:'/assets/alumni/oona-hathaway.webp',credit:'Wikimedia Commons',license:'CC0',creditUrl:'https://commons.wikimedia.org/wiki/File:Oona_Hathaway_Headshot.jpg'},
+  {name:'Jonathan Rauch',photo:'/assets/alumni/jonathan-rauch.webp',credit:'New America',license:'CC BY 2.0 (cropped)',creditUrl:'https://commons.wikimedia.org/wiki/File:Jonathan_Rauch,_2013_(cropped).jpg'}
+];
