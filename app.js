@@ -454,19 +454,27 @@ function archive() {
   return pageWrap('History & Archive',sectionHeader('Since 1947','The Politic’s history, reporting, and print editions.')+'<div class="archive-intro"><p>A magazine of student opinion. Explore the publication’s history and its archive of student journalism.</p><a class="button button-outline" href="/page/our-history/">Read our history →</a> <a class="button button-outline" href="/search/">Search all articles →</a></div>'+printGrid+articleGrid,'ISSUES');
 }
 function issueEmbedUrl(issue) {
+  if(!issue?.pdf&&issueCovers[issue?.id]?.status==='unavailable')return '';
   try{const u=new URL(issue.issuuEmbed||'');return u.protocol==='https:'&&u.hostname==='e.issuu.com'&&u.pathname==='/embed.html'&&['theyalepolitic','thepolitic'].includes(u.searchParams.get('u'))&&u.searchParams.get('d')?u.href:'';}catch{return '';}
+}
+function issuuFrameMarkup(issue) {
+  const embed=issueEmbedUrl(issue);if(!embed)return '';
+  return '<iframe class="issue-issuu-frame" title="'+esc(issue.title)+' — Issuu print reader" src="'+esc(embed)+'" loading="lazy" allow="fullscreen" allowfullscreen></iframe>';
 }
 function issuuReader(issue,optional=false) {
   const embed=issueEmbedUrl(issue);if(!embed)return '';
   const explanation=optional?'The publisher also offers this edition in a web reader.':'This digital edition is hosted by the publisher.';
-  return '<section class="issuu-fallback" aria-label="Digital edition"><h2>'+(optional?'Other reading option':'Read this edition')+'</h2><p>'+explanation+'</p><button class="button button-outline" data-load-issuu="'+esc(issue.id)+'">Open digital reader</button> <a class="arrow-link" href="'+esc(issue.issuuSource)+'" target="_blank" rel="noopener">Open in a new tab ↗</a><div class="issuu-player-slot"></div></section>';
+  const action=optional?'<button class="button button-outline" data-load-issuu="'+esc(issue.id)+'">Open Issuu reader</button> ':'';
+  const player=optional?'<div class="issuu-player-slot"></div>':issuuFrameMarkup(issue);
+  return '<section class="issuu-fallback" aria-label="Digital edition"><h2>'+(optional?'Other reading option':'Read this edition')+'</h2><p>'+explanation+'</p><div class="issuu-reader-actions">'+action+'<a class="arrow-link" href="'+esc(issue.issuuSource)+'" target="_blank" rel="noopener">Open in a new tab ↗</a></div>'+player+'</section>';
 }
 function issuePage(id) {
   const issue=issueCatalog.find(i=>i.id===id||i.aliases?.includes(id));if(!issue)return notFound();
   const pdf=issue.pdf?localMedia(issue.pdf):'';
   const external=pdf&&new URL(pdf,location.href).origin!==location.origin;
   const collection=issue.categorySlug?'<p><a class="arrow-link" href="/section/'+esc(issue.categorySlug)+'/">Read this issue’s articles →</a></p>':'';
-  const reader=pdf?'<div class="reader-actions"><a class="button button-solid" href="'+esc(pdf)+'" target="_blank" rel="noopener">Open PDF / print ↗</a>'+(!external?'<a class="button button-outline" href="'+esc(pdf)+'" download>Download PDF</a>':'<p>Official Yale PDF'+(issue.sizeLabel?' · '+esc(issue.sizeLabel):'')+'. Yale may require opening its download in a separate tab.</p>')+'</div><div class="issue-reader-canvas"><div class="issue-pdf-reader" data-pdf-cover="'+(issue.record?2:1)+'" data-pdf-url="'+esc(pdf)+'"><p class="pdf-reader-loading" role="status">Loading the print edition…</p></div></div>'+issuuReader(issue,true):issueEmbedUrl(issue)?issuuReader(issue):'<div class="issue-reader-empty"><h2>Online articles are available for this issue.</h2><p>The digital scan is not available here yet. Browse stories from this collection instead.</p>'+collection+'</div>';
+  const noScan=issue.categorySlug?'<div class="issue-reader-empty"><h2>Online articles are available for this issue.</h2><p>The digital scan is not available here yet. Browse stories from this collection instead.</p>'+collection+'</div>':'<div class="issue-reader-empty"><h2>This digital edition is not available online.</h2><p>We do not have a verified PDF or working Issuu reader for this edition yet.</p></div>';
+  const reader=pdf?'<div class="reader-actions"><a class="button button-solid" href="'+esc(pdf)+'" target="_blank" rel="noopener">Open PDF / print ↗</a>'+(!external?'<a class="button button-outline" href="'+esc(pdf)+'" download>Download PDF</a>':'<p>Official Yale PDF'+(issue.sizeLabel?' · '+esc(issue.sizeLabel):'')+'. Yale may require opening its download in a separate tab.</p>')+'</div><div class="issue-reader-canvas"><div class="issue-pdf-reader" data-pdf-cover="'+(issue.record?2:1)+'" data-pdf-url="'+esc(pdf)+'"><p class="pdf-reader-loading" role="status">Loading the print edition…</p></div></div>'+issuuReader(issue,true):issueEmbedUrl(issue)?issuuReader(issue):noScan;
   return pageWrap(issueDisplayName(issue),'<div class="issue-reader-top"><div><div class="eyebrow">'+(pdf||issueEmbedUrl(issue)?'Print edition':'Article collection')+'</div><h1>'+esc(issueDisplayName(issue))+'</h1><p>'+esc(issue.era)+'</p></div><a class="button button-outline" href="/archive/">← Back to archive</a></div>'+reader+(pdf||issueEmbedUrl(issue)?collection:'')+'<p class="source-page-links">'+(issue.record?'<a href="'+esc(issue.record)+'" target="_blank" rel="noopener">View the Yale archive record ↗</a>':'')+'</p>','ISSUES');
 }
 function searchPage() {
@@ -603,7 +611,7 @@ function loadIssuuReader(button) {
   if(!url)return;
   const slot=button.closest('.issuu-fallback')?.querySelector('.issuu-player-slot');if(!slot||slot.firstChild)return;
   const frame=document.createElement('iframe');frame.className='issue-issuu-frame';frame.title=issue.title+' — Issuu print reader';frame.src=url;
-  frame.setAttribute('allow','fullscreen');frame.setAttribute('allowfullscreen','');frame.setAttribute('sandbox','allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-downloads');
+  frame.setAttribute('loading','lazy');frame.setAttribute('allow','fullscreen');frame.setAttribute('allowfullscreen','');
   slot.append(frame);button.disabled=true;button.textContent='Issuu reader loaded';
 }
 async function mountGuestComments(node) {
