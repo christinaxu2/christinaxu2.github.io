@@ -676,3 +676,7 @@ button,.button{min-height:44px}
 }
 .share-row{flex-wrap:wrap;gap:0 20px;align-items:center}
 .share-row button,.share-row a{font:600 12px var(--sans);letter-spacing:.03em;color:var(--navy);padding-inline:0}
+/* Alumni directory: smaller portraits on directory cards, four filters. */
+.alumni-grid .alumni-photo{width:120px;height:150px;aspect-ratio:auto}
+.alumni-filters label:nth-child(n+2){flex:0 1 190px;min-width:150px}
+@media(max-width:600px){.alumni-filters label:nth-child(n+2){flex:1 1 calc(50% - 7px);min-width:0}}

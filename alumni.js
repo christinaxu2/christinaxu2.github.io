@@ -57,17 +57,39 @@ const alumniFields = [
   ['advocacy','Business & Advocacy']
 ];
 
-// Alumni shown first on the alumni page and on the history page, most prominent first.
+// Alumni shown first on the alumni page and on the history page, most prominent first (the editors named Zakaria, Rose and Kagan).
 // Each `name` must match an entry above. Portraits come from Wikimedia Commons under free
 // licences; the page shows the credit, so keep `credit`, `license`, and `creditUrl` accurate
 // when replacing a photo (480×600 WebP in dist/assets/alumni/).
 const alumniFeatured = [
   {name:'Fareed Zakaria',photo:'/assets/alumni/fareed-zakaria.webp',credit:'Anders Krusberg / Peabody Awards',license:'CC BY 2.0 (cropped)',creditUrl:'https://commons.wikimedia.org/wiki/File:Fareed_Zakaria,_Peabody_Awards_(2012)_(cropped).jpg'},
-  {name:'Daniel Patrick Moynihan',photo:'/assets/alumni/daniel-patrick-moynihan.webp',credit:'John Mathew Smith & www.celebrity-photos.com',license:'CC BY-SA 2.0 (cropped)',creditUrl:'https://commons.wikimedia.org/wiki/File:Patrick_Moynihan_1998_(cropped).jpg'},
-  {name:'Robert Kagan',photo:'/assets/alumni/robert-kagan.webp',credit:'Mariusz Kubik',license:'CC BY 3.0 (cropped)',creditUrl:'https://commons.wikimedia.org/wiki/File:Robert_Kagan_Fot_Mariusz_Kubik_03.jpg'},
-  {name:'Joseph S. Nye Jr.',photo:'/assets/alumni/joseph-nye.webp',credit:'Scott Davis / U.S. Department of Defense',license:'Public domain',creditUrl:'https://commons.wikimedia.org/wiki/File:Portrait_of_Dr._Joseph_S._Nye,_Jr.,_Assistant_Secretary_of_Defense,_International_Security_Affairs.jpg'},
   {name:'Gideon Rose',photo:'/assets/alumni/gideon-rose.webp',credit:'Halifax International Security Forum',license:'CC BY-SA 2.0 (cropped)',creditUrl:'https://commons.wikimedia.org/wiki/File:Gideon_Rose.jpg'},
+  {name:'Robert Kagan',photo:'/assets/alumni/robert-kagan.webp',credit:'Mariusz Kubik',license:'CC BY 3.0 (cropped)',creditUrl:'https://commons.wikimedia.org/wiki/File:Robert_Kagan_Fot_Mariusz_Kubik_03.jpg'},
+  {name:'Daniel Patrick Moynihan',photo:'/assets/alumni/daniel-patrick-moynihan.webp',credit:'John Mathew Smith & www.celebrity-photos.com',license:'CC BY-SA 2.0 (cropped)',creditUrl:'https://commons.wikimedia.org/wiki/File:Patrick_Moynihan_1998_(cropped).jpg'},
+  {name:'Joseph S. Nye Jr.',photo:'/assets/alumni/joseph-nye.webp',credit:'Scott Davis / U.S. Department of Defense',license:'Public domain',creditUrl:'https://commons.wikimedia.org/wiki/File:Portrait_of_Dr._Joseph_S._Nye,_Jr.,_Assistant_Secretary_of_Defense,_International_Security_Affairs.jpg'},
   {name:'Maggie Goodlander',photo:'/assets/alumni/maggie-goodlander.webp',credit:'Nate Payne / U.S. House of Representatives',license:'Public domain',creditUrl:'https://commons.wikimedia.org/wiki/File:Maggie_Goodlander_official_portrait,_119th_Congress.jpg'},
   {name:'Oona Hathaway',photo:'/assets/alumni/oona-hathaway.webp',credit:'Wikimedia Commons',license:'CC0',creditUrl:'https://commons.wikimedia.org/wiki/File:Oona_Hathaway_Headshot.jpg'},
   {name:'Jonathan Rauch',photo:'/assets/alumni/jonathan-rauch.webp',credit:'New America',license:'CC BY 2.0 (cropped)',creditUrl:'https://commons.wikimedia.org/wiki/File:Jonathan_Rauch,_2013_(cropped).jpg'}
+];
+
+// Portraits for other directory entries, shown on their cards. Same rules as above.
+const alumniPortraits = [
+  {name:"Eric Edelman",photo:"/assets/alumni/eric-edelman.webp",credit:"Sgt. Douglas J. Lovely / U.S. Army",license:"Public domain",creditUrl:"https://commons.wikimedia.org/wiki/File:Eric_S._Edelman_050805-A-0607L-001.jpg"},
+  {name:"Richard Brookhiser",photo:"/assets/alumni/richard-brookhiser.webp",credit:"Miller Center",license:"CC BY 2.0 (cropped)",creditUrl:"https://commons.wikimedia.org/wiki/File:Richard_Brookhiser_2011.jpg"},
+  {name:"Dale Carpenter",photo:"/assets/alumni/dale-carpenter.webp",credit:"Larry D. Moore",license:"CC BY 4.0 (cropped)",creditUrl:"https://commons.wikimedia.org/wiki/File:Dale_carpenter_2012.jpg"},
+  {name:"Kimberly Kagan",photo:"/assets/alumni/kimberly-kagan.webp",credit:"NATO Training Mission-Afghanistan",license:"CC BY-SA 2.0 (cropped)",creditUrl:"https://commons.wikimedia.org/wiki/File:Kimberly_Kagan_2010.jpg"},
+  {name:"Carl Gershman",photo:"/assets/alumni/carl-gershman.webp",credit:"Jindřich Nosek",license:"CC BY-SA 4.0 (cropped)",creditUrl:"https://commons.wikimedia.org/wiki/File:Carl_Gershman_(2024).jpg"},
+  {name:"Stephen Sestanovich",photo:"/assets/alumni/stephen-sestanovich.webp",credit:"Larry D. Moore",license:"CC BY 4.0 (cropped)",creditUrl:"https://commons.wikimedia.org/wiki/File:Stephen_sestanovich_2014.jpg"},
+  {name:"Edward Fishman",photo:"/assets/alumni/edward-fishman.webp",credit:"Daphne Youree",license:"CC BY-SA 4.0 (cropped)",creditUrl:"https://commons.wikimedia.org/wiki/File:Edward_Fishman.jpg"},
+  {name:"Chris Mooney",photo:"/assets/alumni/chris-mooney.webp",credit:"Christopher Mooney",license:"CC BY-SA 3.0 (cropped)",creditUrl:"https://commons.wikimedia.org/wiki/File:Chris_Mooney_Jan_2010.jpg"},
+  {name:"Brian Wallach",photo:"/assets/alumni/brian-wallach.webp",credit:"The White House",license:"Public domain",creditUrl:"https://commons.wikimedia.org/wiki/File:Brian_Wallach_(53531545119)_(cropped).jpg"},
+  {name:"Eliana Johnson",photo:"/assets/alumni/eliana-johnson.webp",credit:"Gage Skidmore",license:"CC BY-SA 2.0 (cropped)",creditUrl:"https://commons.wikimedia.org/wiki/File:Cleta_Mitchell,_Eliana_Johnson,_Christine_O%27Donnell_%26_Hans_von_Spakovsky_(13007603184)_(Eliana_Johnson_cropped).jpg"},
+  {name:"James Kirchick",photo:"/assets/alumni/james-kirchick.webp",credit:"Heinrich-Böll-Stiftung",license:"CC BY-SA 2.0 (cropped)",creditUrl:"https://commons.wikimedia.org/wiki/File:James_Kirchick_(cropped).jpg"},
+  {name:"Suzanne Nossel",photo:"/assets/alumni/suzanne-nossel.webp",credit:"Emma.connolly5 / Wikimedia Commons",license:"CC BY-SA 3.0 (cropped)",creditUrl:"https://commons.wikimedia.org/wiki/File:Nossel.JPG"},
+  {name:"Edward Lazarus",photo:"/assets/alumni/edward-lazarus.webp",credit:"U.S. Senate Committee on the Judiciary",license:"Public domain",creditUrl:"https://commons.wikimedia.org/wiki/File:Eddie_Lazarus_(cropped).jpg"},
+  {name:"Ivo H. Daalder",photo:"/assets/alumni/ivo-daalder.webp",credit:"U.S. Department of State",license:"Public domain",creditUrl:"https://commons.wikimedia.org/wiki/File:Amb._Ivo_H._Daalder_WEB.jpg"},
+  {name:"Cyrus Habib",photo:"/assets/alumni/cyrus-habib.webp",credit:"Alex K. Sebby / U.S. Army",license:"Public domain",creditUrl:"https://commons.wikimedia.org/wiki/File:JBLM_Centennial_Celebration_-_Cyrus_Habib_(cropped).jpg"},
+  {name:"John Yoo",photo:"/assets/alumni/john-yoo.webp",credit:"Commonwealth Club",license:"CC BY 2.0 (cropped)",creditUrl:"https://commons.wikimedia.org/wiki/File:John_Yoo_2012_(cropped).jpg"},
+  {name:"Donald Kagan",photo:"/assets/alumni/donald-kagan.webp",credit:"National Endowment for the Humanities",license:"Public domain",creditUrl:"https://commons.wikimedia.org/wiki/File:Dkaganbiopic.png"},
+  {name:"Peter W. Singer",photo:"/assets/alumni/peter-w-singer.webp",credit:"Catiline17 / Wikimedia Commons",license:"CC BY-SA 4.0 (cropped)",creditUrl:"https://commons.wikimedia.org/wiki/File:PeterWSinger-highres.jpg"}
 ];
