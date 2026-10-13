@@ -48,7 +48,10 @@ const alumniDirectory = [
   {name:'Brian Wallach',aliases:['Brian S. Wallach'],sortName:'Wallach, Brian',field:'advocacy',role:'Editor-in-Chief',years:'2001',selection:'additional',pages:[9],bio:'Co-founder of I AM ALS and advocate for ALS research and patient support.',source:'https://www.iamals.org/members/brian-wallach/'},
   {name:'Eliana Johnson',sortName:'Johnson, Eliana',field:'journalism',role:'Writer',years:'2003',selection:'additional',pages:[12],bio:'Political journalist and Washington Free Beacon editor, previously a White House correspondent for POLITICO.',source:'https://freebeacon.com/author/eliana-johnson/'},
   {name:'James Kirchick',sortName:'Kirchick, James',field:'journalism',role:'Writer',years:'2005',selection:'additional',pages:[17],bio:'Journalist and author of Secret City: The Hidden History of Gay Washington.',source:'https://jameskirchick.com/about/'},
-  {name:'Suzanne Nossel',sortName:'Nossel, Suzanne',field:'advocacy',role:'Writer',years:'2005',selection:'additional',pages:[16],bio:'Free-expression advocate, former PEN America CEO, and author of Dare to Speak.',source:'https://pen.org/profile/suzanne-nossel/'}
+  {name:'Suzanne Nossel',sortName:'Nossel, Suzanne',field:'advocacy',role:'Writer',years:'2005',selection:'additional',pages:[16],bio:'Free-expression advocate, former PEN America CEO, and author of Dare to Speak.',source:'https://pen.org/profile/suzanne-nossel/'},
+  // Recent editors-in-chief, added October 2026 at the editors' request. Years are the masthead years.
+  {name:'Eliza Daunt',sortName:'Daunt, Eliza',field:'journalism',role:'Editor-in-Chief',years:'2025–2026',selection:'editor',pages:[],bio:'Editor-in-chief in 2025–2026; her reporting and interviews have explored politics, conflict, and historical memory, with a focus on Eastern Europe and the Caucasus.',source:'https://thepolitic.org/author/eliza-daunt/'},
+  {name:'Nicole Chen',sortName:'Chen, Nicole',field:'journalism',role:'Editor-in-Chief',years:'2025–2026',selection:'editor',pages:[],bio:'Co-editor-in-chief in 2025–2026; wrote for the magazine on European and Latin American politics.',source:'https://thepolitic.org/author/nicole-chen/'}
 ];
 const alumniFields = [
   ['journalism','Journalism & Media'],
