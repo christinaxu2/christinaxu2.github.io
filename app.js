@@ -8,7 +8,7 @@ const CURRENT_ISSUE = {currentIssue:true};
 const navMenus = {
   LOCAL: [["Yale & New Haven", "/section/local/"], ["Campus politics", "/topic/campus-politics/"], ["New Haven", "/topic/new-haven/"]],
   NATIONAL: [["National desk", "/section/national/"], ["Elections", "/topic/elections/"], ["Congress", "/topic/congress/"], ["Policy and courts", "/topic/policy-and-courts/"]],
-  WORLD: [["World desk", "/section/world/"], ["Africa", "/topic/africa/"], ["Asia", "/topic/asia/"], ["Europe", "/topic/europe/"], ["Foreign affairs", "/topic/foreign-affairs/"]],
+  WORLD: [["World desk", "/section/world/"], ["Africa", "/topic/africa/"], ["Asia", "/topic/asia/"], ["Europe", "/topic/europe/"], ["Middle East", "/topic/middle-east/"], ["Latin America", "/topic/latin-america/"], ["Australia & Oceania", "/topic/australia-oceania/"], ["Foreign affairs", "/topic/foreign-affairs/"]],
   CULTURE: [["Culture desk", "/section/culture/"], ["Campus life", "/topic/campus-life/"], ["Photojournalism", "/section/photojournalism/"]],
   OPINION: [["Opinion desk", "/section/opinion/"], ["Essays", "/topic/essays/"], ["Columns", "/topic/columns/"], ["Democracy", "/topic/democracy/"]],
   INTERVIEWS: [["All interviews", "/section/interviews/"], ["Conversations", "/topic/conversations/"], ["Profiles", "/topic/profiles/"]],
@@ -16,15 +16,21 @@ const navMenus = {
   ISSUES: [["Current issue", CURRENT_ISSUE], ["History & archive", "/archive/"], ["Yale digital archive", "https://elischolar.library.yale.edu/politic/"], ["Search issue articles", "/search/?type=issues"]],
   ABOUT: [["Our history", "/history/"], ["The team", "/team/"], ["Alumni", "/alumni/"], ["Past issues", "/archive/"], ["Staffers", "/authors/"]]
 };
+// A story belongs to a topic when one of these terms appears, as a whole word or phrase, in its
+// title, tags, or categories (not in its text, which made "African Americans" count as Africa).
+// Writers can steer a story into a topic by tagging it in WordPress.
 const topicDefinitions = {
   "campus-politics": {title:"Campus Politics", description:"Reporting on student voices, campus debates, and the politics shaping life at Yale.", terms:["campus"], nav:"LOCAL"},
   "new-haven": {title:"New Haven", description:"Reporting on the people, institutions, and civic life of New Haven.", terms:["new haven"], nav:"LOCAL"},
   elections: {title:"Elections", description:"Coverage of campaigns, voting, and the choices shaping public life.", terms:["elections","election"], nav:"NATIONAL"},
   congress: {title:"Congress", description:"Reporting and analysis on Congress, its debates, and the decisions before it.", terms:["congress"], nav:"NATIONAL"},
   "policy-and-courts": {title:"Policy & Courts", description:"Coverage of public policy, the courts, and the institutions that shape American life.", terms:["policy","courts"], nav:"NATIONAL"},
-  africa: {title:"Africa", description:"Reporting and perspectives on politics, society, and change across Africa.", terms:["africa"], nav:"WORLD"},
-  asia: {title:"Asia", description:"Reporting and perspectives on politics, society, and change across Asia.", terms:["asia"], nav:"WORLD"},
-  europe: {title:"Europe", description:"Reporting and perspectives on politics, society, and change across Europe.", terms:["europe"], nav:"WORLD"},
+  africa: {title:"Africa", description:"Reporting and perspectives on politics, society, and change across Africa.", terms:["africa","african union","south africa","nigeria","kenya","ethiopia","sudan","congo","rwanda","ghana","somalia","uganda","tanzania","zimbabwe","sahel","mali","senegal","zambia","cameroon","morocco","algeria","tunisia","libya","eritrea","liberia","sierra leone","mozambique","angola","niger","burkina faso","namibia","botswana","madagascar","ivory coast","cote d'ivoire"], nav:"WORLD"},
+  asia: {title:"Asia", description:"Reporting and perspectives on politics, society, and change across Asia.", terms:["asia","asia pacific","east asia","south asia","southeast asia","central asia","china","chinese","japan","korea","north korea","south korea","india","indian","pakistan","bangladesh","sri lanka","nepal","taiwan","hong kong","vietnam","thailand","philippines","indonesia","malaysia","singapore","myanmar","burma","cambodia","afghanistan","kazakhstan","uzbekistan","tibet","xinjiang","asean","tsinghua"], nav:"WORLD"},
+  europe: {title:"Europe", description:"Reporting and perspectives on politics, society, and change across Europe.", terms:["europe","european union","eu","uk","britain","british","england","scotland","scottish","ireland","france","french","germany","german","italy","spain","portugal","netherlands","belgium","switzerland","austria","poland","hungary","czech","slovakia","romania","bulgaria","greece","sweden","norway","denmark","finland","iceland","ukraine","russia","russian","belarus","baltic","estonia","latvia","lithuania","serbia","croatia","bosnia","kosovo","albania","moldova","armenia","azerbaijan","brexit","nato","kremlin"], nav:"WORLD"},
+  "middle-east": {title:"Middle East", description:"Reporting and perspectives on politics, society, and change across the Middle East.", terms:["middle east","israel","israeli","palestine","palestinian","gaza","west bank","iran","iranian","iraq","syria","lebanon","saudi arabia","saudi","yemen","houthi","houthis","persian gulf","qatar","uae","emirates","bahrain","kuwait","oman","turkey","egypt","hezbollah","hamas","kurds","kurdish","mecca"], nav:"WORLD"},
+  "latin-america": {title:"Latin America", description:"Reporting and perspectives on politics, society, and change across Latin America and the Caribbean.", terms:["latin america","americas","south america","central america","caribbean","mexico","mexican","brazil","argentina","chile","colombia","venezuela","peru","bolivia","ecuador","uruguay","paraguay","cuba","haiti","guatemala","honduras","el salvador","nicaragua","costa rica","panama","dominican republic","puerto rico"], nav:"WORLD"},
+  "australia-oceania": {title:"Australia & Oceania", description:"Reporting and perspectives on politics, society, and change across Australia, New Zealand, and the Pacific.", terms:["australia","australian","new zealand","oceania","pacific islands","fiji","samoa","tonga","papua new guinea","solomon islands","aukus"], nav:"WORLD"},
   "foreign-affairs": {title:"Foreign Affairs", description:"Reporting on diplomacy, conflict, and the forces shaping the world beyond our borders.", terms:["foreign policy","foreign affairs"], nav:"WORLD"},
   "campus-life": {title:"Campus Life", description:"Stories about campus communities, student life, and the ideas being debated at Yale.", terms:["campus life","campus"], nav:"CULTURE"},
   culture: {title:"Culture", description:"Essays and reporting on the cultural forces shaping how we live and see the world.", terms:["culture"], sections:["culture"], nav:"CULTURE"},
@@ -294,11 +300,11 @@ function home() {
   const currentIssue=currentIssueFeature(current,used);
   if(current)mainArticlesFirst(state.posts.filter(p=>hasCategory(p,current.slug)),current.slug).filter(p=>!used.has(p.id)).slice(0,4).forEach(p=>used.add(p.id));
   const latest=rest.filter(p=>!used.has(p.id)).slice(0,3);latest.forEach(p=>used.add(p.id));
-  const local=state.posts.filter(p=>hasCategory(p,'local')&&!used.has(p.id)).slice(0,3);local.forEach(p=>used.add(p.id));
+  const beyond=state.posts.filter(p=>(hasCategory(p,'national')||hasCategory(p,'world'))&&!used.has(p.id)).slice(0,3);beyond.forEach(p=>used.add(p.id));
   const more=state.posts.filter(p=>!used.has(p.id)).slice(0,6);
   return pageWrap('The Politic',sectionRule('Featured','POLITICS LIVES HERE')+'<section class="home-lead"><article class="hero-story">'+photo(lead,'hero-image')+eyebrow(lead)+'<h1><a href="'+href(lead)+'">'+esc(lead.title)+'</a></h1><p class="hero-deck">'+esc(deck(lead))+'</p><div class="byline">'+byline(lead)+'</div></article><div class="home-side">'+homeSide.map(p=>card(p,true)).join('')+'</div></section>'
     +currentIssue
-    +'<section class="subsection">'+sectionRule('Latest','NEWS. PERSPECTIVE. ALWAYS.')+'<div class="analysis-grid">'+latest.map(p=>card(p)).join('')+'</div></section><section class="subsection">'+sectionRule('Yale & New Haven','OUR CITY. A WIDER WORLD.')+'<div class="analysis-grid">'+local.map(p=>card(p)).join('')+'</div></section><section class="subsection">'+sectionRule('More Reporting')+more.map(listItem).join('')+'<a class="button button-outline centered" href="/search/">Browse all '+state.posts.length.toLocaleString()+' articles →</a></section>','HOME');
+    +'<section class="subsection">'+sectionRule('Latest')+'<div class="analysis-grid">'+latest.map(p=>card(p)).join('')+'</div></section><section class="subsection">'+sectionRule('National & World')+'<div class="analysis-grid">'+beyond.map(p=>card(p)).join('')+'</div></section><section class="subsection">'+sectionRule('More Reporting')+more.map(listItem).join('')+'<a class="button button-outline centered" href="/search/">Browse all '+state.posts.length.toLocaleString()+' articles →</a></section>','HOME');
 }
 function sectionPage(slug) {
   slug=slug==='us-politics'?'national':slug;
@@ -313,17 +319,20 @@ function sectionPage(slug) {
   else content+=rows.map(listItem).join('')||'<p>No published articles in this section yet.</p>';
   return pageWrap(cat.name,'<div class="section-page">'+content+result.controls+'</div>',slug.toUpperCase());
 }
+// Possessives ("Nigeria’s") count as the plain word.
+const topicTokens=text=>searchTokens(String(text||'').replace(/['’]s\b/gi,''));
+const topicPhrase=(text,term)=>(' '+topicTokens(text).join(' ')+' ').includes(' '+topicTokens(term).join(' ')+' ');
+function topicMatches(topic,post) {
+  if(topic.sections?.some(section=>hasCategory(post,section)))return true;
+  // Titles and tags match on a word or phrase; a category only when its whole name is the term,
+  // so the combined "Middle East & Africa" category does not file African stories under Middle East.
+  const fields=[post.title,...post.tags.map(t=>t.name)];
+  const categories=post.categories.map(c=>topicTokens(c.name).join(' '));
+  return topic.terms.some(term=>fields.some(field=>topicPhrase(field,term))||categories.includes(topicTokens(term).join(' ')));
+}
 function topicPage(slug) {
   const topic=topicDefinitions[slug];if(!topic)return notFound();
-  const bodyResults=topic.terms.map(bodyMatches);
-  const matches=state.posts.filter(post=>{
-    if(topic.sections?.some(section=>hasCategory(post,section)))return true;
-    const metadata=new Set(searchTokens([post.title,post.excerpt,post.author?.name,...post.categories.map(c=>c.name),...post.tags.map(t=>t.name)].join(' ')));
-    return topic.terms.some((term,index)=>{
-      const tokens=searchTokens(term).filter(token=>token.length>=2);
-      return tokens.length>0&&tokens.every(token=>metadata.has(token))||bodyResults[index]?.has(post.id);
-    });
-  });
+  const matches=state.posts.filter(post=>topicMatches(topic,post));
   const result=paginate(matches,16),rows=result.rows,lead=rows[0];
   let content=sectionHeader(topic.title);
   if(lead&&result.current===1)content+='<section class="landing-grid"><article class="landing-lead">'+photo(lead,'hero-image')+eyebrow(lead)+'<h2><a href="'+href(lead)+'">'+esc(lead.title)+'</a></h2><p class="large-deck">'+esc(deck(lead))+'</p><div class="byline">'+byline(lead)+'</div></article><div class="landing-side">'+rows.slice(1,4).map(p=>card(p,true)).join('')+'</div></section><div class="article-list">'+rows.slice(4).map(listItem).join('')+'</div>';
@@ -631,9 +640,6 @@ async function navigate() {
     if(['article','opinion','interview'].includes(route.name)&&route.value)await loadArticleChunk(route.value);
     if(route.name==='search'&&route.value&&(route.params.get('type')||'articles')==='articles'){
       app.setAttribute('aria-busy','true');await loadSearchShards(route.value);
-    }
-    if(route.name==='topic'&&topicDefinitions[route.value]){
-      app.setAttribute('aria-busy','true');await loadSearchShards(topicDefinitions[route.value].terms.join(' '));
     }
     if(version!==routeVersion)return;
     app.innerHTML=renderRoute();app.removeAttribute('aria-busy');bind();
