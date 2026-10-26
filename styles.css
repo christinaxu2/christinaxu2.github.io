@@ -680,3 +680,4 @@ button,.button{min-height:44px}
 .alumni-grid .alumni-photo{width:120px;height:150px;aspect-ratio:auto}
 .alumni-filters label:nth-child(n+2){flex:0 1 190px;min-width:150px}
 @media(max-width:600px){.alumni-filters label:nth-child(n+2){flex:1 1 calc(50% - 7px);min-width:0}}
+.article-body .pull-quote{border-left:4px solid var(--red);margin:34px 0;padding:4px 0 4px 22px}.article-body .pull-quote p{font:italic 26px/1.25 var(--display);color:var(--navy);margin:0}.article-body figure.article-figure img{display:block;width:100%;height:auto}.article-body figcaption .credit{display:block;font-size:11px;letter-spacing:.04em;text-transform:uppercase;margin-top:3px}@media(max-width:800px){.article-body .pull-quote p{font-size:21px}}
