@@ -276,7 +276,10 @@ function safeHtml(value) {
 function currentIssueFeature(current,excluded=new Set()) {
   if(!current)return '';
   const allStories=mainArticlesFirst(state.posts.filter(p=>hasCategory(p,current.slug)),current.slug);
-  const stories=allStories.filter(p=>!excluded.has(p.id));
+  // A new issue's few stories may already be on the home page above; list them here anyway.
+  const unseen=allStories.filter(p=>!excluded.has(p.id));
+  const stories=unseen.length?unseen:allStories;
+  const storyCount=allStories.length+(allStories.length===1?' story':' stories');
   const collection='/section/'+encodeURIComponent(current.slug)+'/';
   const issue=issueCatalog.find(i=>i.categorySlug===current.slug);
   const issueHref=issue?'/issue/'+encodeURIComponent(issue.id)+'/':collection;
@@ -287,8 +290,8 @@ function currentIssueFeature(current,excluded=new Set()) {
   const year=name.replace(/\s*Issue\s+.+$/i,'');
   return '<section class="issue-band current-issue-feature" aria-label="Current issue">'+sectionRule('Current Issue','STUDENT VOICES. A WIDER CONVERSATION.')
     +'<div class="current-issue-grid"><figure class="current-issue-cover">'+(cover?.url?'<a class="current-issue-cover-image" href="'+issueHref+'" aria-label="Read '+esc(name)+'"><img src="'+esc(cover.url)+'" alt="Front cover of '+esc(name)+'" width="'+cover.width+'" height="'+cover.height+'"></a>':'<a class="current-issue-jacket" href="'+issueHref+'" aria-label="Read '+esc(name)+'"><span class="issue-jacket-wordmark">The Politic</span><span class="issue-jacket-year">'+esc(year)+'</span><span class="issue-jacket-number"><small>ISSUE</small>'+esc(number||name)+'</span><span class="issue-jacket-footer">Yale’s political journal<br>Since 1947</span></a>')+'</figure>'
-    +'<div class="current-issue-details"><p class="current-issue-edition">'+esc(year)+'</p><h2>'+esc(name)+'</h2><p class="current-issue-deck">Reporting and analysis from Yale and beyond. Explore '+allStories.length+' stories on politics, culture, and the forces shaping our world.</p><span class="current-issue-accent" aria-hidden="true"></span><a class="button button-solid current-issue-read" href="'+collection+'">Explore the collection <span aria-hidden="true">⟶</span></a><a class="current-issue-archive-link" href="/archive/">Browse past issues <span aria-hidden="true">→</span></a></div>'
-    +'<nav class="current-issue-toc" aria-label="In this issue"><h3>In this issue</h3><ol>'+stories.slice(0,4).map(p=>'<li><a href="'+href(p)+'"><span class="current-issue-story-title">'+esc(p.title)+'</span><span class="current-issue-story-author">'+esc(p.author?.name||'The Politic')+'</span></a></li>').join('')+'</ol><a class="current-issue-all" href="'+collection+'">View all '+allStories.length+' articles <span aria-hidden="true">→</span></a></nav></div></section>';
+    +'<div class="current-issue-details"><p class="current-issue-edition">'+esc(year)+'</p><h2>'+esc(name)+'</h2><p class="current-issue-deck">Reporting and analysis from Yale and beyond. Explore '+storyCount+' on politics, culture, and the forces shaping our world.</p><span class="current-issue-accent" aria-hidden="true"></span><a class="button button-solid current-issue-read" href="'+collection+'">Explore the collection <span aria-hidden="true">⟶</span></a><a class="current-issue-archive-link" href="/archive/">Browse past issues <span aria-hidden="true">→</span></a></div>'
+    +'<nav class="current-issue-toc" aria-label="In this issue"><h3>In this issue</h3><ol>'+stories.slice(0,4).map(p=>'<li><a href="'+href(p)+'"><span class="current-issue-story-title">'+esc(p.title)+'</span><span class="current-issue-story-author">'+esc(p.author?.name||'The Politic')+'</span></a></li>').join('')+'</ol><a class="current-issue-all" href="'+collection+'">View all '+allStories.length+(allStories.length===1?' article':' articles')+' <span aria-hidden="true">→</span></a></nav></div></section>';
 }
 function home() {
   const lead=state.posts.find(p=>hasCategory(p,'homepage-featured'))||state.posts[0];

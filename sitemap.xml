@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://christinaxu2.github.io/</loc><lastmod>2026-10-24</lastmod><priority>1.0</priority></url>
+  <url><loc>https://christinaxu2.github.io/</loc><lastmod>2026-10-26</lastmod><priority>1.0</priority></url>
+  <url><loc>https://christinaxu2.github.io/article/israel-at-a-crossroads-whats-at-stake-in-the-october-27-elections/</loc><lastmod>2026-10-26</lastmod><priority>0.7</priority></url>
   <url><loc>https://christinaxu2.github.io/article/town-and-gown-go-to-court-redistricting-fight-hits-boone-nc/</loc><lastmod>2026-09-26</lastmod><priority>0.7</priority></url>
   <url><loc>https://christinaxu2.github.io/article/working-in-the-shadows-mumbais-home-based-female-artisans/</loc><lastmod>2026-09-26</lastmod><priority>0.7</priority></url>
   <url><loc>https://christinaxu2.github.io/article/between-two-lists-who-gets-counted-after-disaster/</loc><lastmod>2026-09-26</lastmod><priority>0.7</priority></url>
@@ -3698,6 +3699,7 @@
   <url><loc>https://christinaxu2.github.io/author/martinhs/</loc><priority>0.3</priority></url>
   <url><loc>https://christinaxu2.github.io/author/aadyahs/</loc><priority>0.3</priority></url>
   <url><loc>https://christinaxu2.github.io/author/larsenhs/</loc><priority>0.3</priority></url>
+  <url><loc>https://christinaxu2.github.io/author/mira-schulman/</loc><priority>0.3</priority></url>
   <url><loc>https://christinaxu2.github.io/section/ambassador-series/</loc><priority>0.5</priority></url>
   <url><loc>https://christinaxu2.github.io/section/national/</loc><priority>0.5</priority></url>
   <url><loc>https://christinaxu2.github.io/section/world/</loc><priority>0.5</priority></url>
@@ -3779,6 +3781,8 @@
   <url><loc>https://christinaxu2.github.io/section/2025-2026-issue-iv/</loc><priority>0.5</priority></url>
   <url><loc>https://christinaxu2.github.io/section/yale-politic-x-tsinghua-special-issue/</loc><priority>0.5</priority></url>
   <url><loc>https://christinaxu2.github.io/section/high-school-competition/</loc><priority>0.5</priority></url>
+  <url><loc>https://christinaxu2.github.io/section/2026-2027-issue-i/</loc><priority>0.5</priority></url>
+  <url><loc>https://christinaxu2.github.io/issue/2026-2027-issue-i/</loc><priority>0.4</priority></url>
   <url><loc>https://christinaxu2.github.io/issue/yale-politic-x-tsinghua-special-issue/</loc><priority>0.4</priority></url>
   <url><loc>https://christinaxu2.github.io/issue/issue-iii/</loc><priority>0.4</priority></url>
   <url><loc>https://christinaxu2.github.io/issue/2026-arts-and-politics-special-issue/</loc><priority>0.4</priority></url>
