@@ -511,7 +511,7 @@ const historyTimeline=[
 function historyPage() {
   const issueYear=issue=>Number((issue.era.match(/\d{4}/)||[])[0])||0;
   // The catalog runs newest first, so reversing it gives each decade's earliest readable issue.
-  const readable=[...issueCatalog].reverse().filter(i=>issueCovers[i.id]?.url&&(i.pdf||issueEmbedUrl(i))).sort((a,b)=>issueYear(a)-issueYear(b));
+  const readable=[...issueCatalog].reverse().filter(i=>issueYear(i)>0&&issueCovers[i.id]?.url&&(i.pdf||issueEmbedUrl(i))).sort((a,b)=>issueYear(a)-issueYear(b));
   const decades=new Map();
   for(const issue of readable){const decade=Math.floor(issueYear(issue)/10)*10;if(decade&&!decades.has(decade))decades.set(decade,issue);}
   const first=readable[0];

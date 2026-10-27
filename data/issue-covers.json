@@ -11,25 +11,25 @@
     "url": "/assets/issue-covers/2025-2026-issue-iii.webp",
     "width": 773,
     "height": 1000,
-    "source": "https://issuu.com/theyalepolitic/docs/2025-2026_issue_iii",
+    "source": "/assets/issues/issue-2025-2026-iii.pdf",
     "page": 1,
-    "sourceImage": "https://image.isu.pub/260511195900-64b5cb775bac0d31487a090cbeabe388/jpg/page_1_social_preview.jpg"
+    "pdfSha256": "9ada002c38105264f46a8a220d1759a6b3f29ecd4c8c0f75119bcc6ecf47fa92"
   },
   "2019-2020-issue-v": {
     "url": "/assets/issue-covers/2019-2020-issue-v.webp",
-    "width": 735,
+    "width": 736,
     "height": 1000,
-    "source": "https://issuu.com/theyalepolitic/docs/issue_v_-_proof",
+    "source": "/assets/issues/issue-2019-2020-v.pdf",
     "page": 1,
-    "sourceImage": "https://image.isu.pub/200316030251-8687208b434789086bb9c4fc3273af4a/jpg/page_1_social_preview.jpg"
+    "pdfSha256": "0b49d8e0e60b1713123b08231f8c66dfd390ea5ea17fd488053ec06416fb0af2"
   },
   "2019-2020-issue-iv": {
     "url": "/assets/issue-covers/2019-2020-issue-iv.webp",
-    "width": 588,
+    "width": 589,
     "height": 800,
-    "source": "https://issuu.com/theyalepolitic/docs/issue_iv_-_proof",
+    "source": "/assets/issues/issue-2019-2020-iv.pdf",
     "page": 1,
-    "sourceImage": "https://image.isu.pub/200210192947-c34b35f21bb253be2544e01c1c149771/jpg/page_1_social_preview.jpg"
+    "pdfSha256": "8e43cbe4d30ddfe245a5e777dbe42a73760cec2e9d3b56712f9fc8876d3b13bd"
   },
   "2019-2020-issue-iii": {
     "url": "/assets/issue-covers/2019-2020-issue-iii.webp",
@@ -41,19 +41,19 @@
   },
   "2019-2020-issue-ii": {
     "url": "/assets/issue-covers/2019-2020-issue-ii.webp",
-    "width": 735,
+    "width": 736,
     "height": 1000,
-    "source": "https://issuu.com/theyalepolitic/docs/the_politic_2019-2020_print_issue_ii",
+    "source": "/assets/issues/issue-2019-2020-ii.pdf",
     "page": 1,
-    "sourceImage": "https://image.isu.pub/191125134129-8c56a9558c79534cf2dcd93ab791aad3/jpg/page_1_social_preview.jpg"
+    "pdfSha256": "c2a29beecf12b0ae77fd2f23afabd472750f24b3b5a432f3a4aee391b4f217a7"
   },
   "2019-2020-issue-i": {
     "url": "/assets/issue-covers/2019-2020-issue-i.webp",
-    "width": 735,
+    "width": 736,
     "height": 1000,
-    "source": "https://issuu.com/theyalepolitic/docs/the_politic_2019-2020_issue_i",
+    "source": "/assets/issues/issue-2019-2020-i.pdf",
     "page": 1,
-    "sourceImage": "https://image.isu.pub/191024195746-5080d11a1b2bcd7f80a91fb4c08754e9/jpg/page_1_social_preview.jpg"
+    "pdfSha256": "da8062c65f2b6458b8151d7e5882b169643abf7f14f4864a350137d7df60888a"
   },
   "2018-2019-issue-vi": {
     "url": "/assets/issue-covers/2018-2019-issue-vi.webp",
@@ -65,27 +65,27 @@
   },
   "2018-2019-issue-v": {
     "url": "/assets/issue-covers/2018-2019-issue-v.webp",
-    "width": 735,
+    "width": 736,
     "height": 1000,
-    "source": "https://issuu.com/theyalepolitic/docs/issue_5_proof",
+    "source": "/assets/issues/issue-2018-2019-v.pdf",
     "page": 1,
-    "sourceImage": "https://image.isu.pub/190328125530-5963894bbf56fae7f9dd0d0bb5230579/jpg/page_1_social_preview.jpg"
+    "pdfSha256": "519bc7d616c09bd0bedea72fdb3897b521c086d2fd50b6ccdf1c120b861f0b84"
   },
   "2018-2019-issue-iv": {
     "url": "/assets/issue-covers/2018-2019-issue-iv.webp",
-    "width": 735,
+    "width": 736,
     "height": 1000,
-    "source": "https://issuu.com/theyalepolitic/docs/issue_4_final",
+    "source": "/assets/issues/issue-2018-2019-iv.pdf",
     "page": 1,
-    "sourceImage": "https://image.isu.pub/190228145517-5111294266616c02862d61aef367ab0f/jpg/page_1_social_preview.jpg"
+    "pdfSha256": "f82ef4d6ec41d3c909171d4c2360bfbadb3182d3e41b5c34c5faccdef828bc7f"
   },
   "2018-2019-issue-iii": {
     "url": "/assets/issue-covers/2018-2019-issue-iii.webp",
-    "width": 735,
+    "width": 736,
     "height": 1000,
-    "source": "https://issuu.com/theyalepolitic/docs/issue_3_v5_proof",
+    "source": "/assets/issues/issue-2018-2019-iii.pdf",
     "page": 1,
-    "sourceImage": "https://image.isu.pub/190108211538-b9a5b3593aca03d8ffdb7b6334f5b2a4/jpg/page_1_social_preview.jpg"
+    "pdfSha256": "e4f52bbd9acba412560acf0db006995c2fde6dc551c61261570f442f8a6a85cc"
   },
   "winter-2012": {
     "source": "https://issuu.com/thepolitic/docs/2_-_winter_2012",
@@ -735,5 +735,381 @@
     "source": "/assets/issues/1947-february.pdf",
     "page": 2,
     "pdfSha256": "2a0fbe854e37df3936eb02ca02b2a358049bf2d2992a2c28acd09fd3b5df7523"
+  },
+  "2018-2019-issue-i": {
+    "url": "/assets/issue-covers/2018-2019-issue-i.webp",
+    "width": 589,
+    "height": 800,
+    "source": "/assets/issues/issue-2018-2019-i.pdf",
+    "page": 1,
+    "pdfSha256": "467b7ced6cc1c6ffc1f6d7ea0a9951b2b01b65c3a3a76bd1c388ad87520b1100"
+  },
+  "2023-2024-issue-ii": {
+    "url": "/assets/issue-covers/2023-2024-issue-ii.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-2023-2024-ii.pdf",
+    "page": 1,
+    "pdfSha256": "9d0e9bc8894de8c087e05562fa50f95c08ba66383471aed53cbba9de51515e7c"
+  },
+  "2023-2024-issue-iii": {
+    "url": "/assets/issue-covers/2023-2024-issue-iii.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-2023-2024-iii.pdf",
+    "page": 1,
+    "pdfSha256": "a74bdf32eda35b95cb3294647ce80b3d362df015bc1b00b34315c7d029257ba2"
+  },
+  "2016-2017-issue-v": {
+    "url": "/assets/issue-covers/2016-2017-issue-v.webp",
+    "width": 589,
+    "height": 800,
+    "source": "/assets/issues/issue-2016-2017-v.pdf",
+    "page": 1,
+    "pdfSha256": "90290c3fb03a50dbb71a0d22d0c909ca85fefe65880a4e60a477c3f9fff4152b"
+  },
+  "2016-2017-issue-iii": {
+    "url": "/assets/issue-covers/2016-2017-issue-iii.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2016-2017-iii.pdf",
+    "page": 1,
+    "pdfSha256": "8b91f31648ef38dfe68caaa07e3b432dbb0879622709cb571528e9bd3302d5cf"
+  },
+  "2023-2024-issue-iv": {
+    "url": "/assets/issue-covers/2023-2024-issue-iv.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-2023-2024-iv.pdf",
+    "page": 1,
+    "pdfSha256": "b04ddb9d990f1c11d7fbfdf5b3b914b36c739dead8545ee1bac73fb4be7f05b9"
+  },
+  "2023-2024-issue-i": {
+    "url": "/assets/issue-covers/2023-2024-issue-i.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-2023-2024-i.pdf",
+    "page": 1,
+    "pdfSha256": "4a089826d4ccbd07ef90a367d93819200c9ef726378f595e989507e3742072e7"
+  },
+  "fall-2014-issue-ii": {
+    "url": "/assets/issue-covers/fall-2014-issue-ii.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/fall-2014-issue-ii.pdf",
+    "page": 1,
+    "pdfSha256": "5f67cabdc1d079d266b4af41217e7263c6c99e864f594410ab0983660e718127"
+  },
+  "2026-arts-and-politics-special-issue": {
+    "url": "/assets/issue-covers/2026-arts-and-politics-special-issue.webp",
+    "width": 789,
+    "height": 1000,
+    "source": "/assets/issues/issue-2025-2026-arts-and-politics.pdf",
+    "page": 1,
+    "pdfSha256": "22ff6ce85e480cef369952bfdf3fc15865764f63ded4a5c0a15eef19b4faa45d"
+  },
+  "2023-issue-iv": {
+    "url": "/assets/issue-covers/2023-issue-iv.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-2023-iv.pdf",
+    "page": 1,
+    "pdfSha256": "4a9279ea22777ba51fb66211e33084ea57fb7b13c9372f02982df11192f65496"
+  },
+  "2024-2025-issue-ii": {
+    "url": "/assets/issue-covers/2024-2025-issue-ii.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-2024-2025-ii.pdf",
+    "page": 1,
+    "pdfSha256": "b687094b6414b4ed911f345eab712995a8858ffa2b6931dc8e58282add17d3f4"
+  },
+  "2016-2017-issue-i": {
+    "url": "/assets/issue-covers/2016-2017-issue-i.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2016-2017-i.pdf",
+    "page": 1,
+    "pdfSha256": "4453edd6f286b3facf239d7519685992316c886f1845115422548db5ddf1657c"
+  },
+  "2016-2017-issue-iv": {
+    "url": "/assets/issue-covers/2016-2017-issue-iv.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2016-2017-iv.pdf",
+    "page": 1,
+    "pdfSha256": "0d880e132f50c12b37fdeaa5b823b1f0cf86621c936e1d912427a5d202037dfc"
+  },
+  "summer-2024-issue-v": {
+    "url": "/assets/issue-covers/summer-2024-issue-v.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-summer-2024-v.pdf",
+    "page": 1,
+    "pdfSha256": "1d2a01a45bd659ec175dc271c590b33ed25abc4a2c7869617c74ebb8d269b42e"
+  },
+  "2023-issue-iii": {
+    "url": "/assets/issue-covers/2023-issue-iii.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-2023-iii.pdf",
+    "page": 1,
+    "pdfSha256": "a034903d688f061ff89832f602237869940aa77d159dc3ce921ed7a0280b8e65"
+  },
+  "2025-2026-issue-i": {
+    "url": "/assets/issue-covers/2025-2026-issue-i.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-2025-2026-i.pdf",
+    "page": 1,
+    "pdfSha256": "2b6df310c15d7f780e07dc46698b9b24c1bc4aa3f43c87d20bf2e265c5d0b745"
+  },
+  "2023-issue-i": {
+    "url": "/assets/issue-covers/2023-issue-i.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2023-i.pdf",
+    "page": 1,
+    "pdfSha256": "65f8c82905cc80ff944f2c354d5ed782575cf68ff3641cba3b4680596ed3503b"
+  },
+  "2016-2017-issue-vi": {
+    "url": "/assets/issue-covers/2016-2017-issue-vi.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-2016-2017-vi.pdf",
+    "page": 1,
+    "pdfSha256": "db12e8c91a8b927e7783a7693f6ad564857007e2b676ae74af232ba54c149b5c"
+  },
+  "2024-2025-issue-iii": {
+    "url": "/assets/issue-covers/2024-2025-issue-iii.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-2024-2025-iii.pdf",
+    "page": 1,
+    "pdfSha256": "86dd46c7190c7ba8d012168baf17d10225b09270859396d9e9db9ec280a4e0ed"
+  },
+  "2024-2025-issue-iiii": {
+    "url": "/assets/issue-covers/2024-2025-issue-iiii.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-2024-2025-iv.pdf",
+    "page": 1,
+    "pdfSha256": "85bdfb2e5542de76c3679c96385a8762ef9be7795a8cc73df2521c11ce5efcc9"
+  },
+  "2024-2025-issue-i": {
+    "url": "/assets/issue-covers/2024-2025-issue-i.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-2024-2025-i.pdf",
+    "page": 1,
+    "pdfSha256": "91d5d638097acb749771f23b857ba175c8091fd5a3b4b6e7ef5ad116112fbd1f"
+  },
+  "2025-2026-ie-democratic-backsliding": {
+    "url": "/assets/issue-covers/2025-2026-ie-democratic-backsliding.webp",
+    "width": 778,
+    "height": 1000,
+    "source": "/assets/issues/issue-2025-2026-ie-democratic-backsliding.pdf",
+    "page": 1,
+    "pdfSha256": "ce56114ef3310b09150abbcc82dd5b040c88b01e61f96c84f6bcd75ddf08f883"
+  },
+  "2023-issue-ii": {
+    "url": "/assets/issue-covers/2023-issue-ii.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-2023-ii.pdf",
+    "page": 1,
+    "pdfSha256": "c00eb655aececedfcfa6603c031965221932b19f949a2f1d2f056952f3283e3f"
+  },
+  "2025-2026-issue-ii": {
+    "url": "/assets/issue-covers/2025-2026-issue-ii.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-2025-2026-ii.pdf",
+    "page": 1,
+    "pdfSha256": "2d7efacaa15b40c6de096190aeb56b8c4714afa9fc4b0c259bb2aeb25ea701b8"
+  },
+  "2018-2019-issue-ii": {
+    "url": "/assets/issue-covers/2018-2019-issue-ii.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2018-2019-ii.pdf",
+    "page": 1,
+    "pdfSha256": "630396ef03ef619de0068a457849d700a55dd675b849f64526e535b68daca24f"
+  },
+  "2017-18-issue-v": {
+    "url": "/assets/issue-covers/2017-18-issue-v.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-2017-18-v.pdf",
+    "page": 1,
+    "pdfSha256": "704fecb4f3ef835904bdbba1f5414b9a45db571c8f3ab5ab7e62c82b6466cc6d"
+  },
+  "2020-2021-issue-iii": {
+    "url": "/assets/issue-covers/2020-2021-issue-iii.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2020-2021-iii.pdf",
+    "page": 1,
+    "pdfSha256": "891f6b73481522dca5071b95f7f9bca8db45874c6d56e9d0e2eda9d0f2c8d2e6"
+  },
+  "2020-2021-issue-ii": {
+    "url": "/assets/issue-covers/2020-2021-issue-ii.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2020-2021-ii.pdf",
+    "page": 1,
+    "pdfSha256": "73171a9f97a7e4164051f9474c915b68eb103618d70d718fedd41f87708eac6b"
+  },
+  "yale-politic-x-tsinghua-special-issue": {
+    "url": "/assets/issue-covers/yale-politic-x-tsinghua-special-issue.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-tsinghua-special.pdf",
+    "page": 1,
+    "pdfSha256": "11624b5feee52d7bf298fae65002b80d18d83ca10487dabc6d36747f94ba0093"
+  },
+  "2017-2018-issue-ii": {
+    "url": "/assets/issue-covers/2017-2018-issue-ii.webp",
+    "width": 589,
+    "height": 800,
+    "source": "/assets/issues/issue-2017-2018-ii.pdf",
+    "page": 1,
+    "pdfSha256": "89c03ea01cda676672876d58754524ca9cdf9220f9afdfc46f2aeadfd10baf21"
+  },
+  "2021-2022-issue-iv": {
+    "url": "/assets/issue-covers/2021-2022-issue-iv.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2021-2022-iv.pdf",
+    "page": 1,
+    "pdfSha256": "9e45e0a944d65e76fd241ce10358dbacaae4e8f1ab2158728a3dc60fb358d05b"
+  },
+  "2020-2021-issue-iv": {
+    "url": "/assets/issue-covers/2020-2021-issue-iv.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2020-2021-iv.pdf",
+    "page": 1,
+    "pdfSha256": "e62252ef52e592861473771d73e66a28ee8c2290ccd58700577d1b2f91350c35"
+  },
+  "2017-2018-issue-vi": {
+    "url": "/assets/issue-covers/2017-2018-issue-vi.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2017-2018-vi-full.pdf",
+    "page": 1,
+    "pdfSha256": "91aa0240e536431874f3571c0bf18bd7726010848ffed5689493f6788b754646"
+  },
+  "2015-2016-issue-ii": {
+    "url": "/assets/issue-covers/2015-2016-issue-ii.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2015-2016-ii.pdf",
+    "page": 1,
+    "pdfSha256": "f130a9cb075399863ff5ab47b28864d7d0a8bf280d921e541dcd5043a762e503"
+  },
+  "2021-2022-issue-ii": {
+    "url": "/assets/issue-covers/2021-2022-issue-ii.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2021-2022-ii.pdf",
+    "page": 1,
+    "pdfSha256": "79f3e4754f0a0ccc220da6969baa4249766e02b952d9eb30f3bc7db5904130c7"
+  },
+  "2021-2022-issue-vi": {
+    "url": "/assets/issue-covers/2021-2022-issue-vi.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2021-2022-vi.pdf",
+    "page": 1,
+    "pdfSha256": "4cf5844c16898942d1334ccdc89a2aae93173071eb82c7017b1d83fe3cdebe24"
+  },
+  "2019-2020-issue-vi": {
+    "url": "/assets/issue-covers/2019-2020-issue-vi.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2019-2020-vi.pdf",
+    "page": 1,
+    "pdfSha256": "e3fa30b582b3aac17c45be3fca7ae625c40b80481ada4940c008c19200717502"
+  },
+  "2021-2022-issue-iii": {
+    "url": "/assets/issue-covers/2021-2022-issue-iii.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2021-2022-iii.pdf",
+    "page": 1,
+    "pdfSha256": "6b4caa16266d8e5f9a27fb0df4f8be85f6b68cd6003775117cb34afc5a677405"
+  },
+  "2021-2022-issue-i": {
+    "url": "/assets/issue-covers/2021-2022-issue-i.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2021-2022-i.pdf",
+    "page": 1,
+    "pdfSha256": "d389b08e4e359008469d952bfd5ed1cd2c2434a5932ef53f118703b41c3997b1"
+  },
+  "2020-2021-issue-i": {
+    "url": "/assets/issue-covers/2020-2021-issue-i.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2020-2021-i.pdf",
+    "page": 1,
+    "pdfSha256": "312119a4de3b8aa366fc85c4ffd796b4c9d88e5eba32661677b3fd733552b071"
+  },
+  "2017-2018-issue-i": {
+    "url": "/assets/issue-covers/2017-2018-issue-i.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2017-2018-i.pdf",
+    "page": 1,
+    "pdfSha256": "4d4cd8ddf4338e59a5b51835c0ba5aa20ee735b851245d0e26c2f7a8f9a8b96d"
+  },
+  "spring-2015-issue-ii": {
+    "url": "/assets/issue-covers/spring-2015-issue-ii.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/spring-2015-issue-ii.pdf",
+    "page": 1,
+    "pdfSha256": "26d026e4cfb28076ceb13f5dc13119ba5424becbb193ba266e7398e62bbad50e"
+  },
+  "2021-2022-issue-v": {
+    "url": "/assets/issue-covers/2021-2022-issue-v.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2021-2022-v.pdf",
+    "page": 1,
+    "pdfSha256": "df2072d5dfe894bfd06dd248aaf24e57e2e876a5ed209440f4478b5c7c5ace07"
+  },
+  "spring-2015-issue-i": {
+    "url": "/assets/issue-covers/spring-2015-issue-i.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/spring-2015-issue-i.pdf",
+    "page": 1,
+    "pdfSha256": "84d8fc4b39ac97e41f14d5e11c4d31fd77c5ba723e699bc8dfefb676eb789d8c"
+  },
+  "2017-2018-issue-iii": {
+    "url": "/assets/issue-covers/2017-2018-issue-iii.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2017-2018-iii.pdf",
+    "page": 1,
+    "pdfSha256": "140a501db1b985b83e4362ed0f4ee97eb6ea027056c75ae3bb17b08994a8abf4"
+  },
+  "2015-2016-issue-i": {
+    "url": "/assets/issue-covers/2015-2016-issue-i.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2015-2016-i.pdf",
+    "page": 1,
+    "pdfSha256": "301181152e868c2fd2fe5be1102337bb7607f867339a4cd8498ad5f2e4ff785a"
+  },
+  "2017-2018-issue-iv": {
+    "url": "/assets/issue-covers/2017-2018-issue-iv.webp",
+    "width": 736,
+    "height": 1000,
+    "source": "/assets/issues/issue-2017-2018-iv.pdf",
+    "page": 1,
+    "pdfSha256": "b23fb8d2635a5b40c645feed01426193708fb0f3756aac6ca74cf81431b8fa80"
   }
 }
