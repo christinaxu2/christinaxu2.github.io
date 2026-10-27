@@ -10,7 +10,7 @@ const navMenus = {
   NATIONAL: [["National desk", "/section/national/"], ["Elections", "/topic/elections/"], ["Congress", "/topic/congress/"], ["Policy and courts", "/topic/policy-and-courts/"]],
   WORLD: [["World desk", "/section/world/"], ["Africa", "/topic/africa/"], ["Asia", "/topic/asia/"], ["Europe", "/topic/europe/"], ["Middle East", "/topic/middle-east/"], ["Latin America", "/topic/latin-america/"], ["Australia & Oceania", "/topic/australia-oceania/"], ["Foreign affairs", "/topic/foreign-affairs/"]],
   CULTURE: [["Culture desk", "/section/culture/"], ["Campus life", "/topic/campus-life/"], ["Photojournalism", "/section/photojournalism/"]],
-  OPINION: [["Opinion desk", "/section/opinion/"], ["Essays", "/topic/essays/"], ["Columns", "/topic/columns/"], ["Democracy", "/topic/democracy/"]],
+  OPINION: [["Opinion desk", "/section/opinion/"], ["Essays", "/topic/essays/"], ["Democracy", "/topic/democracy/"]],
   INTERVIEWS: [["All interviews", "/section/interviews/"], ["Conversations", "/topic/conversations/"], ["Profiles", "/topic/profiles/"]],
   MULTIMEDIA: [["Multimedia hub", "/multimedia/"], ["Photojournalism", "/section/photojournalism/"], ["Podcasts", "/section/podcasts/"], ["Print archive", "/archive/"]],
   ISSUES: [["Current issue", CURRENT_ISSUE], ["History & archive", "/archive/"], ["Yale digital archive", "https://elischolar.library.yale.edu/politic/"], ["Search issue articles", "/search/?type=issues"]],
@@ -22,7 +22,7 @@ const navMenus = {
 const topicDefinitions = {
   "campus-politics": {title:"Campus Politics", description:"Reporting on student voices, campus debates, and the politics shaping life at Yale.", terms:["campus"], nav:"LOCAL"},
   "new-haven": {title:"New Haven", description:"Reporting on the people, institutions, and civic life of New Haven.", terms:["new haven"], nav:"LOCAL"},
-  elections: {title:"Elections", description:"Coverage of campaigns, voting, and the choices shaping public life.", terms:["elections","election"], nav:"NATIONAL"},
+  elections: {title:"Elections", description:"Coverage of campaigns, voting, and the choices shaping public life.", terms:["elections","election"], excludedSlugs:["israel-at-a-crossroads-whats-at-stake-in-the-october-27-elections"], nav:"NATIONAL"},
   congress: {title:"Congress", description:"Reporting and analysis on Congress, its debates, and the decisions before it.", terms:["congress"], nav:"NATIONAL"},
   "policy-and-courts": {title:"Policy & Courts", description:"Coverage of public policy, the courts, and the institutions that shape American life.", terms:["policy","courts"], nav:"NATIONAL"},
   africa: {title:"Africa", description:"Reporting and perspectives on politics, society, and change across Africa.", terms:["africa","african union","south africa","nigeria","kenya","ethiopia","sudan","congo","rwanda","ghana","somalia","uganda","tanzania","zimbabwe","sahel","mali","senegal","zambia","cameroon","morocco","algeria","tunisia","libya","eritrea","liberia","sierra leone","mozambique","angola","niger","burkina faso","namibia","botswana","madagascar","ivory coast","cote d'ivoire"], nav:"WORLD"},
@@ -326,6 +326,7 @@ function sectionPage(slug) {
 const topicTokens=text=>searchTokens(String(text||'').replace(/['’]s\b/gi,''));
 const topicPhrase=(text,term)=>(' '+topicTokens(text).join(' ')+' ').includes(' '+topicTokens(term).join(' ')+' ');
 function topicMatches(topic,post) {
+  if(topic.excludedSlugs?.includes(post.slug))return false;
   if(topic.sections?.some(section=>hasCategory(post,section)))return true;
   // Titles and tags match on a word or phrase; a category only when its whole name is the term,
   // so the combined "Middle East & Africa" category does not file African stories under Middle East.
