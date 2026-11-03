@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://thepolitic.org/</loc><lastmod>2026-10-27</lastmod><priority>1.0</priority></url>
+  <url><loc>https://thepolitic.org/</loc><lastmod>2026-11-03</lastmod><priority>1.0</priority></url>
+  <url><loc>https://thepolitic.org/article/navigating-crises-behind-the-scenes-an-interview-with-janah-ncube/</loc><lastmod>2026-11-02</lastmod><priority>0.7</priority></url>
+  <url><loc>https://thepolitic.org/article/moscow-is-betting-nato-will-hesitate-ambiguity-is-its-weapon/</loc><lastmod>2026-11-02</lastmod><priority>0.7</priority></url>
+  <url><loc>https://thepolitic.org/article/hey-lets-build-your-best-baby/</loc><lastmod>2026-11-02</lastmod><priority>0.7</priority></url>
+  <url><loc>https://thepolitic.org/article/the-woman-behind-the-pink-sari-a-conversation-with-sampat-pal-devi/</loc><lastmod>2026-11-02</lastmod><priority>0.7</priority></url>
+  <url><loc>https://thepolitic.org/article/were-not-going-to-quit-the-fight-for-louisianas-black-vote/</loc><lastmod>2026-11-02</lastmod><priority>0.7</priority></url>
+  <url><loc>https://thepolitic.org/article/the-mecca-defense-pact-and-the-security-it-cant-buy/</loc><lastmod>2026-11-02</lastmod><priority>0.7</priority></url>
+  <url><loc>https://thepolitic.org/article/a-razor-thin-path-the-cockroach-janta-partys-digital-war-for-indian-democracy/</loc><lastmod>2026-11-02</lastmod><priority>0.7</priority></url>
   <url><loc>https://thepolitic.org/article/israel-at-a-crossroads-whats-at-stake-in-the-october-27-elections/</loc><lastmod>2026-10-26</lastmod><priority>0.7</priority></url>
   <url><loc>https://thepolitic.org/article/town-and-gown-go-to-court-redistricting-fight-hits-boone-nc/</loc><lastmod>2026-09-26</lastmod><priority>0.7</priority></url>
   <url><loc>https://thepolitic.org/article/working-in-the-shadows-mumbais-home-based-female-artisans/</loc><lastmod>2026-09-26</lastmod><priority>0.7</priority></url>
@@ -3700,6 +3707,9 @@
   <url><loc>https://thepolitic.org/author/aadyahs/</loc><priority>0.3</priority></url>
   <url><loc>https://thepolitic.org/author/larsenhs/</loc><priority>0.3</priority></url>
   <url><loc>https://thepolitic.org/author/mira-schulman/</loc><priority>0.3</priority></url>
+  <url><loc>https://thepolitic.org/author/sahil-gupta/</loc><priority>0.3</priority></url>
+  <url><loc>https://thepolitic.org/author/alice-sgibnev/</loc><priority>0.3</priority></url>
+  <url><loc>https://thepolitic.org/author/kayla-swogger/</loc><priority>0.3</priority></url>
   <url><loc>https://thepolitic.org/section/ambassador-series/</loc><priority>0.5</priority></url>
   <url><loc>https://thepolitic.org/section/national/</loc><priority>0.5</priority></url>
   <url><loc>https://thepolitic.org/section/world/</loc><priority>0.5</priority></url>
