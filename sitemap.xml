@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://thepolitic.org/</loc><lastmod>2026-11-03</lastmod><priority>1.0</priority></url>
+  <url><loc>https://thepolitic.org/article/ai-remember-whos-in-control/</loc><lastmod>2026-11-03</lastmod><priority>0.7</priority></url>
+  <url><loc>https://thepolitic.org/article/the-underground-resistance-of-afghan-women/</loc><lastmod>2026-11-03</lastmod><priority>0.7</priority></url>
+  <url><loc>https://thepolitic.org/article/america-this-was-not-our-dream/</loc><lastmod>2026-11-03</lastmod><priority>0.7</priority></url>
+  <url><loc>https://thepolitic.org/article/politics-or-patriotism/</loc><lastmod>2026-11-03</lastmod><priority>0.7</priority></url>
   <url><loc>https://thepolitic.org/article/navigating-crises-behind-the-scenes-an-interview-with-janah-ncube/</loc><lastmod>2026-11-02</lastmod><priority>0.7</priority></url>
   <url><loc>https://thepolitic.org/article/moscow-is-betting-nato-will-hesitate-ambiguity-is-its-weapon/</loc><lastmod>2026-11-02</lastmod><priority>0.7</priority></url>
   <url><loc>https://thepolitic.org/article/hey-lets-build-your-best-baby/</loc><lastmod>2026-11-02</lastmod><priority>0.7</priority></url>
@@ -3710,6 +3714,9 @@
   <url><loc>https://thepolitic.org/author/sahil-gupta/</loc><priority>0.3</priority></url>
   <url><loc>https://thepolitic.org/author/alice-sgibnev/</loc><priority>0.3</priority></url>
   <url><loc>https://thepolitic.org/author/kayla-swogger/</loc><priority>0.3</priority></url>
+  <url><loc>https://thepolitic.org/author/braelyn-bouton/</loc><priority>0.3</priority></url>
+  <url><loc>https://thepolitic.org/author/rachel-kreth/</loc><priority>0.3</priority></url>
+  <url><loc>https://thepolitic.org/author/stanley-huang/</loc><priority>0.3</priority></url>
   <url><loc>https://thepolitic.org/section/ambassador-series/</loc><priority>0.5</priority></url>
   <url><loc>https://thepolitic.org/section/national/</loc><priority>0.5</priority></url>
   <url><loc>https://thepolitic.org/section/world/</loc><priority>0.5</priority></url>
