@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://thepolitic.org/</loc><lastmod>2026-11-03</lastmod><priority>1.0</priority></url>
+  <url><loc>https://thepolitic.org/article/we-want-to-see-change-seven-yale-students-on-the-issues-driving-their-midterm-votes/</loc><lastmod>2026-11-03</lastmod><priority>0.7</priority></url>
   <url><loc>https://thepolitic.org/article/sorry-than-safe-implications-of-hugging-face-incident/</loc><lastmod>2026-11-03</lastmod><priority>0.7</priority></url>
   <url><loc>https://thepolitic.org/article/gen-zs-9-matcha/</loc><lastmod>2026-11-03</lastmod><priority>0.7</priority></url>
   <url><loc>https://thepolitic.org/article/a-small-alabama-county-is-betting-on-a-33-billion-data-center-residents-fear-the-cost/</loc><lastmod>2026-11-03</lastmod><priority>0.7</priority></url>
@@ -3723,6 +3724,7 @@
   <url><loc>https://thepolitic.org/author/nausicaa-chu/</loc><priority>0.3</priority></url>
   <url><loc>https://thepolitic.org/author/kai-bwor/</loc><priority>0.3</priority></url>
   <url><loc>https://thepolitic.org/author/yeonjae-kim/</loc><priority>0.3</priority></url>
+  <url><loc>https://thepolitic.org/author/zoe-zhang/</loc><priority>0.3</priority></url>
   <url><loc>https://thepolitic.org/section/ambassador-series/</loc><priority>0.5</priority></url>
   <url><loc>https://thepolitic.org/section/national/</loc><priority>0.5</priority></url>
   <url><loc>https://thepolitic.org/section/world/</loc><priority>0.5</priority></url>
