@@ -19,6 +19,9 @@
 //     "https://thepolitic.org/another-main-article/",
 //   ],
 const issueMainArticles = {
+  "2026-2027-issue-i": [
+    "https://thepolitic.org/a-razor-thin-path-the-cockroach-janta-partys-digital-war-for-indian-democracy/",
+  ],
   "2025-2026-issue-iv": [
   ],
   "2025-2026-issue-iii": [
