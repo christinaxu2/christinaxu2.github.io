@@ -51,7 +51,7 @@ const alumniDirectory = [
   {name:'Suzanne Nossel',sortName:'Nossel, Suzanne',field:'advocacy',role:'Writer',years:'2005',selection:'additional',pages:[16],bio:'Free-expression advocate, former PEN America CEO, and author of Dare to Speak.',source:'https://pen.org/profile/suzanne-nossel/'},
   // Recent editors-in-chief, added October 2026 at the editors' request. Years are the masthead years.
   {name:'Eliza Daunt',sortName:'Daunt, Eliza',field:'journalism',role:'Editor-in-Chief',years:'2025–2026',selection:'editor',pages:[],bio:'Editor-in-chief in 2025–2026; her reporting and interviews have explored politics, conflict, and historical memory, with a focus on Eastern Europe and the Caucasus.',source:'https://thepolitic.org/author/eliza-daunt/'},
-  {name:'Nicole Chen',sortName:'Chen, Nicole',field:'journalism',role:'Editor-in-Chief',years:'2025–2026',selection:'editor',pages:[],bio:'Co-editor-in-chief in 2025–2026; wrote for the magazine on European and Latin American politics.',source:'https://thepolitic.org/author/nicole-chen/'}
+  {name:'Nicole Chen',sortName:'Chen, Nicole',field:'journalism',role:'Editor-in-Chief',years:'2025–2026',selection:'editor',pages:[],bio:'Nicole Chen was editor-in-chief of the Yale Politic from 2025–2026. Her reporting has focused on elections, political behavior, and social issues.',source:'https://thepolitic.org/author/nicole-chen/'}
 ];
 const alumniFields = [
   ['journalism','Journalism & Media'],
