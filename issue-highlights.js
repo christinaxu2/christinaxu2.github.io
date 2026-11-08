@@ -21,6 +21,10 @@
 const issueMainArticles = {
   "2026-2027-issue-i": [
     "https://thepolitic.org/a-razor-thin-path-the-cockroach-janta-partys-digital-war-for-indian-democracy/",
+    "https://thepolitic.org/ai-remember-whos-in-control/",
+    "https://thepolitic.org/hey-lets-build-your-best-baby/",
+    "https://thepolitic.org/moscow-is-betting-nato-will-hesitate-ambiguity-is-its-weapon/",
+    "https://thepolitic.org/we-want-to-see-change-seven-yale-students-on-the-issues-driving-their-midterm-votes/",
   ],
   "2025-2026-issue-iv": [
   ],

@@ -682,3 +682,5 @@ button,.button{min-height:44px}
 @media(max-width:600px){.alumni-filters label:nth-child(n+2){flex:1 1 calc(50% - 7px);min-width:0}}
 .article-body .pull-quote{border-left:4px solid var(--red);margin:34px 0;padding:4px 0 4px 22px}.article-body .pull-quote p{font:italic 26px/1.25 var(--display);color:var(--navy);margin:0}.article-body figure.article-figure img{display:block;width:100%;height:auto}.article-body figcaption .credit{display:block;font-size:11px;letter-spacing:.04em;text-transform:uppercase;margin-top:3px}@media(max-width:800px){.article-body .pull-quote p{font-size:21px}}
 .article-body figure.portrait-figure{max-width:300px;margin-inline:0}.article-body figure.portrait-figure img{display:block;width:100%;height:auto}
+.share-row+.article-body{margin-top:36px}
+.current-issue-feature .current-issue-archive-link{display:table;margin-top:14px}
