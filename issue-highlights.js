@@ -35,3 +35,27 @@ const issueMainArticles = {
   "2025-2026-issue-i": [
   ],
 };
+
+// The home page's main (Featured) story rotates: each visit shows one of these at random.
+// Add or remove article links to change the selection. Stories without a photo are skipped.
+const homeFeaturedRotation = [
+  "https://thepolitic.org/article/a-razor-thin-path-the-cockroach-janta-partys-digital-war-for-indian-democracy/",
+  "https://thepolitic.org/article/ai-remember-whos-in-control/",
+  "https://thepolitic.org/article/hey-lets-build-your-best-baby/",
+  "https://thepolitic.org/article/moscow-is-betting-nato-will-hesitate-ambiguity-is-its-weapon/",
+  "https://thepolitic.org/article/wheres-my-opportunity-americans-search-for-upward-mobility-in-2026/",
+  "https://thepolitic.org/article/navigating-crises-behind-the-scenes-an-interview-with-janah-ncube/",
+  "https://thepolitic.org/article/the-woman-behind-the-pink-sari-a-conversation-with-sampat-pal-devi/",
+  "https://thepolitic.org/article/she-never-came-home-russias-abduction-of-ukrainian-children/",
+  "https://thepolitic.org/article/between-settlement-and-emergency-the-post-2022-ukrainian-diaspora/",
+  "https://thepolitic.org/article/grokaideepfakes/",
+  "https://thepolitic.org/article/we-want-to-see-change-seven-yale-students-on-the-issues-driving-their-midterm-votes/",
+  "https://thepolitic.org/article/a-small-alabama-county-is-betting-on-a-33-billion-data-center-residents-fear-the-cost/",
+  "https://thepolitic.org/article/death-by-a-thousand-cuts-in-the-ai-revolution/",
+  "https://thepolitic.org/article/when-rebels-govern-the-case-for-m23s-statebuilding-project/",
+  "https://thepolitic.org/article/la-sangre-de-los-angeles-testimony-of-ms-13-and-transnational-gang-violence-from-el-salvador-to-los-angeles/",
+  "https://thepolitic.org/article/when-the-world-walks-away-sudan-and-the-failures-of-global-leadership/",
+  "https://thepolitic.org/article/operations-that-start-in-the-market-surgical-survival-in-sub-saharan-africa/",
+  "https://thepolitic.org/article/learning-to-fly-in-temascaltepec-how-free-flight-transformed-a-community/",
+  "https://thepolitic.org/article/after-assad-framing-syrias-next-chapter/",
+];

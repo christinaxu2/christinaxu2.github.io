@@ -14,7 +14,7 @@ const navMenus = {
   INTERVIEWS: [["All interviews", "/section/interviews/"], ["Conversations", "/topic/conversations/"], ["Profiles", "/topic/profiles/"]],
   MULTIMEDIA: [["Multimedia hub", "/multimedia/"], ["Photojournalism", "/section/photojournalism/"], ["Podcasts", "/section/podcasts/"], ["Print archive", "/archive/"]],
   ISSUES: [["Current issue", CURRENT_ISSUE], ["History & archive", "/archive/"], ["Yale digital archive", "https://elischolar.library.yale.edu/politic/"], ["Search issue articles", "/search/?type=issues"]],
-  ABOUT: [["Our history", "/history/"], ["The team", "/team/"], ["Alumni", "/alumni/"], ["Past issues", "/archive/"], ["Staffers", "/authors/"]]
+  ABOUT: [["Our history", "/history/"], ["The team", "/team/"], ["Alumni", "/alumni/"], ["Past issues", "/archive/"], ["Past staff", "/authors/"]]
 };
 // A story belongs to a topic when one of these terms appears, as a whole word or phrase, in its
 // title, tags, or categories (not in its text, which made "African Americans" count as Africa).
@@ -47,7 +47,7 @@ function shell(content, active) {
     const submenu=children.length?'<button class="nav-toggle" data-nav-toggle aria-label="Open '+item[0].toLowerCase()+' menu" aria-controls="'+menuId+'" aria-expanded="false">⌄</button><div class="nav-dropdown nav-compact" data-nav-menu id="'+menuId+'" hidden>'+children.map(child=>'<a href="'+esc(child[1]===CURRENT_ISSUE?currentIssueHref():child[1])+'">'+child[0]+'<span aria-hidden="true">→</span></a>').join('')+'</div>':'';
     return '<div class="nav-item" data-nav-item data-nav-section="'+item[0].toLowerCase()+'" data-has-menu="'+Boolean(children.length)+'"><a class="nav-trigger '+(active===item[0]?'active':'')+'" data-nav-trigger href="'+item[1]+'">'+item[0]+'</a>'+submenu+'</div>';
   }).join("");
-  return "<div class=\"site\"><a class=\"skip-link\" href=\"#main-content\" data-skip>Skip to content</a><header class=\"site-header\"><div class=\"utility shell\"><div class=\"utility-left\"><button class=\"mobile-menu\" data-menu aria-controls=\"site-nav-links\">MENU</button><span class=\"utility-tagline\">YALE’S POLITICAL JOURNAL <b>•</b> SINCE 1947</span></div><div class=\"utility-actions\"><button class=\"text-button\" data-search>⌕ &nbsp;SEARCH</button><button class=\"join-button\" data-join>INTERESTED IN JOINING?</button></div></div><div class=\"masthead shell\"><a class=\"wordmark wordmark-logo\" href=\"/\"><img src=\"/assets/the-politic-logo-white.png\" alt=\"The Politic\" width=\"396\" height=\"288\"></a></div><nav class=\"primary-nav shell\" aria-label=\"Sections\"><div class=\"nav-links\" id=\"site-nav-links\">" + links + "</div></nav></header><main id=\"main-content\" tabindex=\"-1\">" + content + "</main><footer class=\"site-footer\"><div class=\"shell footer-main\"><div><a class=\"footer-mark\" href=\"/\">The Politic</a><p>Yale's political journal since 1947.</p></div><div><h4>EXPLORE</h4><a href=\"/section/local/\">Local</a><a href=\"/section/national/\">National</a><a href=\"/section/world/\">World</a><a href=\"/archive/\">Archive</a></div><div><h4>CONNECT</h4><a href=\"/history/\">Our history</a><a href=\"/team/\">The team</a><a href=\"/competition/\">High school competition</a><a href=\"/join/\">Interested in joining?</a><a href=\"/pages/\">All pages &amp; projects</a><a href=\"/alumni/\">Alumni directory</a><a href=\"/authors/\">Staffers</a><a href=\"/page/contact/\">Contact</a></div></div><div class=\"shell footer-bottom\"><span>© " + new Date().getFullYear() + " The Politic</span><span>Truth. Analysis. Yale.</span></div></footer></div>";
+  return "<div class=\"site\"><a class=\"skip-link\" href=\"#main-content\" data-skip>Skip to content</a><header class=\"site-header\"><div class=\"utility shell\"><div class=\"utility-left\"><button class=\"mobile-menu\" data-menu aria-controls=\"site-nav-links\">MENU</button><span class=\"utility-tagline\">YALE’S POLITICAL JOURNAL <b>•</b> SINCE 1947</span></div><div class=\"utility-actions\"><button class=\"text-button\" data-search>⌕ &nbsp;SEARCH</button><button class=\"join-button\" data-join>INTERESTED IN JOINING?</button></div></div><div class=\"masthead shell\"><a class=\"wordmark wordmark-logo\" href=\"/\"><img src=\"/assets/the-politic-logo-white.png\" alt=\"The Politic\" width=\"396\" height=\"288\"></a></div><nav class=\"primary-nav shell\" aria-label=\"Sections\"><div class=\"nav-links\" id=\"site-nav-links\">" + links + "</div></nav></header><main id=\"main-content\" tabindex=\"-1\">" + content + "</main><footer class=\"site-footer\"><div class=\"shell footer-main\"><div><a class=\"footer-mark\" href=\"/\">The Politic</a><p>Yale's political journal since 1947.</p></div><div><h4>EXPLORE</h4><a href=\"/section/local/\">Local</a><a href=\"/section/national/\">National</a><a href=\"/section/world/\">World</a><a href=\"/archive/\">Archive</a></div><div><h4>CONNECT</h4><a href=\"/history/\">Our history</a><a href=\"/team/\">The team</a><a href=\"/competition/\">High school competition</a><a href=\"/join/\">Interested in joining?</a><a href=\"/pages/\">All pages &amp; projects</a><a href=\"/alumni/\">Alumni directory</a><a href=\"/authors/\">Past staff</a><a href=\"/page/contact/\">Contact</a></div></div><div class=\"shell footer-bottom\"><span>© " + new Date().getFullYear() + " The Politic</span><span>Truth. Analysis. Yale.</span></div></footer></div>";
 }
 
 const app=document.querySelector('#app');
@@ -187,6 +187,19 @@ function latestIssueCategory() {
 // Each issue's main (print) articles are listed by hand in issue-highlights.js, as article
 // links or slugs. They lead that issue's pages; everything else follows in the usual order.
 const mainArticleEntries=typeof issueMainArticles==='object'&&issueMainArticles?issueMainArticles:{};
+// The home page's Featured story rotates through the editors' selection in issue-highlights.js.
+// One is picked per visit (kept while the reader moves around the site) so the page doesn't change mid-read.
+const featuredRotation=typeof homeFeaturedRotation==='object'&&Array.isArray(homeFeaturedRotation)?homeFeaturedRotation:[];
+let featuredPick=null;
+function rotatingLead() {
+  const pool=featuredRotation.map(entry=>{
+    const slug=decodedSlug(String(entry).split(/[?#]/)[0].split('/').filter(Boolean).pop()||'');
+    return state.posts.find(p=>decodedSlug(p.slug)===slug);
+  }).filter(p=>p?.featured_media?.url);
+  if(!pool.length)return null;
+  if(!featuredPick||!pool.some(p=>p.id===featuredPick))featuredPick=pool[Math.floor(Math.random()*pool.length)].id;
+  return pool.find(p=>p.id===featuredPick);
+}
 function mainArticles(issueSlug) {
   const seen=new Set();
   return (mainArticleEntries[issueSlug]||[]).map(entry=>{
@@ -293,7 +306,7 @@ function currentIssueFeature(current,excluded=new Set()) {
     +'<nav class="current-issue-toc" aria-label="In this issue"><h3>In this issue</h3><ol>'+stories.slice(0,4).map(p=>'<li><a href="'+href(p)+'"><span class="current-issue-story-title">'+esc(p.title)+'</span><span class="current-issue-story-author">'+esc(p.author?.name||'The Politic')+'</span></a></li>').join('')+'</ol><a class="current-issue-all" href="'+collection+'">View all '+allStories.length+(allStories.length===1?' article':' articles')+' <span aria-hidden="true">→</span></a></nav></div></section>';
 }
 function home() {
-  const lead=state.posts.find(p=>hasCategory(p,'homepage-featured'))||state.posts[0];
+  const lead=rotatingLead()||state.posts.find(p=>hasCategory(p,'homepage-featured'))||state.posts[0];
   if(!lead)return pageWrap('The Politic',sectionHeader('The Politic','No published articles are available.'));
   const rest=state.posts.filter(p=>p.id!==lead.id);
   const current=latestIssueCategory();
@@ -442,8 +455,8 @@ function authorsPage() {
   const terms=normalize(query).split(/\s+/).filter(Boolean);
   const people=Object.values(state.authors).filter(a=>{const name=normalize(a.name);return terms.every(term=>name.includes(term));}).sort((a,b)=>a.name.localeCompare(b.name));
   const result=paginate(people,40);
-  const search='<form class="staffer-search" data-staffer-search role="search" aria-label="Search staffers"><label for="staffer-query">Search by name</label><div><input id="staffer-query" type="search" name="q" value="'+esc(query)+'" placeholder="Type a name" autocomplete="off"><button class="button button-solid" type="submit">Search</button>'+(query?'<a href="/authors/">Clear</a>':'')+'</div></form>';
-  return pageWrap('Staffers',sectionHeader('Staffers')+search+(query?'<p class="staffer-count" role="status">'+people.length+(people.length===1?' staffer matches':' staffers match')+' “'+esc(query)+'”</p>':'')+(people.length?'<div class="contributors-grid">'+result.rows.map(a=>'<a href="/author/'+encodeURIComponent(a.slug)+'/">'+esc(a.name)+'</a>').join('')+'</div>':'<p class="empty-state">No staffer by that name. Check the spelling or <a href="/authors/">see everyone</a>.</p>')+result.controls,'ABOUT');
+  const search='<form class="staffer-search" data-staffer-search role="search" aria-label="Search past staff"><label for="staffer-query">Search by name</label><div><input id="staffer-query" type="search" name="q" value="'+esc(query)+'" placeholder="Type a name" autocomplete="off"><button class="button button-solid" type="submit">Search</button>'+(query?'<a href="/authors/">Clear</a>':'')+'</div></form>';
+  return pageWrap('Past Staff',sectionHeader('Past Staff')+search+(query?'<p class="staffer-count" role="status">'+people.length+(people.length===1?' person matches':' people match')+' “'+esc(query)+'”</p>':'')+(people.length?'<div class="contributors-grid">'+result.rows.map(a=>'<a href="/author/'+encodeURIComponent(a.slug)+'/">'+esc(a.name)+'</a>').join('')+'</div>':'<p class="empty-state">No staffer by that name. Check the spelling or <a href="/authors/">see everyone</a>.</p>')+result.controls,'ABOUT');
 }
 // Filters for the alumni directory: what someone did at The Politic, and when.
 const alumniRoles=[
@@ -470,7 +483,7 @@ function alumniPage() {
   const roleOptions=alumniRoles.map(([id,label])=>'<option value="'+id+'"'+(role===id?' selected':'')+'>'+esc(label)+'</option>').join('');
   const eraOptions=decadeChoices.map(decade=>'<option value="'+decade+'"'+(era===decade?' selected':'')+'>'+decade+'s</option>').join('');
   const filtering=Boolean(query||field||role||era);
-  const portraits=[...(typeof alumniFeatured==='object'?alumniFeatured:[]),...(typeof alumniPortraits==='object'?alumniPortraits:[])];
+  const portraits=[...(typeof alumniFeatured==='object'?alumniFeatured:[]),...(typeof alumniPortraits==='object'?alumniPortraits:[])].filter(f=>f.photo);
   const featuredList=!filtering&&typeof alumniFeatured==='object'?alumniFeatured.filter(f=>alumniDirectory.some(p=>p.name===f.name)):[];
   const featuredNames=featuredList.map(f=>f.name);
   const card=person=>{
@@ -525,7 +538,7 @@ function historyPage() {
     +'<section class="history-section"><h2>Our history</h2>'+timeline+'</section>'
     +'<div class="history-columns">'+archiveFeature+voicesSection+'</div>'
     +'<section class="history-section"><h2>Explore the archive</h2><form class="history-search" data-history-search role="search" aria-label="Search the archive"><input type="search" name="q" aria-label="Search the archive" placeholder="Search articles, writers, and topics" required><button class="button button-solid" type="submit">Search</button></form>'+decadeRow+'<p class="history-all-issues"><a class="arrow-link" href="/archive/">View all issues →</a></p></section>'
-    +'<section class="history-section"><h2>More about The Politic</h2><div class="history-links"><a href="/team/">The team</a><a href="/alumni/">Alumni</a><a href="/authors/">Staffers</a><a href="/join/">Interested in joining?</a><a href="/page/contact/">Contact</a><a href="https://elischolar.library.yale.edu/politic/" target="_blank" rel="noopener noreferrer">Yale digital archive ↗</a></div></section>'
+    +'<section class="history-section"><h2>More about The Politic</h2><div class="history-links"><a href="/team/">The team</a><a href="/alumni/">Alumni</a><a href="/authors/">Past staff</a><a href="/join/">Interested in joining?</a><a href="/page/contact/">Contact</a><a href="https://elischolar.library.yale.edu/politic/" target="_blank" rel="noopener noreferrer">Yale digital archive ↗</a></div></section>'
     +'</div>';
   return pageWrap('Our History',html,'ABOUT','The Politic traces its roots to 1947, when Yale students founded the Yale Political Journal: A Magazine of Student Opinion.');
 }

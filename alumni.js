@@ -49,6 +49,8 @@ const alumniDirectory = [
   {name:'Eliana Johnson',sortName:'Johnson, Eliana',field:'journalism',role:'Writer',years:'2003',selection:'additional',pages:[12],bio:'Political journalist and Washington Free Beacon editor, previously a White House correspondent for POLITICO.',source:'https://freebeacon.com/author/eliana-johnson/'},
   {name:'James Kirchick',sortName:'Kirchick, James',field:'journalism',role:'Writer',years:'2005',selection:'additional',pages:[17],bio:'Journalist and author of Secret City: The Hidden History of Gay Washington.',source:'https://jameskirchick.com/about/'},
   {name:'Suzanne Nossel',sortName:'Nossel, Suzanne',field:'advocacy',role:'Writer',years:'2005',selection:'additional',pages:[16],bio:'Free-expression advocate, former PEN America CEO, and author of Dare to Speak.',source:'https://pen.org/profile/suzanne-nossel/'},
+  // Added November 2026 at the editors' request: wrote for The Politic in 2022 (author page on the site).
+  {name:'Aidan Stretch',sortName:'Stretch, Aidan',field:'journalism',role:'Writer',years:'2022',selection:'additional',pages:[],bio:'Now a correspondent in Ukraine.',source:'https://thepolitic.org/author/aidanstretch/'},
   // Recent editors-in-chief, added October 2026 at the editors' request. Years are the masthead years.
   {name:'Eliza Daunt',sortName:'Daunt, Eliza',field:'journalism',role:'Editor-in-Chief',years:'2025–2026',selection:'editor',pages:[],bio:'Editor-in-chief in 2025–2026; her reporting and interviews have explored politics, conflict, and historical memory, with a focus on Eastern Europe and the Caucasus.',source:'https://thepolitic.org/author/eliza-daunt/'},
   {name:'Nicole Chen',sortName:'Chen, Nicole',field:'journalism',role:'Editor-in-Chief',years:'2025–2026',selection:'editor',pages:[],bio:'Nicole Chen was editor-in-chief of the Yale Politic from 2025–2026. Her reporting has focused on elections, political behavior, and social issues.',source:'https://thepolitic.org/author/nicole-chen/'}
@@ -72,7 +74,9 @@ const alumniFeatured = [
   {name:'Joseph S. Nye Jr.',photo:'/assets/alumni/joseph-nye.webp',credit:'Scott Davis / U.S. Department of Defense',license:'Public domain',creditUrl:'https://commons.wikimedia.org/wiki/File:Portrait_of_Dr._Joseph_S._Nye,_Jr.,_Assistant_Secretary_of_Defense,_International_Security_Affairs.jpg'},
   {name:'Maggie Goodlander',photo:'/assets/alumni/maggie-goodlander.webp',credit:'Nate Payne / U.S. House of Representatives',license:'Public domain',creditUrl:'https://commons.wikimedia.org/wiki/File:Maggie_Goodlander_official_portrait,_119th_Congress.jpg'},
   {name:'Oona Hathaway',photo:'/assets/alumni/oona-hathaway.webp',credit:'Wikimedia Commons',license:'CC0',creditUrl:'https://commons.wikimedia.org/wiki/File:Oona_Hathaway_Headshot.jpg'},
-  {name:'Jonathan Rauch',photo:'/assets/alumni/jonathan-rauch.webp',credit:'New America',license:'CC BY 2.0 (cropped)',creditUrl:'https://commons.wikimedia.org/wiki/File:Jonathan_Rauch,_2013_(cropped).jpg'}
+  {name:'Jonathan Rauch',photo:'/assets/alumni/jonathan-rauch.webp',credit:'New America',license:'CC BY 2.0 (cropped)',creditUrl:'https://commons.wikimedia.org/wiki/File:Jonathan_Rauch,_2013_(cropped).jpg'},
+  // No freely licensed portrait yet; add photo, credit, license and creditUrl when one is found.
+  {name:'Aidan Stretch'},
 ];
 
 // Portraits for other directory entries, shown on their cards. Same rules as above.
