@@ -5,4 +5,5 @@ Disallow: /the-politic-issues-archive-1/
 Disallow: /the-politic-issues-archive-2/
 Disallow: /the-politic-issues-archive-3/
 Disallow: /the-politic-issues-archive-4/
+Disallow: /the-politic-media-archive/
 Sitemap: https://thepolitic.org/sitemap.xml
