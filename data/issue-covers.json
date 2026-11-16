@@ -1,4 +1,12 @@
 {
+  "2026-2027-issue-i": {
+    "url": "/assets/issue-covers/2026-2027-issue-i.webp",
+    "width": 773,
+    "height": 1000,
+    "source": "/assets/issues/issue-2026-2027-i.pdf",
+    "page": 1,
+    "pdfSha256": "c219d20ee9c122bc048659c389cbc8400b7f6e1c2afc4e49614841a119552a9c"
+  },
   "2025-2026-issue-iv": {
     "url": "/assets/issue-covers/2025-2026-issue-iv.webp",
     "width": 773,
