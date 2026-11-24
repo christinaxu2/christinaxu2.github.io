@@ -75,6 +75,13 @@ const teamBios = [
     "section": "EDITORIAL & MULTIMEDIA",
     "bio": "Mattie Epstein is an Associate Editor, Staff Writer, and Multimedia Deputy of The Yale Politic. She is a Global Affairs major from Los Angeles, CA, who reports on political accountability and gender disparity. She has freelanced for Slate, The Bulwark, and Washingtonian and works directly under former CNN chief White House correspondent Jessica Yellin as an intern with New Not Noise.",
     "image": "/assets/team/mattie-epstein.webp"
+  },
+  {
+    "name": "Christina Xu",
+    "role": "Tech Director",
+    "section": "TECHNOLOGY",
+    "bio": "Christina is a Tech Director for The Politic. She is a junior from Nebraska studying Computer Science and Economics.",
+    "image": "/assets/team/christina-xu.webp"
   }
 ];
 
