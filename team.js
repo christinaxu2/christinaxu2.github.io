@@ -83,3 +83,66 @@ const teamRows = [
   {id: 'editors', title: 'Editors-in-Chief', names: ['Pola Jancewicz', 'Hanna Klingbeil Canale']},
   {id: 'managing', title: 'Managing Board', names: ['Brandon Gerosa', 'Sheena Bakare', 'Kushan Mahesh', 'Suren Clark']}
 ];
+
+// Mastheads, newest first, as supplied by the editors (November 2026). The first one is shown at
+// /masthead/; each year also has its own page (/masthead/2025-2026/). Write "(Lead)" after a name
+// to show a note. Names that match a contributor's author page link to it automatically.
+const mastheads = [
+  {year: "2026-2027", roles: [
+    ["Editors-in-Chief", ["Pola Jancewicz", "Hanna Klingbeil Canale"]],
+    ["Senior Managing Editor", ["Brandon Gerosa"]],
+    ["Managing Editors", ["Sheena Bakare", "Kushan Mahesh"]],
+    ["Multimedia Managing Editor", ["Mattie Epstein"]],
+    ["Publisher", ["Suren Clark"]],
+    ["Associate Editors", ["Nyera Ali", "Natalia Armas Perez", "Eleanor Belinfanti", "Ben Szovati Coulter", "Logan Day-Richter", "Lucy Dreier", "David Dumontet", "Chantal Eulenstein", "Beatrice Formenton", "Kellin Henry", "Elaine Liu", "Nicole Manning", "Katerina Matta", "Natalie Miller", "Lily Scheckner", "Baala Shakya", "William Shiu", "Conor Webb", "Aubrie Williams"]],
+    ["Creative Director", ["Katerina Matta"]],
+    ["Multimedia Director", ["Rory Schoenberger"]],
+    ["Creative Team", ["Mattie Epstein"]],
+    ["Communications Team", ["Eleanor Belinfanti (Lead)", "Kellin Henry", "Isa Nascimento"]],
+    ["Business Team", ["William Shiu (Lead)", "Taia Menefee", "Eve Youkana"]],
+    ["Tech Director", ["Christina Xu"]],
+    ["Staff Writers", ["Eleanor Belinfanti", "Rodrigo Cáceres Alburquerque", "Lena Cassidy", "Lily Scheckner", "Vlad Yatskiv"]],
+    ["Contributing Writers", ["Jana Abualhuda", "Melissa Adamantidi", "Braelyn Bouton", "Floris Brocklebank", "Kai Bwor", "Nausicaa Chu", "David Dumontet", "Sahil Gupta", "Stanley Huang", "YeonJae Kim", "Rachel Kreth", "Jason Lee", "Marina Papalexopoulos", "Diana Razumova", "Mira Schulman", "Alice Sgibnev", "Lauren Sonnenfeld", "Kayla Swogger", "Jolynda Wang", "Zoe Zhang", "Anping Zhu"]],
+    ["Political Cartoonist", ["Zach Granne"]]
+  ]},
+  {year: "2025-2026", roles: [
+    ["Editors-in-Chief", ["Eliza Daunt", "Nicole Chen"]],
+    ["Managing Editors", ["Hanna Klingbeil Canale", "Rory Schoenberger"]],
+    ["Publisher", ["Suren Clark"]],
+    ["Creative Directors", ["Ainslee Garcia", "Katerina Matta"]],
+    ["Design Editors", ["Sarah Feng", "Ainslee Garcia", "Ruth Gulilat", "Jun Hung", "Katerina Matta", "Issy Po", "Rory Schoenberger", "Ajay Singreddy", "Nour Tantush"]],
+    ["Technology Director", ["Dylan Bober"]],
+    ["External Affairs Director", ["Conor Webb"]],
+    ["Communications Director", ["Abyssinia Haile"]],
+    ["Business Director", ["Sheena Bakare"]],
+    ["Associate Editors", ["Natalia Armas Perez", "Sheena Bakare", "Phoenix Boggs", "Ben Szovati Coulter", "Logan Day-Richter", "Lucy Dreier", "Mira Dubler-Furman", "Emi Glass", "Pola Jancewicz", "Jaeha Jang", "Nicole Manning", "Natalie Miller", "Theo Sotoodehnia", "Conor Webb", "Aubrie Williams", "Kiran Yeh"]],
+    ["Contributing Editors", ["Aarushi Dedhiya", "Mattie Epstein", "Beatrice Formenton"]],
+    ["Staff Writers", ["Sheena Bakare", "Eleanor Belinfanti", "Brandon Gerosa", "Sarah Jacobs", "Pola Jancewicz", "Kushan Mahesh", "Lucy Dreier", "Baala Shakya"]],
+    ["Contributing Writers", ["Hallie Black", "Rodrigo Cáceres Alburquerque", "Avni Kaur Chadha", "Julia Clauson", "Gagnado Diedhiou", "Kika Dunayevich", "Chantal de Macedo Eulenstein", "Kellin Henry", "Caitlin LaFerney", "Katerina Matta", "Taia Menefee", "Isa Nascimento Silva Pinto", "Vivian Quint", "Natalia Ramos", "Lily Scheckner", "William Shiu"]]
+  ]},
+  {year: "2024-2025", roles: [
+    ["Editors-in-Chief", ["Samantha Moon", "Theo Sotoodehnia"]],
+    ["Print Managing Editors", ["Alexia Dochnal", "Sovy Pham"]],
+    ["Online Managing Editors", ["Grey Battle", "Phoenix Boggs"]],
+    ["Multimedia Managing Editor", ["Eliza Daunt"]],
+    ["Publisher", ["Owen Haywood"]],
+    ["Associate Editors", ["Adnan Bseisu", "Nicole Chen", "Mira Dubler-Furman", "Sarah Jacobs", "Nicole Manning", "Alex McDonald", "Natalie Miller", "Rory Schoenberger", "Vittal Sivakumar", "Rebecca Wasserman"]],
+    ["Staff Writers", ["Natalia Armas Perez", "Sheena Bakare", "Adnan Bseisu", "Nicole Chen", "Eliza Daunt", "Logan Day-Richter", "Lucy Dreier", "Emi Glass", "Aby Haile", "Jaeha Jang", "Hanna Klingbeil", "Nicole Manning", "Alex McDonald", "Natalie Miller", "Lily Belle Poling", "Karla Ramirez Gonzalez", "Conor Webb", "Aubrie Williams", "Kiran Yeh", "Pola Jancewicz"]],
+    ["Contributing Writers", ["Lena Cassidy", "Sophia Liu", "Alessandra Pappalardi", "Yegor Rubanov", "Ben Szovati Coulter", "Victoria Vilton"]],
+    ["Creative Director", ["Ainslee Garcia"]],
+    ["Design Editors", ["Carter Cashen", "Penelope Day", "Alexa Druyanoff", "Malik Figaro", "Grace Randall", "Zack Reich", "Katie Shin", "Ajay Singreddy"]],
+    ["Technology Director", ["Dylan Bober"]],
+    ["Website Director", ["Andrew Alam-Nist"]],
+    ["Communications Director", ["Mira Dubler-Furman"]],
+    ["Business Director", ["Lauren Kim"]],
+    ["Business Team", ["Alex McDonald"]]
+  ]}
+];
+// Masthead names that differ from the name on the person's author page (nicknames, shortened names).
+const mastheadAuthorLinks = {
+  'Aby Haile': 'abyssiniahaile',
+  'Avni Kaur Chadha': 'avni-chadha',
+  'Chantal Eulenstein': 'chantal-de-macedo-eulenstein',
+  'Hanna Klingbeil': 'hanna-klingbeil-canale',
+  'Vlad Yatskiv': 'vladyat'
+};

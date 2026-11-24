@@ -14,7 +14,7 @@ const navMenus = {
   INTERVIEWS: [["All interviews", "/section/interviews/"], ["Conversations", "/topic/conversations/"], ["Profiles", "/topic/profiles/"]],
   MULTIMEDIA: [["Multimedia hub", "/multimedia/"], ["Photojournalism", "/section/photojournalism/"], ["Podcasts", "/section/podcasts/"], ["Print archive", "/archive/"]],
   ISSUES: [["Current issue", CURRENT_ISSUE], ["History & archive", "/archive/"], ["Yale digital archive", "https://elischolar.library.yale.edu/politic/"], ["Search issue articles", "/search/?type=issues"]],
-  ABOUT: [["Our history", "/history/"], ["The team", "/team/"], ["Alumni", "/alumni/"], ["Past issues", "/archive/"], ["Past staff", "/authors/"]]
+  ABOUT: [["Our history", "/history/"], ["The team", "/team/"], ["Mastheads", "/masthead/"], ["Alumni", "/alumni/"], ["Past issues", "/archive/"], ["Past staff", "/authors/"]]
 };
 // A story belongs to a topic when one of these terms appears, as a whole word or phrase, in its
 // title, tags, or categories (not in its text, which made "African Americans" count as Africa).
@@ -500,6 +500,28 @@ function alumniPage() {
   const cards=rest.map(card).join('');
   return pageWrap('Alumni Directory','<section class="alumni-intro"><div><div class="eyebrow">Alumni directory</div><h1>Alumni &amp; Contributors</h1></div><div class="alumni-intro-copy"><p>This directory includes former staff and guest contributors; not every person listed was a student alumnus. Archive dates refer to recorded issues, not graduation years or complete tenures.</p></div></section><form class="alumni-filters" data-alumni-filter role="search" aria-label="Search alumni directory"><label for="alumni-query">Search the directory<input id="alumni-query" type="search" name="q" value="'+esc(query)+'" placeholder="Name, work, or year"></label><label for="alumni-field">Field<select id="alumni-field" name="field"><option value="">All fields</option>'+options+'</select></label><label for="alumni-role">Role at The Politic<select id="alumni-role" name="role"><option value="">All roles</option>'+roleOptions+'</select></label><label for="alumni-era">Era<select id="alumni-era" name="era"><option value="">All eras</option>'+eraOptions+'</select></label><button class="button button-solid" type="submit">Search directory</button>'+(filtering?'<a class="alumni-clear" href="/alumni/">Clear filters</a>':'')+'</form>'+(featuredCards?'<section class="alumni-featured" aria-labelledby="alumni-featured-heading"><h2 id="alumni-featured-heading">Notable alumni</h2><div class="alumni-featured-grid">'+featuredCards+'</div></section>':'')+'<div class="alumni-directory-heading"><h2>'+(featuredCards?'More alumni &amp; contributors':'Selected directory')+'</h2><p role="status">'+people.length+' of '+alumniDirectory.length+' profiles · Alphabetical by surname</p></div>'+(people.length?'<div class="alumni-grid">'+cards+'</div>':'<div class="alumni-empty"><h3>No matching profiles</h3><p>Try a different name or field, or <a href="/alumni/">view the full selection</a>.</p></div>')+'<aside class="alumni-bottom"><div><h2>Explore the wider story</h2><p>This is a selected directory, not a complete list of everyone who has contributed to The Politic.</p></div><div><a href="/authors/">All staffers →</a><a href="/archive/">Read the archive →</a><a href="/team/">Meet the current team →</a></div></aside>','ABOUT');
 }
+// One masthead at a time, like a print masthead: /masthead/ is the newest, /masthead/<year>/ the others.
+const nameKey=name=>String(name).normalize('NFKD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z]/g,'');
+function mastheadPage() {
+  const masthead=route.value?mastheads.find(m=>m.year===route.value):mastheads[0];
+  if(!masthead)return notFound();
+  const span=year=>year.replace('-','–');
+  const authorSlugs=new Map();
+  for(const author of Object.values(state.authors))if(!authorSlugs.has(nameKey(author.name)))authorSlugs.set(nameKey(author.name),author.slug);
+  const person=entry=>{
+    const [,name,note]=entry.match(/^(.*?)(?:\s+\((.+)\))?$/);
+    const slug=mastheadAuthorLinks[name]||authorSlugs.get(nameKey(name));
+    return (slug?'<a href="/author/'+encodeURIComponent(slug)+'/">'+esc(name)+'</a>':esc(name))+(note?' ('+esc(note)+')':'');
+  };
+  const names=list=>{const people=list.map(person);return people.length<3?people.join(' &amp; '):people.slice(0,-1).join(', ')+', &amp; '+people.at(-1);};
+  const years=mastheads.map(m=>'<a href="/masthead/'+(m===mastheads[0]?'':encodeURIComponent(m.year)+'/')+'"'+(m===masthead?' aria-current="page"':'')+'>'+esc(span(m.year))+'</a>').join(', ');
+  const title='Masthead '+span(masthead.year);
+  return pageWrap(masthead===mastheads[0]?'Masthead':title,'<div class="masthead-page"><div class="eyebrow">About</div><h1>Masthead</h1>'
+    +'<p class="masthead-years">Click to view previous mastheads: '+years+'. For earlier mastheads, check the <a href="/archive/">History &amp; Archive</a>.</p>'
+    +'<section class="masthead-year" aria-labelledby="masthead-year-heading"><h2 id="masthead-year-heading">'+esc(title)+'</h2><ul class="masthead-roles">'
+    +masthead.roles.map(([role,list])=>'<li><span class="masthead-role">'+esc(role)+'</span>: '+names(list)+'</li>').join('')
+    +'</ul></section></div>','','The editors, writers, and staff of The Politic, '+span(masthead.year)+'.');
+}
 function teamPage() {
   const leadershipNames=new Set(teamRows.flatMap(row=>row.names));
   const rows=[...teamRows.map(row=>({...row,people:row.names.map(name=>teamBios.find(p=>p.name===name))})),{id:'staff',title:'Editorial & Operations',people:teamBios.filter(p=>!leadershipNames.has(p.name))}];
@@ -538,7 +560,7 @@ function historyPage() {
     +'<section class="history-section"><h2>Our history</h2>'+timeline+'</section>'
     +'<div class="history-columns">'+archiveFeature+voicesSection+'</div>'
     +'<section class="history-section"><h2>Explore the archive</h2><form class="history-search" data-history-search role="search" aria-label="Search the archive"><input type="search" name="q" aria-label="Search the archive" placeholder="Search articles, writers, and topics" required><button class="button button-solid" type="submit">Search</button></form>'+decadeRow+'<p class="history-all-issues"><a class="arrow-link" href="/archive/">View all issues →</a></p></section>'
-    +'<section class="history-section"><h2>More about The Politic</h2><div class="history-links"><a href="/team/">The team</a><a href="/alumni/">Alumni</a><a href="/authors/">Past staff</a><a href="/join/">Interested in joining?</a><a href="/page/contact/">Contact</a><a href="https://elischolar.library.yale.edu/politic/" target="_blank" rel="noopener noreferrer">Yale digital archive ↗</a></div></section>'
+    +'<section class="history-section"><h2>More about The Politic</h2><div class="history-links"><a href="/team/">The team</a><a href="/masthead/">Mastheads</a><a href="/alumni/">Alumni</a><a href="/authors/">Past staff</a><a href="/join/">Interested in joining?</a><a href="/page/contact/">Contact</a><a href="https://elischolar.library.yale.edu/politic/" target="_blank" rel="noopener noreferrer">Yale digital archive ↗</a></div></section>'
     +'</div>';
   return pageWrap('Our History',html,'ABOUT','The Politic traces its roots to 1947, when Yale students founded the Yale Political Journal: A Magazine of Student Opinion.');
 }
@@ -640,6 +662,7 @@ function renderRoute() {
   if(name==='authors')return authorsPage();
   if(name==='alumni')return alumniPage();
   if(name==='team')return teamPage();
+  if(['masthead','mastheads'].includes(name))return mastheadPage();
   if(name==='page')return pageContent(value);
   if(['competition','high-school-competition'].includes(name))return competitionPage();
   if(name==='search')return searchPage();

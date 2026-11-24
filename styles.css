@@ -684,3 +684,15 @@ button,.button{min-height:44px}
 .article-body figure.portrait-figure{max-width:300px;margin-inline:0}.article-body figure.portrait-figure img{display:block;width:100%;height:auto}
 .share-row+.article-body{margin-top:36px}
 .current-issue-feature .current-issue-archive-link{display:table;margin-top:14px}
+.masthead-page{max-width:860px;padding:8px 0 40px}
+.masthead-page h1{font:600 clamp(36px,4.4vw,62px)/1.06 var(--display);letter-spacing:-.045em;margin:12px 0 18px}
+.masthead-years{font:400 15px/1.65 var(--serif);margin:0 0 8px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.masthead-years a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
+.masthead-years a[href^="/masthead/"]{white-space:nowrap}
+.masthead-years a[aria-current]{font-weight:700;color:var(--ink);text-decoration:none}
+.masthead-year h2{font:600 29px/1.2 var(--display);letter-spacing:-.03em;margin:30px 0 18px}
+.masthead-roles{list-style:none;padding:0;margin:0}
+.masthead-roles li{font:400 16px/1.65 var(--serif);margin:0 0 11px}
+.masthead-role{font-style:italic;font-weight:700}
+.masthead-roles a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.masthead-roles a:hover,.masthead-roles a:focus-visible{text-decoration-color:currentColor}
